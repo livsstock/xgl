@@ -1,7 +1,7 @@
 {
   "date": "2026-09-14",
   "collector": "daily_collect.py (GitHub Actions)",
-  "updated_at": "2026-09-15T06:53:17+08:00",
+  "updated_at": "2026-09-15T08:02:21+08:00",
   "data_notes": [
     "自动采集：腾讯财经+新浪+同花顺+CBOE公开接口",
     "北向资金：东财2024/8起停披，填null"
@@ -58,7 +58,7 @@
   "commodities": {
     "wti_crude": {
       "price": null,
-      "change_pct": 102.06
+      "change_pct": 102.31
     },
     "gold": {
       "price": null,
