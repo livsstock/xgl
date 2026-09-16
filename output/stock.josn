@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "collector": "LIVS-Stock-WorkBuddy/2.0",
-  "generated_at": "2026-09-15T10:12:33+08:00",
+  "generated_at": "2026-09-16T08:02:37+08:00",
   "data_quality": {
     "overall": "partial",
     "sources": {
@@ -55,8 +55,8 @@
   "market_sentiment": {
     "limit_up_count": null,
     "limit_down_count": null,
-    "total_turnover_billion": 6587.5,
-    "turnover_change_pct": null,
+    "total_turnover_billion": 16127.2,
+    "turnover_change_pct": -1.01,
     "advance_count": null,
     "decline_count": null
   },
@@ -71,102 +71,102 @@
   "commodities": {
     "wti_crude": {
       "price": null,
-      "change_pct": 102.98
+      "change_pct": 100.61
     },
     "gold": {
       "price": null,
-      "change_pct": 4352.1
+      "change_pct": 4339.5
     },
     "copper": {
       "price": null,
-      "change_pct": 640.75
+      "change_pct": 647.35
     }
   },
   "eod_quotes": {
     "indices": {
       "上证指数": {
-        "close": 3882.11,
-        "change_pct": -0.08
+        "close": 3864.28,
+        "change_pct": -0.54
       },
       "深证成指": {
-        "close": 13389.73,
-        "change_pct": 0.04
+        "close": 13287.97,
+        "change_pct": -0.72
       },
       "创业板指": {
-        "close": 3279.69,
-        "change_pct": -0.18
+        "close": 3247.92,
+        "change_pct": -1.15
       },
       "沪深300": {
-        "close": 4480.29,
-        "change_pct": null
+        "close": 4450.04,
+        "change_pct": -0.67
       }
     },
     "watchlist": [
       {
         "code": "601398",
         "name": "��������",
-        "close": 8.16,
-        "change_pct": -0.73
+        "close": 8.13,
+        "change_pct": -1.09
       },
       {
         "code": "601288",
         "name": "ũҵ����",
-        "close": 6.95,
-        "change_pct": -0.71
+        "close": 6.9,
+        "change_pct": -1.43
       },
       {
         "code": "601012",
         "name": "¡������",
-        "close": 11.22,
-        "change_pct": -0.97
+        "close": 11.08,
+        "change_pct": -2.21
       },
       {
         "code": "601958",
         "name": "����ɷ�",
-        "close": 20.46,
-        "change_pct": 1.49
+        "close": 20.24,
+        "change_pct": 0.4
       },
       {
         "code": "600392",
         "name": "ʢ����Դ",
-        "close": 21.32,
-        "change_pct": 1.23
+        "close": 21.29,
+        "change_pct": 1.09
       },
       {
         "code": "000725",
         "name": "��������",
-        "close": 5.29,
-        "change_pct": -0.19
+        "close": 5.27,
+        "change_pct": -0.57
       },
       {
         "code": "600111",
         "name": "����ϡ��",
-        "close": 37.31,
-        "change_pct": 0.51
+        "close": 37.33,
+        "change_pct": 0.57
       },
       {
         "code": "600875",
         "name": "��������",
-        "close": 24.26,
-        "change_pct": -0.21
+        "close": 24.12,
+        "change_pct": -0.78
       },
       {
         "code": "000001",
         "name": "��ָ֤��",
-        "close": 3882.11,
-        "change_pct": -0.08
+        "close": 3864.28,
+        "change_pct": -0.54
       },
       {
         "code": "399001",
         "name": "��֤��ָ",
-        "close": 13389.73,
-        "change_pct": 0.04
+        "close": 13287.97,
+        "change_pct": -0.72
       },
       {
         "code": "399006",
         "name": "��ҵ��ָ",
-        "close": 3279.69,
-        "change_pct": -0.18
+        "close": 3247.92,
+        "change_pct": -1.15
       }
     ]
   }
