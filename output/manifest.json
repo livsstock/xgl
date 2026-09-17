@@ -2,13 +2,13 @@
   "schema_version": "2.0",
   "entries": [
     {
-      "date": "2026-09-15",
-      "filename": "output/daily-finance-2026-09-15.json",
-      "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-09-15.json",
+      "date": "2026-09-16",
+      "filename": "output/daily-finance-2026-09-16.json",
+      "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-09-16.json",
       "quality": "partial",
-      "updated_at": "2026-09-16T08:02:37+08:00"
+      "updated_at": "2026-09-17T08:02:45+08:00"
     }
   ],
-  "latest_date": "2026-09-15",
-  "latest_file": "output/daily-finance-2026-09-15.json"
+  "latest_date": "2026-09-16",
+  "latest_file": "output/daily-finance-2026-09-16.json"
 }
