@@ -1,21 +1,17 @@
-name: LIVS-Stock 每日财经采集 v2.0
+name: LIVS-Stock 每日财经采集
 
 on:
   schedule:
-    # 北京时间 8:00 = UTC 0:00
+    # 北京时间 8:00 = UTC 0:00（周一到周五）
     - cron: '0 0 * * 1-5'
   workflow_dispatch:
 
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
-      - name: Checkout main (code)
+      - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          ref: main
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -26,31 +22,37 @@ jobs:
         run: |
           python daily_collect.py
 
-      - name: Save output to temp
+      - name: Anomaly Detection
         run: |
-          mkdir -p /tmp/data-output
-          cp -r output/* /tmp/data-output/
-          cp -f stock.josn /tmp/data-output/ 2>/dev/null || true
+          python anomaly_detector.py
+          # 读取检测结果状态
+          if [ -f manifest.json ]; then
+            STATUS=$(python3 -c "import json; print(json.load(open('manifest.json'))['status'])" 2>/dev/null || echo "unknown")
+            echo "ANOMALY_STATUS=${STATUS}" >> $GITHUB_ENV
+            if [ "${STATUS}" = "alert" ] || [ "${STATUS}" = "failed" ]; then
+              echo "ALERT_DETECTED=true" >> $GITHUB_ENV
+            fi
+          fi
 
-      - name: Checkout data/daily branch
-        uses: actions/checkout@v4
-        with:
-          ref: data/daily
-          path: data-branch
-
-      - name: Commit and push to data/daily
+      - name: Commit and push results
         run: |
-          cd data-branch
-          mkdir -p output
-          cp -r /tmp/data-output/* output/ 2>/dev/null || true
-          cp -f /tmp/data-output/stock.josn . 2>/dev/null || true
           git config user.name "LIVS-Stock-Bot"
           git config user.email "livs-stock@github-actions"
-          git add output/ stock.josn
-          git diff --staged --quiet || git commit -m "auto: daily finance data $(date +%Y-%m-%d)"
-          git push origin data/daily
+          git add output/ stock.json stock.josn manifest.json anomaly_alert.md
 
-      - name: Failure alert
-        if: failure()
-        run: |
-          echo "::error::LIVS-Stock daily collection FAILED on $(date +%Y-%m-%d)"
+          # 根据异常状态生成不同的 commit message
+          if [ "$ALERT_DETECTED" = "true" ]; then
+            # 提取 anomaly_alert.md 前3行作为摘要
+            ALERT_SUMMARY=$(head -3 anomaly_alert.md | tr '\n' ' ' | cut -c1-100)
+            git commit -m "⚠️ ALERT: ${ALERT_SUMMARY} | auto: daily data $(date +%Y-%m-%d)" || true
+          else
+            git commit -m "auto: daily finance data $(date +%Y-%m-%d)" || true
+          fi
+
+          git push
+
+      # 可选：失败时通知（需要配置 webhook）
+      # - name: Notify on alert
+      #   if: env.ALERT_DETECTED == 'true'
+      #   run: |
+      #     echo "⚠️ 检测到异常，请检查 anomaly_alert.md"
