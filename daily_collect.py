@@ -695,6 +695,7 @@ def generate_stock_data(trade_date, a_data, all_klines):
             "turnover": turnover_rate,
             "high": high,
             "low": low,
+            "ten_day_chg": ten_day_chg,
             "decline_pct": decline_pct,
             "ref_date": ref_date,
             "ref_close": ref_close,
