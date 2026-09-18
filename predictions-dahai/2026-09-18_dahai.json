@@ -1,0 +1,272 @@
+{
+  "date": "2026-09-17",
+  "model_version": "v1.1-kuramoto",
+  "generated_at": "2026-09-18 17:25:42",
+  "market_outlook": {
+    "direction": "偏多",
+    "confidence": 66,
+    "ts_level": 5,
+    "ts_label": "5档·偏空",
+    "ts_position": 10,
+    "ts_value": 0.0
+  },
+  "index_summary": {
+    "close": 3891.6,
+    "change_percent": 0.71,
+    "ten_day_change": -1.26
+  },
+  "predictions": [
+    {
+      "name": "京东方A",
+      "code": "sz000725",
+      "close": 5.45,
+      "change_pct": 3.42,
+      "ten_day_chg": -5.87,
+      "t1": {
+        "direction": "涨",
+        "confidence": 60,
+        "target": 5.52
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 53,
+        "target": 5.59
+      },
+      "action": "观望",
+      "reason": "今日涨3.4%动量延续，大盘涨0.7%利好，偏差修正-0.048",
+      "trend_context": "横盘",
+      "sector": "科技制造"
+    },
+    {
+      "name": "北方稀土",
+      "code": "sh600111",
+      "close": 37.49,
+      "change_pct": 0.43,
+      "ten_day_chg": -4.09,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 37.49
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 43,
+        "target": 38.3
+      },
+      "action": "关注",
+      "reason": "MACD死叉恶化偏空，大盘涨0.7%利好，偏差修正-0.009",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "宝钢股份",
+      "code": "sh600019",
+      "close": 5.77,
+      "change_pct": 0.35,
+      "ten_day_chg": -1.03,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 5.77
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 5.65
+      },
+      "action": "观望",
+      "reason": "MACD金叉偏多，大盘涨0.7%利好，偏差修正-0.015",
+      "trend_context": "横盘",
+      "sector": "钢铁"
+    },
+    {
+      "name": "航发动力",
+      "code": "sh600893",
+      "close": 39.7,
+      "change_pct": 0.3,
+      "ten_day_chg": 2.24,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 39.7
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 38.91
+      },
+      "action": "观望",
+      "reason": "MACD金叉偏多，大盘涨0.7%利好，偏差修正-0.006",
+      "trend_context": "横盘",
+      "sector": "军工"
+    },
+    {
+      "name": "锡业股份",
+      "code": "sz000960",
+      "close": 33.72,
+      "change_pct": 2.74,
+      "ten_day_chg": -1.69,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 33.72
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 33.05
+      },
+      "action": "观望",
+      "reason": "MACD死叉恶化偏空，大盘涨0.7%利好，偏差修正-0.003",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "湖南黄金",
+      "code": "sz002155",
+      "close": 27.16,
+      "change_pct": 2.22,
+      "ten_day_chg": 3.62,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 27.16
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 26.62
+      },
+      "action": "观望",
+      "reason": "10日涨3.6%回调压力，大盘涨0.7%利好",
+      "trend_context": "横盘",
+      "sector": "贵金属"
+    },
+    {
+      "name": "盛和资源",
+      "code": "sh600392",
+      "close": 21.89,
+      "change_pct": 2.82,
+      "ten_day_chg": -0.36,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 21.89
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 42,
+        "target": 22.35
+      },
+      "action": "关注",
+      "reason": "MACD死叉恶化偏空，大盘涨0.7%利好，偏差修正-0.017",
+      "trend_context": "涨势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "金钼股份",
+      "code": "sh601958",
+      "close": 20.6,
+      "change_pct": 1.78,
+      "ten_day_chg": -3.24,
+      "t1": {
+        "direction": "涨",
+        "confidence": 54,
+        "target": 20.82
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 48,
+        "target": 21.09
+      },
+      "action": "观望",
+      "reason": "MACD死叉恶化偏空，大盘涨0.7%利好，偏差修正-0.019",
+      "trend_context": "横盘",
+      "sector": "新能源"
+    },
+    {
+      "name": "白银有色",
+      "code": "sh601212",
+      "close": 6.41,
+      "change_pct": 3.72,
+      "ten_day_chg": -3.75,
+      "t1": {
+        "direction": "涨",
+        "confidence": 54,
+        "target": 6.48
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 48,
+        "target": 6.56
+      },
+      "action": "观望",
+      "reason": "MACD死叉恶化偏空，今日涨3.7%动量延续，大盘涨0.7%利好，偏差修正-0.019",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "机器人ETF",
+      "code": "sz159530",
+      "close": 1.271,
+      "change_pct": 1.03,
+      "ten_day_chg": -2.75,
+      "t1": {
+        "direction": "涨",
+        "confidence": 54,
+        "target": 1.28
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 1.25
+      },
+      "action": "轻仓试",
+      "reason": "大盘涨0.7%利好，偏差修正-0.018",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "黄金ETF",
+      "code": "sh518880",
+      "close": 8.905,
+      "change_pct": 0.86,
+      "ten_day_chg": 0.03,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 8.9
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 8.73
+      },
+      "action": "观望",
+      "reason": "MACD死叉恶化偏空，大盘涨0.7%利好",
+      "trend_context": "横盘",
+      "sector": "ETF"
+    },
+    {
+      "name": "半导体ETF",
+      "code": "sh512480",
+      "close": 1.008,
+      "change_pct": 4.56,
+      "ten_day_chg": -0.2,
+      "t1": {
+        "direction": "涨",
+        "confidence": 54,
+        "target": 1.02
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 0.99
+      },
+      "action": "轻仓试",
+      "reason": "10日涨-0.2%回调压力，今日涨4.6%动量延续，大盘涨0.7%利好，偏差修正-0.019",
+      "trend_context": "横盘",
+      "sector": "ETF"
+    }
+  ]
+}
