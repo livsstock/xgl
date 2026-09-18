@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-18",
+  "status": "alert",
+  "anomalies": [
+    {
+      "type": "missing_stock",
+      "stock": "黄金ETF",
+      "code": "sh518880",
+      "value": null,
+      "level": "alert",
+      "message": "黄金ETF(sh518880) 数据缺失，采集未覆盖"
+    },
+    {
+      "type": "missing_stock",
+      "stock": "半导体ETF",
+      "code": "sh512480",
+      "value": null,
+      "level": "alert",
+      "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
+    }
+  ],
+  "missing_stocks": [
+    {
+      "code": "sh518880",
+      "name": "黄金ETF"
+    },
+    {
+      "code": "sh512480",
+      "name": "半导体ETF"
+    }
+  ],
+  "data_quality": {
+    "total": 12,
+    "found": 17,
+    "complete": 17,
+    "partial": 0,
+    "missing": 2,
+    "failed": 0
+  },
+  "generated_at": "2026-09-18T15:53:46+08:00",
+  "detector_version": "1.0"
+}
