@@ -1,0 +1,43 @@
+{
+  "model": "LIVS-Stock v1.1-kuramoto (大海)",
+  "data_date": "2026-09-17",
+  "predict_date": "2026-09-21",
+  "generated_at": "2026-09-18T17:20:00+08:00",
+  "market": {
+    "direction": "偏多",
+    "confidence": "60%",
+    "index_close": 3911.87,
+    "index_change": "+0.94%",
+    "turnover_billion": 20771,
+    "vix": 15.44,
+    "ts_level": "5档·偏空 (数据不足,保守)",
+    "bias_correction": -0.15,
+    "sector_weakness": "无",
+    "notes": "连涨放量,但4000关口前震荡概率上升;银行板块持续弱势,风格极端化"
+  },
+  "stocks": {
+    "白银有色": {"close": 6.29, "change": "+3.80%", "t1_direction": "涨", "t1_confidence": "58%", "action": "重点关注", "reason": "半月跌18.1%超跌严重,超跌分75,当日放量+3.8%反弹启动,MACD零轴企稳"},
+    "金钼股份": {"close": 20.45, "change": "+2.10%", "t1_direction": "涨", "t1_confidence": "55%", "action": "关注", "reason": "半月跌15.25%超跌,MACD企稳初期,有色板块共振修复"},
+    "湖南黄金": {"close": 25.76, "change": "+1.06%", "t1_direction": "涨", "t1_confidence": "52%", "action": "关注", "reason": "半月跌12.8%超跌,超跌分30,黄金价格高位支撑"},
+    "隆基绿能": {"close": 11.23, "change": "+2.18%", "t1_direction": "涨", "t1_confidence": "53%", "action": "关注", "reason": "半月跌10.38%触发超跌,MACD企稳,当日+2.18%反弹"},
+    "锡业股份": {"close": 33.60, "change": "+1.73%", "t1_direction": "涨", "t1_confidence": "56%", "action": "标准仓", "reason": "MACD金叉增强,半月跌10.4%超跌,趋势评分60"},
+    "京东方A": {"close": 5.92, "change": "+2.96%", "t1_direction": "涨", "t1_confidence": "60%", "action": "观望", "reason": "趋势评分80最强,MACD金叉增强,但偏差修正-0.048抑制追高,不追涨"},
+    "机器人ETF": {"close": 0.97, "change": "+2.00%", "t1_direction": "涨", "t1_confidence": "54%", "action": "观望", "reason": "MACD金叉增强,趋势评分70,但绝对涨幅已大"},
+    "半导体ETF": {"close": 1.041, "change": "+4.00%", "t1_direction": "涨", "t1_confidence": "54%", "action": "观望", "reason": "当日大涨4%,10日涨6.56%,短期有获利回吐压力"},
+    "工商银行": {"close": 8.07, "change": "-0.86%", "t1_direction": "平", "t1_confidence": "45%", "action": "观望", "reason": "MACD死叉恶化,银行板块失血"},
+    "农业银行": {"close": 6.81, "change": "-1.16%", "t1_direction": "平", "t1_confidence": "44%", "action": "观望", "reason": "MACD死叉恶化"},
+    "招商银行": {"close": 40.59, "change": "-0.02%", "t1_direction": "平", "t1_confidence": "45%", "action": "观望", "reason": "MACD死叉恶化"},
+    "航发动力": {"close": 39.19, "change": "-0.46%", "t1_direction": "平", "t1_confidence": "46%", "action": "观望", "reason": "MACD死叉恶化"},
+    "北方稀土": {"close": 36.86, "change": "+0.35%", "t1_direction": "涨", "t1_confidence": "50%", "action": "关注", "reason": "半月跌10.92%超跌,稀土板块共振"},
+    "东方电气": {"close": 24.42, "change": "+1.83%", "t1_direction": "涨", "t1_confidence": "52%", "action": "轻仓试", "reason": "MACD企稳,跌幅收窄"},
+    "宝钢股份": {"close": 5.76, "change": "+0.70%", "t1_direction": "平", "t1_confidence": "48%", "action": "观望", "reason": "波动低,无明确信号"},
+    "盛和资源": {"close": 21.54, "change": "+1.03%", "t1_direction": "涨", "t1_confidence": "51%", "action": "轻仓试", "reason": "趋势上下文:涨势,半月跌8.3%"},
+    "黄金ETF": {"close": 9.009, "change": "+1.73%", "t1_direction": "涨", "t1_confidence": "50%", "action": "观望", "reason": "零轴企稳,金价高位支撑"}
+  },
+  "verification": {
+    "index_close_anchor": 3911.87,
+    "index_direction": "涨",
+    "index_range": "[-0.3%, +1.2%]",
+    "key_picks": ["白银有色方向:涨", "金钼股份方向:涨", "京东方A方向:涨"]
+  }
+}
