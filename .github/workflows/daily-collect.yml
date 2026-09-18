@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "LIVS-Stock-Bot"
           git config user.email "livs-stock@github-actions"
-          git add output/ stock.json stock.josn manifest.json anomaly_alert.md
+          git add output/ stock.josn manifest.json anomaly_alert.md
 
           # 根据异常状态生成不同的 commit message
           if [ "$ALERT_DETECTED" = "true" ]; then
