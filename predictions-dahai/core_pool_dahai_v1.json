@@ -1,0 +1,35 @@
+{
+  "version": "dahai-v1.0",
+  "updated": "2026-09-20",
+  "basis_date": "2026-09-18",
+  "author": "大海",
+  "decision_rule": "绩优+超跌≥10%(高点回撤口径)+买得起(50元上限长效白马放宽至70)",
+  "total_position_pct": 80,
+  "cash_pct": 20,
+  "oversold_track": [
+    {"code": "sh601899", "name": "紫金矿业", "weight_pct": 10, "close": 31.41,
+     "chg_15d_pct": -5.70, "drawdown_from_aug_high_pct": -11.40, "note": "绩优有色，达标，保留"},
+    {"code": "sh603799", "name": "华友钴业", "weight_pct": 10, "close": 35.78,
+     "chg_15d_pct": -7.38, "drawdown_from_aug_high_pct": -22.34, "note": "回撤最猛，钴周期波动大，限仓内做"},
+    {"code": "sh600111", "name": "北方稀土", "weight_pct": 10, "close": 36.86,
+     "chg_15d_pct": -5.54, "drawdown_from_aug_high_pct": -16.34, "note": "双方共识，ROE偏低需注意"},
+    {"code": "sh601958", "name": "金钼股份", "weight_pct": 10, "close": 20.45,
+     "chg_15d_pct": -5.37, "drawdown_from_aug_high_pct": -17.11, "note": "ROE7%达标，绩优+超跌+低价，递补茅台名额"}
+  ],
+  "longterm_track": [
+    {"code": "sh512480", "name": "半导体ETF", "weight_pct": 20, "close": 1.041,
+     "note": "双方共识，9/18涨4%强势"},
+    {"code": "sz000858", "name": "五粮液", "weight_pct": 20, "close": 70.00,
+     "note": "长效白马，价格上限单独放宽至70；非超跌标的，走长效逻辑"}
+  ],
+  "baseline_watch": [
+    {"code": "sh601398", "name": "工商银行", "note": "底仓压舱石，不进评分体系，仅-15%止损"},
+    {"code": "sh601288", "name": "农业银行", "note": "底仓压舱石，不进评分体系，仅-15%止损"}
+  ],
+  "removed": [
+    {"code": "sh600519", "name": "贵州茅台", "close": 1257.12,
+     "reason": "一手12.57万超10万账户总额(物理约束)，且15日仅-3.2%不达超跌线；降为白酒风向标观察，不占仓位"}
+  ],
+  "data_caveat": "15日窗口(自然日)各标的均未达-10%，深度超跌体现在8月高点回撤口径；建议白皮书统一超跌口径为'近30日高点回撤'或保留双窗口",
+  "entry_gate": "量比≥1.3 / MACD金叉 / RSI<30 三信号 + 基本面过滤(ROE>8%或近4季度净利润为正)"
+}
