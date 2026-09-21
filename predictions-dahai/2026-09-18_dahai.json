@@ -1,7 +1,7 @@
 {
   "date": "2026-09-17",
   "model_version": "v1.1-kuramoto",
-  "generated_at": "2026-09-18 17:26:03",
+  "generated_at": "2026-09-21 15:46:09",
   "market_outlook": {
     "direction": "偏多",
     "confidence": 66,
@@ -49,11 +49,11 @@
         "target": 37.49
       },
       "t3": {
-        "direction": "涨",
-        "confidence": 43,
-        "target": 38.3
+        "direction": "平",
+        "confidence": 39,
+        "target": 36.74
       },
-      "action": "关注",
+      "action": "观望",
       "reason": "MACD死叉恶化偏空，大盘涨0.7%利好，偏差修正-0.009",
       "trend_context": "横盘",
       "sector": "有色稀土"
@@ -98,7 +98,7 @@
       "action": "观望",
       "reason": "MACD金叉偏多，大盘涨0.7%利好，偏差修正-0.006",
       "trend_context": "横盘",
-      "sector": "军工"
+      "sector": "科技制造"
     },
     {
       "name": "锡业股份",
@@ -175,14 +175,14 @@
         "target": 20.82
       },
       "t3": {
-        "direction": "涨",
-        "confidence": 48,
-        "target": 21.09
+        "direction": "平",
+        "confidence": 38,
+        "target": 20.19
       },
-      "action": "观望",
+      "action": "轻仓试",
       "reason": "MACD死叉恶化偏空，大盘涨0.7%利好，偏差修正-0.019",
       "trend_context": "横盘",
-      "sector": "新能源"
+      "sector": "有色稀土"
     },
     {
       "name": "白银有色",
@@ -196,11 +196,11 @@
         "target": 6.48
       },
       "t3": {
-        "direction": "涨",
-        "confidence": 48,
-        "target": 6.56
+        "direction": "平",
+        "confidence": 38,
+        "target": 6.28
       },
-      "action": "观望",
+      "action": "轻仓试",
       "reason": "MACD死叉恶化偏空，今日涨3.7%动量延续，大盘涨0.7%利好，偏差修正-0.019",
       "trend_context": "横盘",
       "sector": "有色稀土"
