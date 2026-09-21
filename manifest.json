@@ -1,7 +1,15 @@
 {
-  "date": "2026-09-18",
+  "date": "2026-09-21",
   "status": "alert",
   "anomalies": [
+    {
+      "type": "missing_stock",
+      "stock": "机器人ETF",
+      "code": "sz159770",
+      "value": null,
+      "level": "alert",
+      "message": "机器人ETF(sz159770) 数据缺失，采集未覆盖"
+    },
     {
       "type": "missing_stock",
       "stock": "黄金ETF",
@@ -21,6 +29,10 @@
   ],
   "missing_stocks": [
     {
+      "code": "sz159770",
+      "name": "机器人ETF"
+    },
+    {
       "code": "sh518880",
       "name": "黄金ETF"
     },
@@ -31,12 +43,12 @@
   ],
   "data_quality": {
     "total": 12,
-    "found": 17,
-    "complete": 17,
+    "found": 26,
+    "complete": 26,
     "partial": 0,
-    "missing": 2,
+    "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-09-18T15:53:46+08:00",
+  "generated_at": "2026-09-21T08:02:45+08:00",
   "detector_version": "1.0"
 }
