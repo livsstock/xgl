@@ -1,43 +1,101 @@
 {
-  "model": "LIVS-Stock v1.1-kuramoto (大海)",
-  "data_date": "2026-09-17",
-  "predict_date": "2026-09-21",
-  "generated_at": "2026-09-18T17:20:00+08:00",
-  "market": {
+  "date": "2026-09-21",
+  "target": "T+1（9/21周一）",
+  "data_basis": "2026-09-18收盘数据",
+  "author": "大海",
+  "model": "v1.1-kuramoto",
+  "market_overview": {
+    "index": "上证 3911.87 (+0.94%)",
     "direction": "偏多",
-    "confidence": "60%",
-    "index_close": 3911.87,
-    "index_change": "+0.94%",
-    "turnover_billion": 20771,
-    "vix": 15.44,
-    "ts_level": "5档·偏空 (数据不足,保守)",
-    "bias_correction": -0.15,
-    "sector_weakness": "无",
-    "notes": "连涨放量,但4000关口前震荡概率上升;银行板块持续弱势,风格极端化"
+    "confidence": 60,
+    "range": "-0.3% ~ +1.0%",
+    "notes": "上周五半导体领涨+4%、房地产走强，银行小幅回调。中小盘强于大盘（中证500+1.94% vs 上证+0.94%）。市场风格偏向科技成长。周末无重大利空，延续偏多格局。"
   },
-  "stocks": {
-    "白银有色": {"close": 6.29, "change": "+3.80%", "t1_direction": "涨", "t1_confidence": "58%", "action": "重点关注", "reason": "半月跌18.1%超跌严重,超跌分75,当日放量+3.8%反弹启动,MACD零轴企稳"},
-    "金钼股份": {"close": 20.45, "change": "+2.10%", "t1_direction": "涨", "t1_confidence": "55%", "action": "关注", "reason": "半月跌15.25%超跌,MACD企稳初期,有色板块共振修复"},
-    "湖南黄金": {"close": 25.76, "change": "+1.06%", "t1_direction": "涨", "t1_confidence": "52%", "action": "关注", "reason": "半月跌12.8%超跌,超跌分30,黄金价格高位支撑"},
-    "隆基绿能": {"close": 11.23, "change": "+2.18%", "t1_direction": "涨", "t1_confidence": "53%", "action": "关注", "reason": "半月跌10.38%触发超跌,MACD企稳,当日+2.18%反弹"},
-    "锡业股份": {"close": 33.60, "change": "+1.73%", "t1_direction": "涨", "t1_confidence": "56%", "action": "标准仓", "reason": "MACD金叉增强,半月跌10.4%超跌,趋势评分60"},
-    "京东方A": {"close": 5.92, "change": "+2.96%", "t1_direction": "涨", "t1_confidence": "60%", "action": "观望", "reason": "趋势评分80最强,MACD金叉增强,但偏差修正-0.048抑制追高,不追涨"},
-    "机器人ETF": {"close": 0.97, "change": "+2.00%", "t1_direction": "涨", "t1_confidence": "54%", "action": "观望", "reason": "MACD金叉增强,趋势评分70,但绝对涨幅已大"},
-    "半导体ETF": {"close": 1.041, "change": "+4.00%", "t1_direction": "涨", "t1_confidence": "54%", "action": "观望", "reason": "当日大涨4%,10日涨6.56%,短期有获利回吐压力"},
-    "工商银行": {"close": 8.07, "change": "-0.86%", "t1_direction": "平", "t1_confidence": "45%", "action": "观望", "reason": "MACD死叉恶化,银行板块失血"},
-    "农业银行": {"close": 6.81, "change": "-1.16%", "t1_direction": "平", "t1_confidence": "44%", "action": "观望", "reason": "MACD死叉恶化"},
-    "招商银行": {"close": 40.59, "change": "-0.02%", "t1_direction": "平", "t1_confidence": "45%", "action": "观望", "reason": "MACD死叉恶化"},
-    "航发动力": {"close": 39.19, "change": "-0.46%", "t1_direction": "平", "t1_confidence": "46%", "action": "观望", "reason": "MACD死叉恶化"},
-    "北方稀土": {"close": 36.86, "change": "+0.35%", "t1_direction": "涨", "t1_confidence": "50%", "action": "关注", "reason": "半月跌10.92%超跌,稀土板块共振"},
-    "东方电气": {"close": 24.42, "change": "+1.83%", "t1_direction": "涨", "t1_confidence": "52%", "action": "轻仓试", "reason": "MACD企稳,跌幅收窄"},
-    "宝钢股份": {"close": 5.76, "change": "+0.70%", "t1_direction": "平", "t1_confidence": "48%", "action": "观望", "reason": "波动低,无明确信号"},
-    "盛和资源": {"close": 21.54, "change": "+1.03%", "t1_direction": "涨", "t1_confidence": "51%", "action": "轻仓试", "reason": "趋势上下文:涨势,半月跌8.3%"},
-    "黄金ETF": {"close": 9.009, "change": "+1.73%", "t1_direction": "涨", "t1_confidence": "50%", "action": "观望", "reason": "零轴企稳,金价高位支撑"}
+  "predictions": [
+    {
+      "name": "紫金矿业", "code": "sh601899", "close": 31.41, "last_change_pct": 1.65,
+      "drawdown_from_high": "-11.4%",
+      "direction": "涨", "confidence": 62,
+      "action": "持有/轻仓",
+      "reason": "有色龙头，绩优股，15日高点回撤-11.4%达超跌线，上周五放量反弹+1.65%，有色板块受资金关注"
+    },
+    {
+      "name": "北方稀土", "code": "sh600111", "close": 36.86, "last_change_pct": 0.35,
+      "drawdown_from_high": "-16.3%",
+      "direction": "涨", "confidence": 58,
+      "action": "关注/轻仓试探",
+      "reason": "稀土龙头，高点回撤-16.3%深度超跌，但上周五仅+0.35%反弹力度弱，需观察量能配合"
+    },
+    {
+      "name": "华友钴业", "code": "sh603799", "close": 35.78, "last_change_pct": 1.71,
+      "drawdown_from_high": "-22.3%",
+      "direction": "涨", "confidence": 60,
+      "action": "关注/轻仓",
+      "reason": "高点回撤-22.3%超跌最深，上周五+1.71%开始企稳反弹，新能源材料板块有修复预期；注意钴价波动风险"
+    },
+    {
+      "name": "金钼股份", "code": "sh601958", "close": 20.45, "last_change_pct": 2.10,
+      "drawdown_from_high": "-17.1%",
+      "direction": "涨", "confidence": 63,
+      "action": "重点关注",
+      "reason": "绩优（ROE~7%）+高点回撤-17.1%深度超跌+上周五领涨+2.10%反弹动能强，价格低20.45元，符合绩优超跌反弹策略"
+    },
+    {
+      "name": "湖南黄金", "code": "sz002155", "close": 25.76, "last_change_pct": 1.06,
+      "drawdown_from_high": "-6.8%",
+      "direction": "涨", "confidence": 55,
+      "action": "观察",
+      "reason": "黄金板块有避险需求支撑，但超跌幅度不够（仅-6.8%），暂作观察"
+    },
+    {
+      "name": "半导体ETF", "code": "sh512480", "close": 1.041, "last_change_pct": 4.00,
+      "drawdown_from_high": "—",
+      "direction": "涨", "confidence": 58,
+      "action": "持有",
+      "reason": "上周五领涨+4%，板块资金流入第一，中长线趋势向上；但短线涨幅较大，注意追高风险"
+    },
+    {
+      "name": "五粮液", "code": "sz000858", "close": 70.00, "last_change_pct": 1.26,
+      "drawdown_from_high": "-10.3%",
+      "direction": "平偏涨", "confidence": 52,
+      "action": "持有/观望",
+      "reason": "消费白马，高点回撤-10.3%触及超跌线，上周五收70元整数关口。白酒板块轮动中，长效持有逻辑不变"
+    },
+    {
+      "name": "工商银行", "code": "sh601398", "close": 8.07, "last_change_pct": -0.86,
+      "direction": "平", "confidence": 50,
+      "action": "底仓持有",
+      "reason": "银行板块短期回调，上周五跌0.86%。底仓压舱石定位，不参与短线判断，-15%止损线内持有"
+    },
+    {
+      "name": "农业银行", "code": "sh601288", "close": 6.81, "last_change_pct": -1.16,
+      "direction": "平", "confidence": 48,
+      "action": "底仓持有",
+      "reason": "同工商银行，银行板块短期弱势。底仓逻辑不变，关注分红收益"
+    },
+    {
+      "name": "沪深300ETF", "code": "sh510300", "close": 4.582, "last_change_pct": 1.10,
+      "direction": "涨", "confidence": 58,
+      "action": "持有",
+      "reason": "大盘蓝筹代表，跟随大盘偏多格局"
+    },
+    {
+      "name": "中证500ETF", "code": "sh510500", "close": 7.830, "last_change_pct": 1.94,
+      "direction": "涨", "confidence": 60,
+      "action": "持有",
+      "reason": "中小盘代表，上周五涨1.94%强于大盘，市场风格偏中小盘成长"
+    }
+  ],
+  "key_picks_summary": {
+    "最看好": "金钼股份（绩优+深超跌+反弹动能强）、紫金矿业（有色龙头+超跌达标）",
+    "关注": "华友钴业（超跌最深但周期波动大）、北方稀土（深超跌但反弹偏弱）",
+    "长效持有": "半导体ETF（趋势向上）、五粮液（消费白马）",
+    "底仓不动": "工商银行、农业银行",
+    "风险提示": "半导体ETF短线涨幅大注意回调；周末需关注是否有政策面变化"
   },
-  "verification": {
-    "index_close_anchor": 3911.87,
-    "index_direction": "涨",
-    "index_range": "[-0.3%, +1.2%]",
-    "key_picks": ["白银有色方向:涨", "金钼股份方向:涨", "京东方A方向:涨"]
-  }
+  "verification_hooks": [
+    "上证指数方向：涨，区间[-0.3%, +1.0%]",
+    "金钼股份涨幅 > 半导体ETF涨幅 → 超跌反弹逻辑验证",
+    "银行板块若继续下跌，验证短期回调判断；若反弹，则底仓逻辑加强"
+  ]
 }
