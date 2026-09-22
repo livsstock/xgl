@@ -1,0 +1,209 @@
+{
+  "date": "2026-09-22",
+  "model_version": "v1.1-kuramoto",
+  "generated_at": "2026-09-22 15:48:00",
+  "market_outlook": {
+    "direction": "偏空",
+    "confidence": 56,
+    "ts_level": 5,
+    "ts_label": "5档·偏空",
+    "ts_position": 10,
+    "ts_value": 0.0
+  },
+  "index_summary": {
+    "close": null,
+    "change_percent": null,
+    "ten_day_change": null
+  },
+  "predictions": [
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    },
+    {
+      "name": "",
+      "code": "",
+      "close": 0,
+      "change_pct": 0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.0
+      },
+      "action": "观望",
+      "reason": "偏差修正-0.001",
+      "trend_context": "横盘",
+      "sector": null
+    }
+  ]
+}
