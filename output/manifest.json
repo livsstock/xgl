@@ -57,8 +57,27 @@
       },
       "stock_data_filename": "stock_data_20260921.json",
       "stock_data_raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/stock_data_20260921.json"
+    },
+    {
+      "date": "2026-09-22",
+      "filename": "output/daily-finance-2026-09-22.json",
+      "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-09-22.json",
+      "quality": "partial",
+      "updated_at": "2026-09-23T08:02:51+08:00",
+      "sources": {
+        "tencent_quotes": "ok",
+        "sina_fx_futures": "ok",
+        "cboe_vix": "ok",
+        "a50_futures": "failed",
+        "usd_cny": "failed",
+        "ths_margin": "failed",
+        "sina_sectors": "failed",
+        "kline_data": "ok"
+      },
+      "stock_data_filename": "stock_data_20260922.json",
+      "stock_data_raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/stock_data_20260922.json"
     }
   ],
-  "latest_date": "2026-09-21",
-  "latest_file": "output/daily-finance-2026-09-21.json"
+  "latest_date": "2026-09-22",
+  "latest_file": "output/daily-finance-2026-09-22.json"
 }
