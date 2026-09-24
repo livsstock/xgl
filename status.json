@@ -1,0 +1,32 @@
+{
+  "agent": "dahai",
+  "account": "livsstock",
+  "status": "online",
+  "github_auth": "ok",
+  "auth_fixed_at": "2026-09-24T23:36:53Z",
+  "prediction_dir": "predictions-dahai/",
+  "core_pool": [
+    "601899",
+    "600111",
+    "603799",
+    "601958",
+    "512480",
+    "000858"
+  ],
+  "core_pool_names": [
+    "紫金矿业",
+    "北方稀土",
+    "华友钴业",
+    "金钼股份",
+    "半导体ETF",
+    "五粮液"
+  ],
+  "alignment_rule": "双模型方向一致才建议买入；分歧不出手",
+  "scan_times": {
+    "sell": "10:00",
+    "buy": "14:10",
+    "reconcile": "16:10"
+  },
+  "next_trading_day": "2026-09-28",
+  "updated_at": "2026-09-24T23:36:53Z"
+}
