@@ -1,0 +1,561 @@
+{
+  "schema_version": "2.4",
+  "predictor": "WorkBuddy (LLM+代码混合)",
+  "predict_date": "2026-09-18",
+  "target_date": "2026-09-21",
+  "data_basis": {
+    "daily_finance": "output/daily-finance-2026-09-18.json",
+    "stock_data": "output/stock_data_20260918.json",
+    "data_quality": "complete"
+  },
+  "t1_prediction": {
+    "sh_index": {
+      "direction": "up",
+      "range_pct": [
+        -0.3,
+        1.2
+      ],
+      "center_pct": 0.5,
+      "target_level": 3950,
+      "close_ref": 3911.87
+    },
+    "chinext": {
+      "direction": "up",
+      "range_pct": [
+        0.0,
+        1.5
+      ],
+      "center_pct": 0.8,
+      "close_ref": 3372.68,
+      "note": "RSI6=59.4偏高，冲高回落概率大"
+    },
+    "confidence": 0.6
+  },
+  "midterm_trend": {
+    "horizon": "5-10个交易日（至10月上旬）",
+    "sh_index": {
+      "direction": "bullish_pullback",
+      "range": [
+        3800,
+        4050
+      ],
+      "view": "上行趋势未破坏，但4000关口前需要一次像样的回踩蓄势。3850-3880为回踩支撑带，失守则降级为震荡市",
+      "key_levels": {
+        "support": [
+          3880,
+          3850,
+          3800
+        ],
+        "resistance": [
+          3950,
+          4000
+        ]
+      }
+    },
+    "style_rotation": {
+      "mainline": [
+        "半导体/科技成长",
+        "有色（金银铜锡）",
+        "军工"
+      ],
+      "fading": [
+        "银行/煤炭防御",
+        "白酒消费"
+      ],
+      "view": "进攻风格占优但已持续较久，若量能萎缩至1.8万亿以下，警惕高低切换（防御类补涨一日游）"
+    },
+    "sector_calls": [
+      {
+        "name": "半导体",
+        "stance": "overweight_but_take_profit",
+        "reason": "512480 趋势分90+MACD金叉，主线地位明确；但RSI6=69.3超买+10日+6.66%过热，节奏上逢高兑现、回调再接"
+      },
+      {
+        "name": "有色（金银）",
+        "stance": "watch_bottoming",
+        "reason": "白银有色10日-13.84%后放量大涨3.8%、湖南黄金+1.06%、黄金ETF+1.73%，超跌修复启动迹象；等待第二次放量确认"
+      },
+      {
+        "name": "白酒消费",
+        "stance": "wait_rebound",
+        "reason": "茅台RSI6=28.1超卖+五粮液MACD金叉，短线反弹窗口临近；但板块中期趋势仍向下，反弹当修复对待"
+      }
+    ],
+    "confidence": 0.55
+  },
+  "key_signals": {
+    "bullish": [
+      "美股三大指数全涨（纳指+1.69%）、A50期货+1.11%、VIX 15.09且下行",
+      "周五涨4105/跌1094、涨停78/跌停0，成交20771亿放量",
+      "融资余额13341亿(+9.08)，杠杆资金小幅加仓"
+    ],
+    "bearish": [
+      "创业板ETF RSI6=59.4、中证500ETF RSI6=64.0、半导体ETF RSI6=69.3，三处热度偏高",
+      "防御类（工行/农行/神华）集体走弱，风格极端化",
+      "上证距4000关口仅2.3%，关前兑现压力累积"
+    ]
+  },
+  "core_six": {
+    "_说明": "【已弃用·2026-09-19】本块为核心池最初命名的兼容占位。现行唯一有效内容见同文件 core_pool 块（严格6只·趋势优先：4超跌+2长效，阿牛哥当日结构裁决）。config/core_six.json 同为后备文件，reconcile 优先读 config/core_pool.json"
+  },
+  "stock_calls": [
+    {
+      "code": "512480",
+      "name": "半导体ETF国联安",
+      "action": "hold",
+      "direction": "up",
+      "reason": "MACD金叉+趋势分90主线明确，但RSI6=69.3超买+量比1.39放量，冲高后分歧放大。兑现1/3，不追高",
+      "signal_type": "slow_bull",
+      "core_pool": true,
+      "track_rule": "hold 持有，-15%硬止损，20交易日考核，不设+5%止盈"
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "action": "watch",
+      "direction": "up",
+      "reason": "RSI28.1超卖+底背离但30日回撤仅-7.24%阴跌型；一手12.57万>10万账户。阿牛哥确认出局，仅作26只全量覆盖记录",
+      "signal_type": "watchlist"
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "超跌分40+周五收红1.65%+有色板块（白银放量+3.8%）修复共振启动",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "等企稳：量比≥1.3 或 MACD金叉 → watch_rebound→buy_rebound"
+    },
+    {
+      "code": "601212",
+      "name": "白银有色",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "10日-13.84%深超跌后放量+3.8%反弹启动+MACD零轴企稳，超跌修复弹性最大，但需二次放量确认",
+      "signal_type": "oversold_rebound"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "超跌分20+RSI33.7偏低+周五+1.71%收红，有色新材料修复跟涨",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "等企稳：MACD底背离或量比≥1.5 → watch_rebound"
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "10日-3.81%+金价高位支撑（黄金ETF+1.73%），板块共振修复",
+      "signal_type": "oversold_rebound"
+    },
+    {
+      "code": "601012",
+      "name": "隆基绿能",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "RSI37.2偏低+周五+2.18%放量反弹+MACD DIF负值收窄，修复初期",
+      "signal_type": "oversold_rebound"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "action": "buy_slow_bull",
+      "direction": "up",
+      "reason": "MACD金叉（全池唯一个股金叉）+量比1.24放量+白酒超跌反弹窗口，白酒板块修复首选",
+      "signal_type": "slow_bull",
+      "core_pool": true,
+      "track_rule": "buy_slow_bull 建仓后持有，-15%硬止损，20交易日考核"
+    },
+    {
+      "code": "600893",
+      "name": "航发动力",
+      "action": "hold",
+      "direction": "flat",
+      "reason": "DIF+0.8930多头排列但RSI39.6偏弱+量比0.75缩量，等量能配合，暂观望",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "v1.5超跌分30（30日回撤-17.11%第3深，错杀型）+周五+2.10%放量（量比1.42）+钼价高位。核心池超跌第4席（大海递补，阿牛哥9/20明示'金钼保留'锁定）",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "等企稳：量比≥1.3 或 MACD金叉或RSI6<30 → watch_rebound→buy_rebound"
+    },
+    {
+      "code": "000725",
+      "name": "京东方A",
+      "action": "hold_partial_profit",
+      "direction": "up",
+      "reason": "趋势分90+MACD金叉+周五+2.96%，全池最强之一；但RSI73.1超买+量比1.9巨量，冲高兑现1/3防分歧",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "action": "hold",
+      "direction": "flat",
+      "reason": "RSI40.4偏弱+量比0.77缩量+10日-2.64%，银行板块整体失血，底仓不动等风格回摆",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "RSI24.6全池最低（深度超卖）+周五+0.35%止跌+量比1.17温和放量，稀土超跌修复候选",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "等企稳：超卖区+量能异动 → watch_rebound"
+    },
+    {
+      "code": "600875",
+      "name": "东方电气",
+      "action": "hold",
+      "direction": "up",
+      "reason": "周五+1.83%收红+RSI43.8中性，电力设备修复跟随，无独立信号",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "600392",
+      "name": "盛和资源",
+      "action": "hold",
+      "direction": "up",
+      "reason": "周五+1.03%+RSI46.7中性，稀土板块跟随（北方稀土超卖修复或带动）",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "600019",
+      "name": "宝钢股份",
+      "action": "hold",
+      "direction": "up",
+      "reason": "趋势分60（全池个股第2）+RSI55.9健康，钢铁周期温和上行",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "000960",
+      "name": "锡业股份",
+      "action": "hold",
+      "direction": "up",
+      "reason": "锡价高位+周五+1.73%，但MACD DIF-0.7845仍在零轴下，趋势确认中",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "562500",
+      "name": "机器人ETF华夏",
+      "action": "hold",
+      "direction": "up",
+      "reason": "量比1.27放量+RSI55.5适中，主题热度在但趋势分25偏弱，不追不砍",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF华安",
+      "action": "hold",
+      "direction": "up",
+      "reason": "金价高位+RSI53.5中性，避险配置底仓",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "159915",
+      "name": "创业板ETF",
+      "action": "hold",
+      "direction": "up",
+      "reason": "RSI59.4+10日+2.60%偏热，持有但不加仓，防冲高回落",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "510500",
+      "name": "中证500ETF",
+      "action": "hold",
+      "direction": "up",
+      "reason": "RSI64.0偏热+10日+2.05%，中盘风格延续但热度需消化",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "510300",
+      "name": "沪深300ETF",
+      "action": "hold",
+      "direction": "up",
+      "reason": "RSI49.8中性强于大盘基准，底仓不动",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "601398",
+      "name": "工商银行",
+      "action": "hold",
+      "direction": "flat",
+      "reason": "趋势分35中性，周五-0.86%属防御类失血非个股利空，底仓不动",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "601288",
+      "name": "农业银行",
+      "action": "hold",
+      "direction": "flat",
+      "reason": "MACD死叉恶化+10日-2.16%弱于工行，防御类短期失血，等风格回摆",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "601088",
+      "name": "中国神华",
+      "action": "hold",
+      "direction": "flat",
+      "reason": "RSI31.6偏弱+量比0.79缩量，煤炭防御类短期被抽血，高分红底仓逻辑不变",
+      "signal_type": "slow_bull"
+    },
+    {
+      "code": "002142",
+      "name": "宁波银行",
+      "action": "hold",
+      "direction": "up",
+      "reason": "10日+0.43%全池银行唯一收正+DIF+0.5382多头排列，银行板块内相对强势",
+      "signal_type": "slow_bull"
+    }
+  ],
+  "reconciliation_hooks": {
+    "t1_direction": "上证收盘 vs 3911.87：涨=对",
+    "t1_range": "涨跌幅是否落在[-0.3%, +1.2%]",
+    "midterm_direction": "5-10日后上证是否在[3800, 4050]且未失守3850",
+    "stock_direction": "26只全部方向验证",
+    "divergence_check": "宝钢(600019)分歧验证：WB=up vs DH=flat",
+    "signal_type_v2": {
+      "_说明": "v2.2 新增：信号类型标签，配合三层记分牌分类对账",
+      "oversold_rebound": "超跌反弹信号（watch_rebound/buy_rebound）→ L2机会捕获 + L3假信号 + P&L模拟",
+      "slow_bull": "慢牛持有信号（hold/hold_partial_profit）→ L1方向对账为主"
+    }
+  },
+  "divergence_analysis": {
+    "_说明": "v2.1新增：与大海(kuramoto)预测的交叉分析——同向确认、分歧仲裁、背离预警",
+    "peer_prediction": {
+      "model": "LIVS-Stock v1.1-kuramoto (大海)",
+      "source": "predictions-dahai/2026-09-21_dahai.json",
+      "sh_direction": "up",
+      "methodology": "bottom-up：MACD/RSI/超跌评分+板块耦合振子共振"
+    },
+    "self_methodology": "top-down：美股+A50宏观链条、涨跌家数/融资余额情绪面、风格轮动推理",
+    "agreement": {
+      "sh_index": "同向（双方均up）→ 信号确认，置信度上调至0.65",
+      "stocks_agree": 25,
+      "note": "信号明确区（超买/超卖/金叉），任何方法论都收敛——无信息增量"
+    },
+    "divergences": [
+      {
+        "code": "600019",
+        "name": "宝钢股份",
+        "wb": "up",
+        "dahai": "flat",
+        "wb_basis": "趋势分60（全池第2）+RSI55.9健康——技术面视角",
+        "dahai_basis": "波动低无明确信号——量化视角",
+        "nature": "模糊地带分歧（信号不明确的方法论敏感区）",
+        "arbitration": {
+          "rule": "机械第三方裁判：20日均线方向",
+          "verdict": "收5.76 > MA20（趋势分含站上MA20项）→ 支持up",
+          "action": "轻仓看多（分歧标的默认半仓），收盘后此标的为高价值验证点"
+        }
+      }
+    ],
+    "macro_tech_divergence": {
+      "status": "无背离",
+      "check": "宏观(top-down)看多：美股/A50/情绪面全多；技术(bottom-up)看多：金叉超卖修复共振",
+      "note": "若出现'宏观多+技术空'→ 变盘预警日，降仓；'宏观空+技术多' → 关注假摔反包"
+    },
+    "risk_note": "双方数据同源(9/17)，系统性同错风险仍在：周末黑天鹅无先验信号"
+  },
+  "core_pool": {
+    "_说明": "核心池 v2.2（9/20 大海独立判定 commit c3f0d76 + WorkBuddy v1.5 口径对齐，阿牛哥默示生效）：4超跌（紫金/华友/北稀/金钼）+2长效（半导体ETF/五粮液）。茅台转观察位（一手12.57万>10万账户物理买不起 + 30日回撤-7.24%仅26只第16，阴跌型非错杀型）。详见 config/core_pool.json",
+    "oversold_rebound": [
+      {
+        "code": "601899",
+        "name": "紫金矿业",
+        "position_pct": 10,
+        "source": "WorkBuddy提名",
+        "oversold_score": 50,
+        "thesis": "超跌分40全场第一，黄金+铜双轮矿业龙头，避险与工业需求两头受益",
+        "status": "观察，未到买点"
+      },
+      {
+        "code": "600111",
+        "name": "北方稀土",
+        "position_pct": 10,
+        "source": "双方共识",
+        "oversold_score": 55,
+        "thesis": "超跌分25，RSI6 24.64已入超卖区，稀土配额龙头，战略资源属性",
+        "status": "观察，未到买点"
+      },
+      {
+        "code": "603799",
+        "name": "华友钴业",
+        "position_pct": 10,
+        "source": "WorkBuddy提名",
+        "oversold_score": 50,
+        "thesis": "超跌分20，10日-6.02%跌幅最深之一，钴锂材料龙头，新能源链弹性标的",
+        "status": "观察，未到买点"
+      },
+      {
+        "code": "601958",
+        "name": "金钼股份",
+        "position_pct": 10,
+        "source": "大海递补（9/20独立判定）",
+        "oversold_score": 30,
+        "oversold_score_note": "v1.5口径",
+        "dd_30d": -17.11,
+        "chg_15d": -11.66,
+        "thesis": "30日回撤-17.11%全场第3深（错杀型超跌：深跌后横盘筑底），一手2045元可操作，钼价高位+有色修复",
+        "status": "观察，未到买点（RSI6 42.3中性，等止跌信号）"
+      }
+    ],
+    "slow_bull": [
+      {
+        "code": "512480",
+        "name": "半导体ETF国联安",
+        "position_pct": 20,
+        "source": "双方共识",
+        "trend_score": 90,
+        "thesis": "趋势分90全场并列第一+MACD金叉，10日+6.66%，量比1.39。国产替代长周期赛道，ETF分散个股暴雷风险",
+        "status": "唯一双裁判支持的长效标的"
+      },
+      {
+        "code": "000858",
+        "name": "五粮液",
+        "position_pct": 20,
+        "source": "WorkBuddy提名",
+        "trend_score": 45,
+        "thesis": "MACD金叉+趋势分45已企稳，白酒永续消费龙头，估值修复长逻辑",
+        "status": "金叉支持，MA20待确认"
+      }
+    ],
+    "watchlist_pending": [
+      {
+        "code": "600519",
+        "name": "贵州茅台",
+        "source": "WorkBuddy提名→9/20大海剔除（阿牛哥默示）",
+        "oversold_score": 55,
+        "oversold_score_note": "v1.5口径，技术分仍第1但形态属阴跌型",
+        "dd_30d": -7.24,
+        "reason": "一手125,712元>10万账户物理买不起；30日回撤-7.24%（26只第16）阴跌型。阿牛哥9/20明示出局，非回归候选",
+        "status": "已出局（阿牛哥确认）"
+      },
+      {
+        "code": "002155",
+        "name": "湖南黄金",
+        "source": "大海提名",
+        "oversold_score": 10,
+        "reason": "超跌分10未达20门槛，但20日涨幅+4.50%且MA20上行，有企稳迹象",
+        "status": "观察位"
+      },
+      {
+        "code": "601398",
+        "name": "工商银行",
+        "source": "大海提名·压舱石定位",
+        "trend_score": 35,
+        "reason": "压舱石定位成立（大海质询②更正，趋势分系短线尺子不适用长效轨判定），严格6只制下长效仅二席让位。MA20明确转上行后评估递补",
+        "status": "观察位（阿牛哥结构裁决）",
+        "dividend_yield_note": "年化股息约5-6%，转长效轨后P&L须用前复权价（白皮书v1.4 §7.8）"
+      },
+      {
+        "code": "601288",
+        "name": "农业银行",
+        "source": "大海提名·压舱石定位",
+        "trend_score": 15,
+        "reason": "同工商银行：压舱石定位成立，严格6只制下让位观察。MA20明确转上行后评估递补",
+        "status": "观察位（阿牛哥结构裁决）",
+        "dividend_yield_note": "年化股息约5-6%，转长效轨后P&L须用前复权价（白皮书v1.4 §7.8）"
+      }
+    ],
+    "_关键判断": "2026-09-18 十只候选全部或多数位于MA20下方 → 普跌环境，下跌未止 → 正确动作是『等企稳』而非立即建仓。超跌反弹前提是先止跌。",
+    "_考核分轨": "反弹4只=短线轨(±5%止盈止损/10日/10%仓位)；长效2只(半导体ETF/五粮液)=长效轨(-15%硬止损/20交易日/20%仓位/无止盈)。白名单制读config/core_pool.json（白皮书§7.7）",
+    "_裁决确认": "裁决链：9/19严格6只·趋势优先 → 9/20大海独立判定茅台→金钼递补，阿牛哥明示'茅台不要了'定案 + 超跌分公式升v1.5（三口径取最深档位）"
+  },
+  "_market_environment": {
+    "_说明": "大盘预测 v1.5+·简化版（仅上证一个指数）。M_sse = 0.6×R_15 + 0.4×R_MA20dev，R_x = clamp(指标/阈值, -1, +1)；M_sse 映射到 0-100 区间。L3 假警报过滤：M_sse<40 时核心池 buy 信号有效性 ×0.5；L1 方向命中对照上证基线。",
+    "data_basis": "2026-09-18 收盘（9/19/20 为周末，9/21 待开盘）",
+    "timestamp": "2026-09-21 08:54 (GMT+8)",
+    "scope": "仅上证指数 sh000001（按 9/21 阿牛哥指示简化）",
+    "index": {
+      "code": "sh000001",
+      "name": "上证指数",
+      "close_9_18": 3911.87,
+      "chg_10d_pct": -0.46,
+      "chg_15d_pct": -1.02,
+      "dd_30d_pct": -1.97,
+      "ma5": 3885.74,
+      "ma10": 3907.59,
+      "ma20": 3922.42,
+      "ma20_dev_pct": -0.27,
+      "r_15": -0.204,
+      "r_ma20_dev": -0.09,
+      "M_raw": -0.158,
+      "M_score": 42.1,
+      "env_label": "中性"
+    },
+    "9_21_forecast": {
+      "direction": "down",
+      "predicted_range": "3880-3940",
+      "compare_to_9_18_close": "看空下行",
+      "based_on": "15日涨幅 + MA20偏离双因子加权"
+    },
+    "filter_rule": "今日（9/21）开盘后核心池 buy 信号有效性 = ×0.42（M_sse<40 时×0.5）",
+    "vs_dahai": "大海 v12.6 R=0.52 偏多（9 票池相位耦合）；我方 M_sse=42.1 中性（上证 15日+MA20偏离加权）。双模型对照：分歧",
+    "change_note": "v2 修订（9/21 8:54 阿牛哥指示）：从6指数简化为仅上证1标的；M_sse 算法改用'15日涨跌+MA20偏离'双因子加权（原 v1 为6指数均值）"
+  },
+  "_link_protocol": {
+    "_说明": "LIVS-Stock 双模型联动协议 v1（9/21 首日生效）",
+    "files": {
+      "workbuddy": "predictions/wb-2026-09-21.json",
+      "dahai": "predictions/dahai-2026-09-21.json",
+      "shared_config": "config/core_pool.json（v2.2，4超跌+2长效定稿）"
+    },
+    "fields_workbuddy_provides": [
+      "code",
+      "name",
+      "action",
+      "direction",
+      "reason",
+      "signal_type",
+      "core_pool",
+      "track_rule",
+      "oversold_score_v15",
+      "dd_30d",
+      "rsi6",
+      "chg_10d",
+      "chg_15d"
+    ],
+    "fields_dahai_expected": [
+      "code",
+      "name",
+      "action",
+      "direction",
+      "reason",
+      "v12_6_score",
+      "r_value",
+      "oversold_threshold",
+      "rebound_days"
+    ],
+    "shared_required_fields": [
+      "code",
+      "signal_date",
+      "action",
+      "direction",
+      "track_rule"
+    ],
+    "track_rule_values": {
+      "short_oversold": "短线轨（10%仓/±5%/10日）— 4 超跌股默认",
+      "slow_bull_hold": "长效轨（20%仓/-15%硬止损/20日/无止盈）— 半导体ETF/五粮液"
+    },
+    "git_path": "https://github.com/livsstock/xgl/tree/data/predictions（沙箱 TLS 阻断，需双方手动推送）",
+    "reconcile_behavior": "reconcile.py 读 wb + dahai 两份预测，若 dahai 缺失则单边跑+告警",
+    "exception_handling": {
+      "missing_dahai_file": "L1/L3 仅记 WB；L2 仍按 26 只全量识别",
+      "missing_wb_file": "同上对称",
+      "schema_mismatch": "告警但不阻断（v1 兼容期）"
+    }
+  }
+}

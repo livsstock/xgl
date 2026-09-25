@@ -28,5 +28,21 @@
     "reconcile": "16:10"
   },
   "next_trading_day": "2026-09-28",
-  "updated_at": "2026-09-24T23:36:53Z"
+  "updated_at": "2026-09-24T23:36:53Z",
+  "workbuddy": {
+    "agent": "workbuddy",
+    "status": "online",
+    "github_auth": "ok",
+    "push_channel": "mirror:gh-proxy.com",
+    "prediction_dir": "predictions/",
+    "latest_prediction": "2026-09-24",
+    "prediction_files": [
+      "2026-09-21",
+      "2026-09-22",
+      "2026-09-24"
+    ],
+    "auto_generate": "daily_predict.py v1.0 (11:30/14:00/16:00)",
+    "alignment_rule_ack": "双模型方向一致才建议买入；分歧不出手（已读大海规则）",
+    "updated_at": "2026-09-25T08:15:00+08:00"
+  }
 }
