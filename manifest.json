@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "status": "alert",
   "anomalies": [
     {
@@ -25,6 +25,14 @@
       "value": null,
       "level": "alert",
       "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
+    },
+    {
+      "type": "sharp_drop",
+      "stock": "��ҵ�ɷ�",
+      "code": "sz000960",
+      "value": -5.02,
+      "level": "alert",
+      "message": "��ҵ�ɷ� 单日跌幅 -5.02%，超过 5% 阈值"
     }
   ],
   "missing_stocks": [
@@ -49,6 +57,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-09-24T08:02:48+08:00",
+  "generated_at": "2026-09-25T08:03:01+08:00",
   "detector_version": "1.0"
 }
