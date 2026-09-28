@@ -1,0 +1,67 @@
+{
+  "date": "2026-09-28",
+  "generated_at": "2026-09-28T07:46:01.027203Z",
+  "market": {
+    "wb": "bearish",
+    "dahai": "bearish"
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "wb_action": "neutral",
+      "wb_direction": "down",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "wb_action": "neutral",
+      "wb_direction": "down",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "wb_action": "neutral",
+      "wb_direction": "down",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "wb_action": "neutral",
+      "wb_direction": "down",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "wb_action": "neutral",
+      "wb_direction": "down",
+      "dahai_action": "neutral",
+      "dahai_direction": "neutral",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "wb_action": "neutral",
+      "wb_direction": "down",
+      "dahai_action": "neutral",
+      "dahai_direction": "neutral",
+      "status": "⚪ 一致不买"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "一致不买"
+}
