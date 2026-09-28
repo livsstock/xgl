@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-28",
+  "model_version": "v12.6",
+  "market_outlook": {
+    "direction": "bearish",
+    "confidence": 65
+  },
+  "stock_calls": [
+    {
+      "code": "sh601899",
+      "name": "紫金矿业",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "MACD死叉+放量"
+    },
+    {
+      "code": "sh600111",
+      "name": "北方稀土",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "MACD死叉"
+    },
+    {
+      "code": "sh603799",
+      "name": "华友钴业",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "MACD死叉+深超卖"
+    },
+    {
+      "code": "sh601958",
+      "name": "金股份",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "MACD死叉"
+    },
+    {
+      "code": "sh512480",
+      "name": "半导体ETF",
+      "action": "hold",
+      "direction": "neutral",
+      "reason": "跌但没企稳"
+    },
+    {
+      "code": "sz000858",
+      "name": "五粮液",
+      "action": "hold",
+      "direction": "neutral",
+      "reason": "相对抗跌"
+    }
+  ]
+}
