@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-24",
+  "generated_at": "2026-09-28T06:45:24.823737Z",
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "wb": "watch",
+      "dahai": "watch",
+      "status": "️ 一致不买"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "wb": "watch",
+      "dahai": "watch",
+      "status": "️ 一致不买"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "wb": "watch",
+      "dahai": "watch",
+      "status": "️ 一致不买"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "wb": "watch",
+      "dahai": "watch",
+      "status": "️ 一致不买"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "wb": "neutral",
+      "dahai": "neutral",
+      "status": "️ 一致不买"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "wb": "neutral",
+      "dahai": "neutral",
+      "status": "️ 一致不买"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "一致不买"
+}
