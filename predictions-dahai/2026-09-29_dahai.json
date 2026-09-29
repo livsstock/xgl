@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-29",
+  "model_version": "v12.7",
+  "data_basis": "2026-09-28收盘",
+  "market_outlook": {
+    "direction": "bearish",
+    "confidence": 65,
+    "sh_index": 3823.62,
+    "sh_change_pct": -1.67,
+    "note": "创业板跌超4%，全市场恐慌，美债收益率19年新高"
+  },
+  "stock_calls": [
+    {
+      "code": "sh601899",
+      "name": "紫金矿业",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "回撤-15.69%，MACD below恶化",
+      "core_pool": true,
+      "track_rule": "短线轨"
+    },
+    {
+      "code": "sh600111",
+      "name": "北方稀土",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "回撤-5.10%，MACD柱线收窄中",
+      "core_pool": true,
+      "track_rule": "短线轨"
+    },
+    {
+      "code": "sh603799",
+      "name": "华友钴业",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "回撤-20.85%，MACD死叉恶化",
+      "core_pool": true,
+      "track_rule": "短线轨"
+    },
+    {
+      "code": "sh601958",
+      "name": "金钼股份",
+      "action": "watch",
+      "direction": "bearish",
+      "reason": "回撤-5.58%，MACD恶化+股东暴增",
+      "core_pool": true,
+      "track_rule": "短线轨"
+    },
+    {
+      "code": "sh512480",
+      "name": "半导体ETF",
+      "action": "hold",
+      "direction": "neutral",
+      "reason": "回撤-13.43%，MACD above zero",
+      "core_pool": true,
+      "track_rule": "长效轨"
+    },
+    {
+      "code": "sz000858",
+      "name": "五粮液",
+      "action": "hold",
+      "direction": "neutral",
+      "reason": "回撤-6.68%，慢牛轨跌幅不足",
+      "core_pool": true,
+      "track_rule": "长效轨"
+    }
+  ],
+  "conclusion": "全部观望，零买入信号"
+}
