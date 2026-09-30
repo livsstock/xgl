@@ -1,0 +1,142 @@
+{
+  "date": "2026-09-30",
+  "predict_date": "2026-10-01",
+  "model_version": "v13.0-kuramoto",
+  "generated_at": "2026-09-30T08:48:37Z",
+  "data_basis": "2026-09-30收盘数据",
+  "type": "T+1_evening",
+  "market_outlook": {
+    "direction": "neutral",
+    "confidence": 48,
+    "sse_close": 3842.19,
+    "sse_change_pct": 0.31,
+    "reason": "上证仅涨0.31%极弱反弹，多只核心标的RSI超卖但MACD未企稳，大盘方向不明，中性偏谨慎",
+    "risk_level": "MODERATE",
+    "market_gate": "pass",
+    "market_gate_detail": "上证当日涨跌+0.31%>-2%，大盘门通过"
+  },
+  "index_summary": {
+    "close": 3842.19,
+    "change_percent": 0.31,
+    "ten_day_change": -1.85
+  },
+  "stock_calls": [
+    {
+      "code": "sh601899",
+      "name": "紫金矿业",
+      "direction": "neutral",
+      "confidence": 45,
+      "action": "watch",
+      "close": 29.79,
+      "change_pct": 1.12,
+      "ten_day_chg": -5.97,
+      "rsi6": 19.43,
+      "macd_signal": "none",
+      "macd_detail": "DIF=-0.822<DEA=-0.481, bearish diverging",
+      "trend": "bearish",
+      "reason": "RSI6=19.43超卖但MACD仍空头发散未金叉，10日跌5.97%未达超跌线10%，止跌信号不足，观望等待MACD企稳",
+      "sector": "有色矿业"
+    },
+    {
+      "code": "sh600111",
+      "name": "北方稀土",
+      "direction": "neutral",
+      "confidence": 40,
+      "action": "watch",
+      "close": 35.3,
+      "change_pct": -0.31,
+      "ten_day_chg": -5.44,
+      "rsi6": 0.76,
+      "macd_signal": "none",
+      "macd_detail": "DIF=-1.170<DEA=-1.034, bearish diverging",
+      "trend": "strong_bearish",
+      "reason": "RSI6=0.76极度超卖历史罕见，但MACD空头强势无企稳迹象，趋势强空，等待止跌确认（量比≥1.3或MACD金叉）",
+      "sector": "有色稀土"
+    },
+    {
+      "code": "sh603799",
+      "name": "华友钴业",
+      "direction": "neutral",
+      "confidence": 42,
+      "action": "watch",
+      "close": 35.0,
+      "change_pct": 2.85,
+      "ten_day_chg": -0.82,
+      "rsi6": 37.23,
+      "macd_signal": "none",
+      "macd_detail": "DIF=-1.373≈DEA=-1.366, converging",
+      "trend": "sideways",
+      "reason": "今日反弹+2.85%但10日仅跌0.82%不满足超跌条件，MACD收敛中但未金叉，量能不足，观望",
+      "sector": "有色钴业"
+    },
+    {
+      "code": "sh601958",
+      "name": "金钼股份",
+      "direction": "neutral",
+      "confidence": 43,
+      "action": "watch",
+      "close": 19.37,
+      "change_pct": 0.36,
+      "ten_day_chg": -4.3,
+      "rsi6": 13.89,
+      "macd_signal": "none",
+      "macd_detail": "DIF=-0.648<DEA=-0.534, bearish",
+      "trend": "strong_bearish",
+      "reason": "RSI6=13.89超卖+ROE达标绩优，但10日跌4.30%未达超跌线，MACD空头发散无止跌信号，等待企稳",
+      "sector": "有色钼业"
+    },
+    {
+      "code": "sh512480",
+      "name": "半导体ETF",
+      "direction": "neutral",
+      "confidence": 38,
+      "action": "watch",
+      "close": 0.955,
+      "change_pct": -3.05,
+      "ten_day_chg": -0.93,
+      "rsi6": 11.11,
+      "macd_signal": "none",
+      "macd_detail": "DIF=-0.013≈DEA=-0.013, flat",
+      "trend": "sideways",
+      "reason": "今日大跌-3.05%RSI6=11.11极度超卖，但10日仅跌0.93%不满足超跌条件，长效轨标的需等MACD信号确认",
+      "sector": "半导体"
+    },
+    {
+      "code": "sz000858",
+      "name": "五粮液",
+      "direction": "bullish",
+      "confidence": 52,
+      "action": "hold",
+      "close": 70.06,
+      "change_pct": 1.88,
+      "ten_day_chg": 0.52,
+      "rsi6": 46.85,
+      "macd_signal": "golden_cross",
+      "macd_detail": "DIF=-0.764>DEA=-0.828, MACD金叉形成",
+      "trend": "sideways",
+      "reason": "MACD金叉确认+ROE>22%绩优+今日涨1.88%趋势向好，长效轨标的持有；非超跌标的走长效逻辑，10日涨0.52%无超跌",
+      "sector": "白酒消费"
+    }
+  ],
+  "summary": {
+    "watch": 5,
+    "hold": 1,
+    "buy_probe": 0,
+    "buy_standard": 0,
+    "overall": "全面观望 — RSI超卖但MACD未确认止跌，无高确信度入场信号",
+    "key_signals": [
+      "北方稀土RSI6=0.76极度超卖（历史罕见），等待止跌确认",
+      "五粮液MACD金叉确认，长效轨唯一偏多信号",
+      "半导体ETF大跌-3.05%但10日未达超跌条件",
+      "大盘门通过(+0.31%>-2%)，但个股无止跌三件套信号"
+    ]
+  },
+  "iron_rules": {
+    "rule_1_oversold_40pt": "10日跌幅≥10%得40分（当前均未达到）",
+    "rule_2_quality_30pt": "ROE>8%或净利润为正（紫金/华友/金钼/五粮液达标）",
+    "rule_3_macd_veto": "MACD死叉恶化一票否决（紫金/北稀/金钼MACD空头）",
+    "rule_4_market_gate": "上证跌幅>-2%不买（今日+0.31%通过）",
+    "rule_5_entry_gate": "量比≥1.3/MACD金叉/RSI<30 三信号（仅五粮液MACD金叉）",
+    "rule_6_dual_align": "双模型方向一致且均为买入信号才建议买（当前无一致买入）"
+  }
+}
