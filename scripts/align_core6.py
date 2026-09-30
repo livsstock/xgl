@@ -4,6 +4,9 @@
 双模型对齐脚本：拉取 GitHub 上 WB 和大海的预测文件，逐只比对核心 6 只的方向，
 一致才报买点，分歧只摆分歧。
 
+核心原则（2026-09-30 更新）：
+  大盘方向是一切操作的前提。双模型大盘一致看空 → 冻结一切买入信号，无例外。
+
 用法：
   python3 align_core6.py [--date YYYY-MM-DD] [--push]
 
@@ -88,18 +91,15 @@ def check_data_quality(dahai_data, wb_data, target_date_str):
     if dahai_data:
         dh_date = dahai_data.get("date", "")
         if dh_date != target_date_str:
-            # 检查data_basis是否引用了正确的收盘日
             dh_basis = dahai_data.get("data_basis", "")
             if target_date_str not in str(dh_basis):
                 warnings.append(f"⚠️ 大海预测日期({dh_date})与目标日期({target_date_str})不一致")
-        # 检查是否基于收盘数据
         dh_basis = str(dahai_data.get("data_basis", ""))
         if dh_basis and "收盘" not in dh_basis and "close" not in dh_basis.lower():
             warnings.append(f"⚠️ 大海数据可能非收盘数据: data_basis='{dh_basis}'")
     
     # 检查WB数据
     if wb_data:
-        # 检查data_basis中的时间戳
         wb_basis = wb_data.get("data_basis", {})
         if isinstance(wb_basis, dict):
             as_of = wb_basis.get("as_of", "")
@@ -108,7 +108,6 @@ def check_data_quality(dahai_data, wb_data, target_date_str):
                 warnings.append(f"🔴 WB数据为盘中快照({as_of})，非收盘数据，对齐结果可能有偏差")
                 passed = False
             elif as_of:
-                # 检查时间是否>=15:00（收盘时间）
                 try:
                     time_part = as_of.split(" ")[1] if " " in as_of else ""
                     hour = int(time_part.split(":")[0])
@@ -117,7 +116,6 @@ def check_data_quality(dahai_data, wb_data, target_date_str):
                         passed = False
                 except:
                     pass
-        # 检查target_date是否与预测日期一致
         wb_pred = wb_data.get("predict_date", "")
         wb_target = wb_data.get("target_date", "")
         if wb_pred and wb_target and wb_pred != wb_target:
@@ -135,7 +133,6 @@ if os.path.exists(CRED_FILE):
                 k, v = line.split("=", 1)
                 os.environ.setdefault(k.strip(), v.strip())
 
-# 确保 gh 已登录
 def ensure_gh_auth():
     """使用 classic token 确保 gh 已认证"""
     token = os.environ.get("GH_TOKEN_CLASSIC", "")
@@ -202,15 +199,12 @@ def normalize_direction(d):
         return "unknown"
     d_lower = d.lower().strip()
     mapping = {
-        # 中文 → 标准
         "偏多": "bullish", "多": "bullish", "涨": "bullish",
         "偏空": "bearish", "空": "bearish", "跌": "bearish",
         "中性": "neutral", "中": "neutral", "平": "neutral", "观望": "neutral",
-        # 英文 → 标准
         "up": "bullish", "down": "bearish", "neutral": "neutral",
         "bullish": "bullish", "bearish": "bearish",
         "hold": "neutral", "watch": "neutral",
-        # 买入动作
         "试探": "buy_probe", "标准": "buy_standard",
         "重仓": "buy_heavy", "加仓": "buy_add",
         "buy": "bullish", "sell": "bearish",
@@ -234,20 +228,16 @@ def extract_core6(data):
       - 大海: stock_calls[]，code 为 sh601899 / sz000858 格式
     """
     directions = {}
-
-    # 兼容不同的 stock 列表字段名
     stock_list = data.get("stock_calls", data.get("predictions", []))
 
     for stock in stock_list:
         raw_code = stock.get("code", "")
-        # 提取纯 6 位数字
         digits = "".join(c for c in str(raw_code) if c.isdigit())
         if len(digits) > 6:
             digits = digits[-6:]
         if digits not in CORE6:
             continue
 
-        # 兼容 action / direction 作为主要信号字段
         raw_action = stock.get("action", stock.get("direction", "unknown"))
         action = normalize_direction(raw_action)
 
@@ -266,20 +256,17 @@ def extract_market_direction(data, source="wb"):
     大盘风控是双模型对齐的最高优先级。
     """
     if source == "wb":
-        # WB 格式: t1_prediction.sh_index.direction
         t1 = data.get("t1_prediction", {}).get("sh_index", {})
         if t1:
             direction = normalize_direction(t1.get("direction", ""))
             confidence = t1.get("confidence", None)
             reason = t1.get("reason", "")
             return {"direction": direction, "confidence": confidence, "reason": reason}
-        # 也检查 market_outlook（兼容）
         mo = data.get("market_outlook", {})
         if mo:
             return {"direction": normalize_direction(mo.get("direction", "")),
                     "confidence": mo.get("confidence"), "reason": mo.get("reason", "")}
     else:
-        # 大海格式: market_outlook.direction
         mo = data.get("market_outlook", {})
         if mo:
             direction = normalize_direction(mo.get("direction", ""))
@@ -291,8 +278,14 @@ def extract_market_direction(data, source="wb"):
 
 def is_market_high_risk(wb_market, dh_market):
     """
-    大盘风控门：双方都看空 → 高风险，强制不建议操作。
+    大盘风控门：判断大盘风险等级。
     返回 (is_high_risk: bool, level: str, detail: str)
+    
+    级别定义：
+    - CRITICAL: 双方一致看空 → 冻结一切买入，无例外
+    - HIGH: 一方看空 → 暂停超跌策略，仅允许止损/止盈
+    - MODERATE: 双方中性 → 观望为主，等待明确信号
+    - NORMAL: 至少一方看多且无看空 → 可正常执行个股分析
     """
     wb_dir = wb_market.get("direction", "unknown")
     dh_dir = dh_market.get("direction", "unknown")
@@ -302,9 +295,9 @@ def is_market_high_risk(wb_market, dh_market):
     both_neutral = wb_dir == "neutral" and dh_dir == "neutral"
 
     if both_bearish:
-        return True, "CRITICAL", "🔴 双模型大盘一致看空 — 高风险，建议全面观望，不执行任何买入操作"
+        return True, "CRITICAL", "🔴 双模型大盘一致看空 — 冻结一切买入信号，建议全面观望"
     elif one_bearish:
-        return True, "HIGH", "🟠 一方大盘看空 — 风险提示，建议谨慎操作，降低仓位"
+        return True, "HIGH", "🟠 一方大盘看空 — 暂停超跌策略，仅允许已有持仓止损/止盈操作"
     elif both_neutral:
         return False, "MODERATE", "🟡 双方大盘中性 — 观望为主，等待明确信号"
     else:
@@ -326,36 +319,24 @@ def extract_index_changes(wb_data):
     return result
 
 
-def detect_oversold(wb_data, dahai_data, wb_market, dh_market, threshold=-2.0):
+def detect_oversold_info(wb_data, threshold=-2.0):
     """
-    超跌机会门：检测大盘急跌是否构成抄底机会。
+    超跌信息提示（非买入触发器）。
     
-    逻辑：
-    - 主要指数单日跌幅 ≥ threshold（默认-2%）
-    - 双模型都看空（说明恐慌已充分释放）
-    - 此时反而是超跌反弹的潜在机会
+    仅在大盘风控门通过后（非 CRITICAL / HIGH）才作为辅助参考。
+    大盘下行时，超跌不等于见底，不做任何买入暗示。
     
-    返回 (is_oversold, level, detail, index_data)
+    返回 (has_significant_drop, level, detail, index_data)
     """
     index_changes = extract_index_changes(wb_data)
     
     if not index_changes:
-        return False, "NONE", "⚠️ 无指数涨跌幅数据，无法判断超跌", {}
-    
-    # 找跌幅最大的指数
+        return False, "NONE", "⚠️ 无指数涨跌幅数据", {}
+
     worst_index = min(index_changes.items(), key=lambda x: x[1]["change_pct"])
     worst_name = worst_index[0]
     worst_change = worst_index[1]["change_pct"]
     
-    # 统计跌幅 ≥ threshold 的指数数量
-    big_drops = {name: info for name, info in index_changes.items() if info["change_pct"] <= threshold}
-    
-    # 双模型方向
-    wb_dir = wb_market.get("direction", "unknown")
-    dh_dir = dh_market.get("direction", "unknown")
-    both_bearish = wb_dir == "bearish" and dh_dir == "bearish"
-    
-    # 构建指数摘要
     index_summary = {}
     for name, info in index_changes.items():
         index_summary[name] = {
@@ -363,51 +344,82 @@ def detect_oversold(wb_data, dahai_data, wb_market, dh_market, threshold=-2.0):
             "change_pct": info["change_pct"],
         }
     
-    if worst_change <= threshold and both_bearish:
-        # 大跌 + 双方都看空 = 恐慌充分释放，可能是超跌机会
-        drop_indices = ", ".join([f"{n}({info['change_pct']:+.2f}%)" for n, info in big_drops.items()])
-        detail = (
-            f"🔵 大盘超跌信号 — {worst_name}跌{worst_change:.2f}%，"
-            f"共{len(big_drops)}大指数跌幅超{threshold}%（{drop_indices}）\n"
-            f"  双模型一致看空 → 恐慌情绪可能已充分释放，关注超跌反弹机会"
-        )
-        return True, "OVERSOLD", detail, index_summary
+    if worst_change <= -3.0:
+        detail = f"🔻 大盘大跌 — {worst_name}跌{worst_change:.2f}%，需密切关注系统性风险"
+        return True, "MAJOR_DROP", detail, index_summary
     elif worst_change <= threshold:
-        # 大跌但模型没一致看空
-        detail = (
-            f"🟡 大盘大跌但模型未一致看空 — {worst_name}跌{worst_change:.2f}%\n"
-            f"  跌幅显著但需结合模型判断，暂不视为超跌机会"
-        )
-        return False, "DROP_NOT_ALIGNED", detail, index_summary
+        detail = f"📉 大盘显著下跌 — {worst_name}跌{worst_change:.2f}%，观望为主"
+        return True, "SIGNIFICANT_DROP", detail, index_summary
     elif worst_change <= -1.0:
-        # 中等下跌
-        detail = f"ℹ️ 大盘温和下跌 — {worst_name}跌{worst_change:.2f}%，未达超跌阈值"
+        detail = f"ℹ️ 大盘温和下跌 — {worst_name}跌{worst_change:.2f}%"
         return False, "MILD_DROP", detail, index_summary
     else:
         return False, "NONE", "✅ 大盘未出现显著下跌", index_summary
 
 
-def align(wb_data, dahai_data, date_str):
-    """比对两份预测，输出对齐结论。大盘风控 + 超跌机会双门控。"""
+def classify_divergence(wb_dir_norm, dh_dir_norm):
+    """
+    对分歧进行分级：
+    - 强分歧：一方看涨、一方看跌（方向对立）
+    - 弱分歧：一方有明确方向、一方观望
+    """
+    bullish_set = {"bullish", "buy_probe", "buy_standard", "buy_heavy", "buy_add"}
+    bearish_set = {"bearish"}
+    neutral_set = {"neutral", "unknown"}
+    
+    wb_is_bull = wb_dir_norm in bullish_set
+    wb_is_bear = wb_dir_norm in bearish_set
+    dh_is_bull = dh_dir_norm in bullish_set
+    dh_is_bear = dh_dir_norm in bearish_set
+    
+    if (wb_is_bull and dh_is_bear) or (wb_is_bear and dh_is_bull):
+        return "强分歧", f"Wb:{wb_dir_norm}/大海:{dh_dir_norm} 方向对立"
+    else:
+        return "弱分歧", f"Wb:{wb_dir_norm}/大海:{dh_dir_norm}"
 
-    # ===== 第一层：大盘风控门（最高优先级）=====
+
+def align(wb_data, dahai_data, date_str):
+    """
+    比对两份预测，输出对齐结论。
+    
+    核心逻辑（2026-09-30 更新）：
+    1. 大盘风控门（绝对开关）
+       - CRITICAL（双方看空）→ 冻结一切买入，无任何例外
+       - HIGH（一方看空）→ 暂停超跌策略，仅允许止损/止盈
+    2. 个股分析（仅在大盘风控非 CRITICAL 时输出买入信号）
+    3. 超跌信息（仅在大盘风控非 CRITICAL/HIGH 时作为辅助参考）
+    """
+
+    # ===== 第一层：大盘风控门（绝对开关，最高优先级）=====
     wb_market = extract_market_direction(wb_data, "wb")
     dh_market = extract_market_direction(dahai_data, "dahai")
     is_high_risk, risk_level, risk_detail = is_market_high_risk(wb_market, dh_market)
+    
+    # 大盘是否完全冻结买入
+    market_freeze = (risk_level == "CRITICAL")
+    # 大盘是否限制为仅止损止盈
+    market_caution = (risk_level == "HIGH")
 
-    # ===== 第 1.5 层：超跌机会门 =====
-    is_oversold, oversold_level, oversold_detail, index_data = detect_oversold(
-        wb_data, dahai_data, wb_market, dh_market
-    )
+    # ===== 第二层：大盘指数信息（仅供参考）=====
+    index_info = None
+    oversold_info = None
+    try:
+        _, drop_level, drop_detail, index_data = detect_oversold_info(wb_data)
+        oversold_info = {
+            "level": drop_level,
+            "detail": drop_detail,
+            "index_data": index_data,
+        }
+    except Exception:
+        pass
 
-    # ===== 第二层：个股分析 =====
+    # ===== 第三层：个股分析 =====
     wb_dirs = extract_core6(wb_data)
     dh_dirs = extract_core6(dahai_data)
 
     results = []
     aligned_buy = []
     divergence = []
-    oversold_candidates = []  # 超跌机会候选
     all_watch = True
 
     for code in CORE6:
@@ -418,30 +430,55 @@ def align(wb_data, dahai_data, date_str):
         wb_buy = is_buy_signal(wb.get("action", ""))
         dh_buy = is_buy_signal(dh.get("action", ""))
 
-        # 超跌机会：大盘大跌+双模型看空时，个股一致看空反而可能是机会
-        if is_oversold and not wb_buy and not dh_buy:
-            status = "🔵 超跌关注（待确认企稳）"
-            oversold_candidates.append(f"{name}({code}): 双方均看空，但大盘超跌可能反弹")
-        # 大盘高风险时，即使个股有买入信号也标记为"风控拦截"
-        elif wb_buy and dh_buy:
-            if is_high_risk and risk_level == "CRITICAL" and not is_oversold:
-                status = "🚫 风控拦截（大盘高风险）"
-            else:
+        # === 大盘冻结时：所有买入信号全部拦截 ===
+        if market_freeze:
+            if wb_buy or dh_buy:
+                status = "🚫 大盘风控冻结（不允许买入）"
+            elif not wb_buy and not dh_buy:
+                wb_dir_norm = normalize_direction(wb.get("raw_direction", wb.get("action", "")))
+                dh_dir_norm = normalize_direction(dh.get("raw_direction", dh.get("action", "")))
+                if wb_dir_norm == dh_dir_norm:
+                    status = "⚪ 一致不买（大盘冻结）"
+                else:
+                    div_level, div_detail = classify_divergence(wb_dir_norm, dh_dir_norm)
+                    status = f"🔶 {div_level}(Wb:{wb_dir_norm}/大海:{dh_dir_norm})·大盘冻结"
+                    divergence.append(f"{name}({code}): {div_detail}")
+        
+        # === 大盘谨慎时：仅允许止损/止盈，不开新仓 ===
+        elif market_caution:
+            if wb_buy and dh_buy:
+                status = "⚠️ 大盘一方看空·买入信号暂不执行"
+            elif wb_buy or dh_buy:
+                status = "⚠️ 大盘一方看空·买入信号暂不执行"
+            elif not wb_buy and not dh_buy:
+                wb_dir_norm = normalize_direction(wb.get("raw_direction", wb.get("action", "")))
+                dh_dir_norm = normalize_direction(dh.get("raw_direction", dh.get("action", "")))
+                if wb_dir_norm == dh_dir_norm:
+                    status = "⚪ 一致不买"
+                else:
+                    div_level, div_detail = classify_divergence(wb_dir_norm, dh_dir_norm)
+                    status = f"🔶 {div_level}(Wb:{wb_dir_norm}/大海:{dh_dir_norm})"
+                    divergence.append(f"{name}({code}): {div_detail}")
+        
+        # === 大盘正常时：正常个股分析 ===
+        else:
+            if wb_buy and dh_buy:
                 status = "✅ 一致买入"
                 aligned_buy.append(f"{name}({code}): WB={wb['action']}, 大海={dh['action']}")
-            all_watch = False
-        elif not wb_buy and not dh_buy:
-            wb_dir_norm = normalize_direction(wb.get("raw_direction", wb.get("action", "")))
-            dh_dir_norm = normalize_direction(dh.get("raw_direction", dh.get("action", "")))
-            if wb_dir_norm == dh_dir_norm:
-                status = "⚪ 一致不买"
+                all_watch = False
+            elif not wb_buy and not dh_buy:
+                wb_dir_norm = normalize_direction(wb.get("raw_direction", wb.get("action", "")))
+                dh_dir_norm = normalize_direction(dh.get("raw_direction", dh.get("action", "")))
+                if wb_dir_norm == dh_dir_norm:
+                    status = "⚪ 一致不买"
+                else:
+                    div_level, div_detail = classify_divergence(wb_dir_norm, dh_dir_norm)
+                    status = f"🔶 {div_level}(Wb:{wb_dir_norm}/大海:{dh_dir_norm})"
+                    divergence.append(f"{name}({code}): {div_detail}")
             else:
-                status = f"🔶 均不买但方向分歧(WB:{wb_dir_norm}/大海:{dh_dir_norm})"
-                divergence.append(f"{name}({code}): WB方向={wb_dir_norm}, 大海方向={dh_dir_norm}")
-        else:
-            status = "⚠️ 分歧"
-            divergence.append(f"{name}({code}): WB={wb['action']}, 大海={dh['action']}")
-            all_watch = False
+                status = "⚠️ 分歧"
+                divergence.append(f"{name}({code}): WB={wb['action']}, 大海={dh['action']}")
+                all_watch = False
 
         results.append({
             "code": code,
@@ -453,15 +490,19 @@ def align(wb_data, dahai_data, date_str):
             "status": status,
         })
 
-    # 结论：超跌机会 > 风控拦截 > 常规判断
-    if is_oversold:
-        conclusion = "🔵 大盘超跌 + 双模型看空 — 关注超跌反弹机会，等待企稳信号后分批布局"
-    elif is_high_risk and risk_level == "CRITICAL":
-        conclusion = "🔴 大盘风控拦截 — 双模型一致看空，不建议操作"
-    elif is_high_risk and risk_level == "HIGH":
-        conclusion = "🟠 大盘风险提示 — 一方看空，谨慎操作"
+    # ===== 总结论 =====
+    if market_freeze:
+        conclusion = "🔴 大盘风控冻结 — 双模型一致看空，一切买入信号冻结，全面观望"
+    elif market_caution:
+        conclusion = "🟠 大盘风险提示 — 一方看空，不开新仓，已有持仓仅执行止损/止盈"
+    elif aligned_buy:
+        conclusion = f"✅ {len(aligned_buy)}只一致买入信号"
+    elif all_watch:
+        conclusion = "⚪ 全部观望"
+    elif divergence:
+        conclusion = "🔶 有分歧，暂不操作"
     else:
-        conclusion = "一致买入" if aligned_buy else ("一致不买" if not divergence else "有分歧")
+        conclusion = "⚪ 一致不买"
 
     return {
         "date": date_str,
@@ -472,15 +513,13 @@ def align(wb_data, dahai_data, date_str):
             "risk_level": risk_level,
             "risk_detail": risk_detail,
             "is_high_risk": is_high_risk,
-            "oversold_level": oversold_level,
-            "oversold_detail": oversold_detail,
-            "is_oversold": is_oversold,
-            "index_data": index_data,
+            "market_freeze": market_freeze,
+            "market_caution": market_caution,
+            "oversold_info": oversold_info,
         },
         "results": results,
         "aligned_buy": aligned_buy,
         "divergence": divergence,
-        "oversold_candidates": oversold_candidates,
         "conclusion": conclusion,
     }
 
@@ -492,7 +531,6 @@ def push_alignment(result, date_str):
         "message": f"[LIVS-Stock] 双模型对齐 {date_str}",
         "content": base64.b64encode(content.encode()).decode(),
     }
-    # 检查是否已存在
     try:
         meta = gh_api(f"contents/reconciliation/daily/{date_str}_align.json")
         payload["sha"] = meta["sha"]
@@ -548,7 +586,7 @@ def main():
     if not dh_data:
         print(f"\n⚠️ 大海预测缺失 ({args.date})，仅显示大海侧")
 
-    # ===== 数据质量校验（确保双方均为收盘数据且日期一致）=====
+    # ===== 数据质量校验 =====
     if wb_data and dh_data:
         data_ok, warnings = check_data_quality(dh_data, wb_data, args.date)
         if warnings:
@@ -565,36 +603,42 @@ def main():
     if wb_data and dh_data:
         result = align(wb_data, dh_data, args.date)
 
-        # ===== 大盘风控门 + 超跌机会门（最先输出，最醒目）=====
+        # ===== 大盘风控门（最先输出，最醒目）=====
         mkt = result["market"]
-        print(f"\n{'='*50}")
-        print(f"  🔍 大盘风控门")
-        print(f"{'='*50}")
+        print(f"\n{'='*55}")
+        print(f"  🔍 大盘风控门（最高优先级 · 绝对开关）")
+        print(f"{'='*55}")
         wb_dir = mkt["wb"].get("direction", "unknown") if isinstance(mkt["wb"], dict) else mkt["wb"]
         dh_dir = mkt["dahai"].get("direction", "unknown") if isinstance(mkt["dahai"], dict) else mkt["dahai"]
         print(f"  WB   大盘方向: {wb_dir}")
         print(f"  大海 大盘方向: {dh_dir}")
         print(f"\n  {mkt['risk_detail']}")
-        if mkt.get("is_high_risk"):
-            print(f"\n  ⛔ 风控等级: {mkt['risk_level']} — 个股买入信号将被拦截")
-        print(f"{'='*50}\n")
+        
+        if mkt.get("market_freeze"):
+            print(f"\n  ⛔ 风控等级: {mkt['risk_level']} — 一切买入信号冻结，无例外")
+            print(f"  📌 已有持仓仅执行止损/止盈纪律，不开新仓")
+        elif mkt.get("market_caution"):
+            print(f"\n  ⚠️ 风控等级: {mkt['risk_level']} — 不开新仓，仅止损/止盈")
+        print(f"{'='*55}\n")
 
-        # ===== 超跌机会门 =====
-        print(f"{'='*50}")
-        print(f"  📉 超跌机会门")
-        print(f"{'='*50}")
-        # 展示指数涨跌幅
-        if mkt.get("index_data"):
-            print("  主要指数表现:")
-            for idx_name, idx_info in mkt["index_data"].items():
-                chg = idx_info.get("change_pct", 0)
-                close = idx_info.get("close", "N/A")
-                arrow = "🔻" if chg < 0 else "🔺" if chg > 0 else "➖"
-                print(f"    {arrow} {idx_name}: {close} ({chg:+.2f}%)")
-        print(f"\n  {mkt.get('oversold_detail', '')}")
-        if mkt.get("is_oversold"):
-            print(f"\n  💡 超跌等级: {mkt['oversold_level']} — 关注超跌反弹机会")
-        print(f"{'='*50}\n")
+        # ===== 大盘指数信息（仅供参考）=====
+        if mkt.get("oversold_info"):
+            oi = mkt["oversold_info"]
+            print(f"{'='*55}")
+            print(f"  📊 大盘指数参考")
+            print(f"{'='*55}")
+            if oi.get("index_data"):
+                for idx_name, idx_info in oi["index_data"].items():
+                    chg = idx_info.get("change_pct", 0)
+                    close = idx_info.get("close", "N/A")
+                    arrow = "🔻" if chg < 0 else "🔺" if chg > 0 else "➖"
+                    print(f"    {arrow} {idx_name}: {close} ({chg:+.2f}%)")
+            print(f"\n  {oi.get('detail', '')}")
+            if mkt.get("market_freeze"):
+                print(f"  ⚠️ 大盘冻结中，下跌信息仅供参考，不作为买入依据")
+            elif mkt.get("market_caution"):
+                print(f"  ⚠️ 大盘谨慎中，下跌信息仅供参考，不作为买入依据")
+            print(f"{'='*55}\n")
 
         print(f"=== 个股对齐 ===")
         print("核心 6 只:")
@@ -608,11 +652,6 @@ def main():
             print(f"\n🟢 一致买入信号:")
             for b in result["aligned_buy"]:
                 print(f"  • {b}")
-
-        if result.get("oversold_candidates"):
-            print(f"\n🔵 超跌关注候选:")
-            for c in result["oversold_candidates"]:
-                print(f"  • {c}")
 
         if result["divergence"]:
             print(f"\n⚠️ 分歧项:")
@@ -629,7 +668,6 @@ def main():
             except Exception as e:
                 print(f"\n⚠️ 推送失败: {e}")
     else:
-        # 只有一方数据，展示可用数据
         data = wb_data or dh_data
         source = "WB" if wb_data else "大海"
         dirs = extract_core6(data)
