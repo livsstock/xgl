@@ -199,7 +199,7 @@ def normalize_direction(d):
         return "unknown"
     d_lower = d.lower().strip()
     mapping = {
-        "偏多": "bullish", "多": "bullish", "涨": "bullish",
+        "偏多": "bullish", "多": "bullish", "涨": "bullish", "平偏涨": "bullish",
         "偏空": "bearish", "空": "bearish", "跌": "bearish",
         "中性": "neutral", "中": "neutral", "平": "neutral", "观望": "neutral",
         "up": "bullish", "down": "bearish", "neutral": "neutral",
@@ -252,28 +252,71 @@ def extract_core6(data):
 
 def extract_market_direction(data, source="wb"):
     """
-    从预测数据中提取大盘方向判断。
+    从预测数据中提取大盘方向判断（当期状态，非次日预测）。
     大盘风控是双模型对齐的最高优先级。
+    
+    搜索优先级（当期状态优先，避免误读次日预测为当期）：
+    1. market_overview.direction — 大海当期市场判断
+    2. market_outlook.direction — 兼容旧格式
+    3. _market_environment — WB 大盘环境（含 env_label 当期状态）
+    4. market_direction — 通用字段
+    5. eod_quotes.indices 实际涨跌推算 — 基于真实收盘数据
+    6. t1_prediction.sh_index.direction — 次日预测（最后兜底，标注为预测值）
     """
-    if source == "wb":
-        t1 = data.get("t1_prediction", {}).get("sh_index", {})
-        if t1:
-            direction = normalize_direction(t1.get("direction", ""))
-            confidence = t1.get("confidence", None)
-            reason = t1.get("reason", "")
-            return {"direction": direction, "confidence": confidence, "reason": reason}
-        mo = data.get("market_outlook", {})
-        if mo:
-            return {"direction": normalize_direction(mo.get("direction", "")),
-                    "confidence": mo.get("confidence"), "reason": mo.get("reason", "")}
-    else:
-        mo = data.get("market_outlook", {})
-        if mo:
+    # 通用：优先读当期状态字段
+    for field in ["market_overview", "market_outlook", "market_direction"]:
+        mo = data.get(field, {})
+        if isinstance(mo, dict) and mo.get("direction"):
             direction = normalize_direction(mo.get("direction", ""))
             confidence = mo.get("confidence", None)
-            reason = mo.get("reason", "")
-            return {"direction": direction, "confidence": confidence, "reason": reason}
-    return {"direction": "unknown", "confidence": None, "reason": ""}
+            reason = mo.get("reason", mo.get("notes", ""))
+            return {"direction": direction, "confidence": confidence, "reason": reason, "source": field}
+    
+    # WB 特有：_market_environment（含下划线前缀）
+    me = data.get("_market_environment", {})
+    if isinstance(me, dict):
+        # 优先读 index.env_label（当期环境标签）
+        idx = me.get("index", {})
+        if isinstance(idx, dict) and idx.get("env_label"):
+            direction = normalize_direction(idx.get("env_label", ""))
+            return {"direction": direction, "confidence": None,
+                    "reason": f"环境标签:{idx.get('env_label')} M_sse={idx.get('M_score', '?')}",
+                    "source": "_market_environment.index.env_label"}
+        # 次选：当日预测方向（如 9_21_forecast）
+        for key, val in me.items():
+            if "forecast" in key and isinstance(val, dict) and val.get("direction"):
+                direction = normalize_direction(val.get("direction", ""))
+                return {"direction": direction, "confidence": None,
+                        "reason": f"当日预测:{val.get('direction')} ({val.get('compare_to_close_ref', '')})",
+                        "source": f"_market_environment.{key}"}
+    
+    # 从 eod_quotes.indices 实际涨跌推算当期大盘方向
+    indices = data.get("eod_quotes", {}).get("indices", {})
+    if indices:
+        for idx_name in ["上证指数", "沪深300", "上证"]:
+            if idx_name in indices:
+                change = indices[idx_name].get("change_pct", 0)
+                if isinstance(change, str):
+                    try:
+                        change = float(change.replace("%", ""))
+                    except:
+                        change = 0
+                if change <= -0.5:
+                    return {"direction": "bearish", "confidence": None, "reason": f"{idx_name}实际跌{change}%", "source": "eod_quotes"}
+                elif change >= 0.5:
+                    return {"direction": "bullish", "confidence": None, "reason": f"{idx_name}实际涨{change}%", "source": "eod_quotes"}
+                else:
+                    return {"direction": "neutral", "confidence": None, "reason": f"{idx_name}实际变动{change}%", "source": "eod_quotes"}
+    
+    # 最后兜底：t1_prediction（次日预测，非当期状态，需标注）
+    if source == "wb":
+        t1 = data.get("t1_prediction", {}).get("sh_index", {})
+        if t1 and t1.get("direction"):
+            direction = normalize_direction(t1.get("direction", ""))
+            return {"direction": direction, "confidence": t1.get("confidence"),
+                    "reason": f"[次日预测] {t1.get('reason', '')}", "source": "t1_prediction"}
+    
+    return {"direction": "unknown", "confidence": None, "reason": "无法从数据中提取大盘方向", "source": "none"}
 
 
 def is_market_high_risk(wb_market, dh_market):
@@ -283,9 +326,12 @@ def is_market_high_risk(wb_market, dh_market):
     
     级别定义：
     - CRITICAL: 双方一致看空 → 冻结一切买入，无例外
-    - HIGH: 一方看空 → 暂停超跌策略，仅允许止损/止盈
+    - HIGH: 一方看空 或 任一方方向未知(fail-closed) → 暂停超跌策略，仅允许止损/止盈
     - MODERATE: 双方中性 → 观望为主，等待明确信号
-    - NORMAL: 至少一方看多且无看空 → 可正常执行个股分析
+    - NORMAL: 双方均有明确方向且至少一方看多、无看空 → 可正常执行个股分析
+    
+    核心原则：宁可误拦、不可漏放（fail-closed）。
+    unknown 方向不视为安全，而归入 HIGH。
     """
     wb_dir = wb_market.get("direction", "unknown")
     dh_dir = dh_market.get("direction", "unknown")
@@ -293,11 +339,21 @@ def is_market_high_risk(wb_market, dh_market):
     both_bearish = wb_dir == "bearish" and dh_dir == "bearish"
     one_bearish = wb_dir == "bearish" or dh_dir == "bearish"
     both_neutral = wb_dir == "neutral" and dh_dir == "neutral"
+    any_unknown = wb_dir == "unknown" or dh_dir == "unknown"
+    both_bullish = wb_dir == "bullish" and dh_dir == "bullish"
 
     if both_bearish:
         return True, "CRITICAL", "🔴 双模型大盘一致看空 — 冻结一切买入信号，建议全面观望"
     elif one_bearish:
         return True, "HIGH", "🟠 一方大盘看空 — 暂停超跌策略，仅允许已有持仓止损/止盈操作"
+    elif any_unknown:
+        # fail-closed: 方向未知时视为高风险，宁可误拦不可漏放
+        unknown_sources = []
+        if wb_dir == "unknown":
+            unknown_sources.append(f"WB(来源:{wb_market.get('source', '?')})")
+        if dh_dir == "unknown":
+            unknown_sources.append(f"大海(来源:{dh_market.get('source', '?')})")
+        return True, "HIGH", f"⚠️ 大盘方向无法确认({', '.join(unknown_sources)}) — 宁可误拦，暂停买入操作"
     elif both_neutral:
         return False, "MODERATE", "🟡 双方大盘中性 — 观望为主，等待明确信号"
     else:
