@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-30",
+  "model_version": "v1.1-kuramoto",
+  "generated_at": "2026-09-30 15:40:27",
+  "market_outlook": {
+    "direction": "未知",
+    "confidence": 30,
+    "ts_level": 5,
+    "ts_label": "5档·偏空",
+    "ts_position": 10,
+    "ts_value": 0.0
+  },
+  "index_summary": {
+    "close": null,
+    "change_percent": null,
+    "ten_day_change": null
+  },
+  "predictions": []
+}
