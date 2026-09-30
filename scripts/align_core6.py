@@ -283,9 +283,9 @@ def extract_market_direction(data, source="wb"):
                 return {"direction": direction, "confidence": None,
                         "reason": f"环境标签:{idx.get('env_label')} M_sse={me.get('M_sse_v2p5', idx.get('M_score', '?'))}",
                         "source": "_market_environment.index.env_label"}
-            # 根据实际涨跌推算（WB 数据中 index.chg_today_pct 是当日涨跌）
-            if "chg_today_pct" in idx and idx["chg_today_pct"] is not None:
-                chg = idx["chg_today_pct"]
+            # 根据实际涨跌推算（优先 change_percent，兼容 chg_today_pct）
+            chg = idx.get("change_percent", idx.get("chg_today_pct"))
+            if chg is not None:
                 m_sse = me.get("M_sse_v2p5")
                 # 结合涨跌幅和 M_sse 综合判断
                 if chg <= -0.5 or (m_sse is not None and m_sse < 35):
@@ -295,9 +295,10 @@ def extract_market_direction(data, source="wb"):
                 else:
                     direction = "neutral"
                 m_info = f"M_sse={m_sse}" if m_sse is not None else ""
+                src_field = "change_percent" if "change_percent" in idx else "chg_today_pct"
                 return {"direction": direction, "confidence": None,
                         "reason": f"上证涨跌{chg}% {m_info}".strip(),
-                        "source": "_market_environment.index.chg_today_pct"}
+                        "source": f"_market_environment.index.{src_field}"}
         # 次选：当日预测方向（如 9_21_forecast）
         for key, val in me.items():
             if "forecast" in key and isinstance(val, dict) and val.get("direction"):
@@ -306,6 +307,22 @@ def extract_market_direction(data, source="wb"):
                         "reason": f"当日预测:{val.get('direction')} ({val.get('compare_to_close_ref', '')})",
                         "source": f"_market_environment.{key}"}
     
+    # 大海 stock_data 格式：顶层 index 含 change_percent
+    top_idx = data.get("index")
+    if isinstance(top_idx, dict):
+        chg = top_idx.get("change_percent", top_idx.get("chg_today_pct", top_idx.get("change_pct")))
+        if chg is not None:
+            if chg <= -0.5:
+                direction = "bearish"
+            elif chg >= 0.5:
+                direction = "bullish"
+            else:
+                direction = "neutral"
+            src_field = "change_percent" if "change_percent" in top_idx else ("chg_today_pct" if "chg_today_pct" in top_idx else "change_pct")
+            return {"direction": direction, "confidence": None,
+                    "reason": f"上证涨跌{chg:+.2f}%",
+                    "source": f"index.{src_field}"}
+
     # 从 eod_quotes.indices 实际涨跌推算当期大盘方向
     indices = data.get("eod_quotes", {}).get("indices", {})
     if indices:
