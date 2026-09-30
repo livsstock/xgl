@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "_说明": "个股买入信号台账。记录每一个 buy 信号的发出日/标的/理由，并计算后续 T+1/T+3/T+5 实际表现与相对大盘超额收益。设计动机：9/21 那批推荐平均 -5.17% 却无人察觉，因为从未记录过。此台账确保每个信号可追溯、可证伪。",
+  "benchmark": "sh000001",
+  "records": [
+    {
+      "date": "2026-09-21",
+      "code": "000858",
+      "name": "五粮液",
+      "action": "buy_slow_bull",
+      "direction": "up",
+      "reason": "MACD金叉（全池唯一个股金叉）+量比1.24放量+白酒超跌反弹窗口，白酒板块修复首选",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:49",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-21",
+      "code": "512480",
+      "name": "半导体ETF",
+      "action": "hold",
+      "direction": "up",
+      "reason": "MACD金叉+趋势分90主线明确（但RSI6=69.3超买）",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:50",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-21",
+      "code": "600111",
+      "name": "北方稀土",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "RSI24.6全池最低（深度超卖）+周五+0.35%止跌",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:50",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-21",
+      "code": "601899",
+      "name": "紫金矿业",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "超跌分40+周五收红1.65%+有色板块修复共振",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:50",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-21",
+      "code": "601958",
+      "name": "金钼股份",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "超跌分30（30日回撤-17.11%第3深，错杀型）",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:50",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-21",
+      "code": "603799",
+      "name": "华友钴业",
+      "action": "watch_rebound",
+      "direction": "up",
+      "reason": "超跌分20+RSI33.7偏低+周五+1.71%收红",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:50",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-22",
+      "code": "603799",
+      "name": "华友钴业",
+      "action": "buy",
+      "direction": "up",
+      "reason": "止跌信号触发：量比2.07≥1.53；30日回撤-15.77%，量比2.07",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:49",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-29",
+      "code": "601899",
+      "name": "紫金矿业",
+      "action": "buy",
+      "direction": "up",
+      "reason": "触发：RSI6=19.4<30",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:49",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-29",
+      "code": "601958",
+      "name": "金钼股份",
+      "action": "buy",
+      "direction": "up",
+      "reason": "触发：RSI6=28.9<30",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:49",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-30",
+      "code": "601899",
+      "name": "紫金矿业",
+      "action": "buy",
+      "direction": "up",
+      "reason": "触发：RSI6=29.0<35",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:49",
+      "forward": {}
+    },
+    {
+      "date": "2026-09-30",
+      "code": "601958",
+      "name": "金钼股份",
+      "action": "buy",
+      "direction": "up",
+      "reason": "触发：RSI6=30.2<35",
+      "core_pool": true,
+      "recorded_at": "2026-09-30 14:49",
+      "forward": {}
+    }
+  ],
+  "_created": "2026-09-30 14:49",
+  "_updated": "2026-09-30 14:49"
+}
