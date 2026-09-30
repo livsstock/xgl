@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.0",
+  "_说明": "闸门样本台账。每日记录对齐机制输出，用于回测『双模型一致不买』是否真的避开了下跌。目标：攒到 30+ 个闸门触发日再回测。",
+  "records": [
+    {
+      "date": "2026-09-21",
+      "recorded_at": "2026-09-29 15:31",
+      "is_trading_day": true,
+      "day_label": "交易日",
+      "wb_model": "WorkBuddy (LLM+代码混合)",
+      "dh_model": "v1.1-kuramoto",
+      "wb_market": "up",
+      "wb_market_raw": "up",
+      "dh_market": "up",
+      "dh_market_raw": "偏多",
+      "market_agree": true,
+      "core_agree": "6/6",
+      "wb_buy": 0,
+      "dh_buy": 0,
+      "verdict_code": "TIME_MISMATCH",
+      "verdict": "⚠️ 时点不对齐（WB基准 2026-09-21 / 大海基准 2026-09-18）→ 比较无效 → 不出手",
+      "wb_basis": "2026-09-21",
+      "dh_basis": "2026-09-18",
+      "basis_state": "MISMATCH",
+      "time_aligned": false,
+      "sample_usable": false,
+      "forward": {},
+      "core_pool_snapshot": [
+        {
+          "code": "601899",
+          "name": "紫金矿业",
+          "wb": "up",
+          "dh": "up",
+          "status": "一致"
+        },
+        {
+          "code": "600111",
+          "name": "北方稀土",
+          "wb": "up",
+          "dh": "up",
+          "status": "一致"
+        },
+        {
+          "code": "603799",
+          "name": "华友钴业",
+          "wb": "up",
+          "dh": "up",
+          "status": "一致"
+        },
+        {
+          "code": "601958",
+          "name": "金钼股份",
+          "wb": "up",
+          "dh": "up",
+          "status": "一致"
+        },
+        {
+          "code": "512480",
+          "name": "半导体ETF",
+          "wb": "up",
+          "dh": "up",
+          "status": "一致"
+        },
+        {
+          "code": "000858",
+          "name": "五粮液",
+          "wb": "up",
+          "dh": "up",
+          "status": "一致"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "recorded_at": "2026-09-29 15:31",
+      "is_trading_day": true,
+      "day_label": "交易日",
+      "wb_model": "WorkBuddy",
+      "dh_model": "v12.6",
+      "wb_market": "neutral",
+      "wb_market_raw": "neutral",
+      "dh_market": "down",
+      "dh_market_raw": "bearish",
+      "market_agree": false,
+      "core_agree": "4/6",
+      "wb_buy": 0,
+      "dh_buy": 0,
+      "verdict_code": "BASIS_UNKNOWN",
+      "verdict": "⚠️ 基准日缺失（WB=2026-09-24 / 大海=无）→ 无法判定可比性 → 不出手",
+      "wb_basis": "2026-09-24",
+      "dh_basis": null,
+      "basis_state": "UNKNOWN",
+      "time_aligned": false,
+      "sample_usable": false,
+      "forward": {},
+      "core_pool_snapshot": [
+        {
+          "code": "601899",
+          "name": "紫金矿业",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "600111",
+          "name": "北方稀土",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "603799",
+          "name": "华友钴业",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "601958",
+          "name": "金钼股份",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "512480",
+          "name": "半导体ETF",
+          "wb": "up",
+          "dh": "neutral",
+          "status": "分歧"
+        },
+        {
+          "code": "000858",
+          "name": "五粮液",
+          "wb": "down",
+          "dh": "neutral",
+          "status": "分歧"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-28",
+      "recorded_at": "2026-09-29 15:31",
+      "is_trading_day": true,
+      "day_label": "交易日",
+      "wb_model": "WorkBuddy",
+      "dh_model": "v12.6",
+      "wb_market": "down",
+      "wb_market_raw": "down",
+      "dh_market": "down",
+      "dh_market_raw": "bearish",
+      "market_agree": true,
+      "core_agree": "4/6",
+      "wb_buy": 0,
+      "dh_buy": 0,
+      "verdict_code": "BASIS_UNKNOWN",
+      "verdict": "⚠️ 基准日缺失（WB=2026-09-28 / 大海=无）→ 无法判定可比性 → 不出手",
+      "wb_basis": "2026-09-28",
+      "dh_basis": null,
+      "basis_state": "UNKNOWN",
+      "time_aligned": false,
+      "sample_usable": false,
+      "forward": {},
+      "core_pool_snapshot": [
+        {
+          "code": "601899",
+          "name": "紫金矿业",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "600111",
+          "name": "北方稀土",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "603799",
+          "name": "华友钴业",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "601958",
+          "name": "金钼股份",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "512480",
+          "name": "半导体ETF",
+          "wb": "down",
+          "dh": "neutral",
+          "status": "分歧"
+        },
+        {
+          "code": "000858",
+          "name": "五粮液",
+          "wb": "down",
+          "dh": "neutral",
+          "status": "分歧"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "recorded_at": "2026-09-29 15:31",
+      "is_trading_day": true,
+      "day_label": "交易日",
+      "wb_model": "WorkBuddy",
+      "dh_model": "v12.7",
+      "wb_market": "neutral",
+      "wb_market_raw": "neutral",
+      "dh_market": "down",
+      "dh_market_raw": "bearish",
+      "market_agree": false,
+      "core_agree": "2/6",
+      "wb_buy": 2,
+      "dh_buy": 0,
+      "verdict_code": "TIME_MISMATCH",
+      "verdict": "⚠️ 时点不对齐（WB基准 2026-09-29 / 大海基准 2026-09-28）→ 比较无效 → 不出手",
+      "wb_basis": "2026-09-29",
+      "dh_basis": "2026-09-28",
+      "basis_state": "MISMATCH",
+      "time_aligned": false,
+      "sample_usable": false,
+      "forward": {},
+      "core_pool_snapshot": [
+        {
+          "code": "601899",
+          "name": "紫金矿业",
+          "wb": "up",
+          "dh": "down",
+          "status": "分歧"
+        },
+        {
+          "code": "600111",
+          "name": "北方稀土",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "603799",
+          "name": "华友钴业",
+          "wb": "down",
+          "dh": "down",
+          "status": "一致"
+        },
+        {
+          "code": "601958",
+          "name": "金钼股份",
+          "wb": "up",
+          "dh": "down",
+          "status": "分歧"
+        },
+        {
+          "code": "512480",
+          "name": "半导体ETF",
+          "wb": "up",
+          "dh": "neutral",
+          "status": "分歧"
+        },
+        {
+          "code": "000858",
+          "name": "五粮液",
+          "wb": "down",
+          "dh": "neutral",
+          "status": "分歧"
+        }
+      ]
+    }
+  ],
+  "_created": "2026-09-29 15:02",
+  "_updated": "2026-09-29 15:31"
+}
