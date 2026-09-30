@@ -275,13 +275,29 @@ def extract_market_direction(data, source="wb"):
     # WB 特有：_market_environment（含下划线前缀）
     me = data.get("_market_environment", {})
     if isinstance(me, dict):
-        # 优先读 index.env_label（当期环境标签）
         idx = me.get("index", {})
-        if isinstance(idx, dict) and idx.get("env_label"):
-            direction = normalize_direction(idx.get("env_label", ""))
-            return {"direction": direction, "confidence": None,
-                    "reason": f"环境标签:{idx.get('env_label')} M_sse={idx.get('M_score', '?')}",
-                    "source": "_market_environment.index.env_label"}
+        if isinstance(idx, dict):
+            # 优先读 index.env_label（当期环境标签，如 WB 后续补充）
+            if idx.get("env_label"):
+                direction = normalize_direction(idx.get("env_label", ""))
+                return {"direction": direction, "confidence": None,
+                        "reason": f"环境标签:{idx.get('env_label')} M_sse={me.get('M_sse_v2p5', idx.get('M_score', '?'))}",
+                        "source": "_market_environment.index.env_label"}
+            # 根据实际涨跌推算（WB 数据中 index.chg_today_pct 是当日涨跌）
+            if "chg_today_pct" in idx and idx["chg_today_pct"] is not None:
+                chg = idx["chg_today_pct"]
+                m_sse = me.get("M_sse_v2p5")
+                # 结合涨跌幅和 M_sse 综合判断
+                if chg <= -0.5 or (m_sse is not None and m_sse < 35):
+                    direction = "bearish"
+                elif chg >= 0.5:
+                    direction = "bullish"
+                else:
+                    direction = "neutral"
+                m_info = f"M_sse={m_sse}" if m_sse is not None else ""
+                return {"direction": direction, "confidence": None,
+                        "reason": f"上证涨跌{chg}% {m_info}".strip(),
+                        "source": "_market_environment.index.chg_today_pct"}
         # 次选：当日预测方向（如 9_21_forecast）
         for key, val in me.items():
             if "forecast" in key and isinstance(val, dict) and val.get("direction"):
