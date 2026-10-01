@@ -574,6 +574,76 @@ def generate_alert_md(date_str, status, anomalies, missing, stocks):
     return "\n".join(lines)
 
 
+# ==================== 预测管道降级检测 ====================
+
+def check_prediction_quality():
+    """
+    检测5: 预测管道降级
+    - predictions-dahai/ 最新文件 predictions 为空
+    - close 为 null
+    - 模型版本回退（不含 kuramoto/v13）
+    """
+    import glob as _glob
+    anomalies = []
+    pred_dir = "predictions-dahai"
+    if not os.path.isdir(pred_dir):
+        return anomalies
+
+    files = sorted(_glob.glob(os.path.join(pred_dir, "*_dahai.json")))
+    if not files:
+        return anomalies
+
+    latest = files[-1]
+    try:
+        with open(latest, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        anomalies.append({
+            "type": "prediction_degradation",
+            "stock": "预测管道",
+            "code": "N/A",
+            "value": None,
+            "level": "alert",
+            "message": f"预测文件 {latest} 无法解析",
+        })
+        return anomalies
+
+    preds = data.get("predictions", [])
+    if len(preds) == 0:
+        anomalies.append({
+            "type": "prediction_degradation",
+            "stock": "预测管道",
+            "code": "N/A",
+            "value": None,
+            "level": "critical",
+            "message": f"预测文件 {latest}: predictions 为空，管道可能降级",
+        })
+
+    ver = data.get("model_version", "")
+    if ver and "kuramoto" not in ver.lower() and "v13" not in ver.lower():
+        anomalies.append({
+            "type": "prediction_degradation",
+            "stock": "预测管道",
+            "code": "N/A",
+            "value": ver,
+            "level": "alert",
+            "message": f"预测文件 {latest}: 模型版本回退为 {ver}，疑似降级",
+        })
+
+    idx = data.get("index_summary", {})
+    if isinstance(idx, dict) and idx.get("close") is None:
+        anomalies.append({
+            "type": "prediction_degradation",
+            "stock": "预测管道",
+            "code": "N/A",
+            "value": None,
+            "level": "alert",
+            "message": f"预测文件 {latest}: index_summary.close 为 null",
+        })
+
+    return anomalies
+
+
 # ==================== 主流程 ====================
 
 def main():
@@ -601,6 +671,10 @@ def main():
 
     print(f"[OK] 提取到 {len(stocks)} 只标的数据\n")
 
+    # 2.5 检测预测管道降级
+    print("[检测] 预测管道状态...")
+    pred_anomalies = check_prediction_quality()
+    
     # 3. 执行四维检测
     print("[检测] 1/4 数据完整性...")
     completeness_anomalies, missing = check_completeness(stocks)
@@ -614,7 +688,7 @@ def main():
     print("[检测] 4/4 数据质量...")
     quality_anomalies = check_data_quality(stocks)
 
-    all_anomalies = completeness_anomalies + price_anomalies + sector_anomalies + quality_anomalies
+    all_anomalies = completeness_anomalies + price_anomalies + sector_anomalies + quality_anomalies + pred_anomalies
 
     # 4. 判定状态
     status = determine_status(all_anomalies, missing, stocks)

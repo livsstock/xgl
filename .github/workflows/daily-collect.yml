@@ -12,20 +12,41 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
+      - name: Trading day gate
+        id: gate
+        run: |
+          python -c "
+          import sys, os
+          sys.path.insert(0, os.path.join(os.getcwd(), 'scripts'))
+          from trade_calendar import beijing_today, is_trading_day, describe
+          today = beijing_today()
+          if not is_trading_day(today):
+              print(f'[SKIP] {today} 非交易日（{describe(today)}），跳过采集')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('skip=true\n')
+          else:
+              print(f'[OK] {today} 是交易日，继续采集')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('skip=false\n')
+          "
+
       - name: Run collection script
+        if: steps.gate.outputs.skip != 'true'
         run: |
           python daily_collect.py
 
       - name: Anomaly Detection
+        if: steps.gate.outputs.skip != 'true'
         run: |
           python anomaly_detector.py
-          # 读取检测结果状态
           if [ -f manifest.json ]; then
             STATUS=$(python3 -c "import json; print(json.load(open('manifest.json'))['status'])" 2>/dev/null || echo "unknown")
             echo "ANOMALY_STATUS=${STATUS}" >> $GITHUB_ENV
@@ -35,14 +56,13 @@ jobs:
           fi
 
       - name: Commit and push results
+        if: steps.gate.outputs.skip != 'true'
         run: |
           git config user.name "LIVS-Stock-Bot"
           git config user.email "livs-stock@github-actions"
           git add output/ stock.josn manifest.json anomaly_alert.md
 
-          # 根据异常状态生成不同的 commit message
           if [ "$ALERT_DETECTED" = "true" ]; then
-            # 提取 anomaly_alert.md 前3行作为摘要
             ALERT_SUMMARY=$(head -3 anomaly_alert.md | tr '\n' ' ' | cut -c1-100)
             git commit -m "⚠️ ALERT: ${ALERT_SUMMARY} | auto: daily data $(date +%Y-%m-%d)" || true
           else
@@ -50,9 +70,3 @@ jobs:
           fi
 
           git push
-
-      # 可选：失败时通知（需要配置 webhook）
-      # - name: Notify on alert
-      #   if: env.ALERT_DETECTED == 'true'
-      #   run: |
-      #     echo "⚠️ 检测到异常，请检查 anomaly_alert.md"

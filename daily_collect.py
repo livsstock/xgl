@@ -3,7 +3,11 @@
 LIVS-Stock 每日财经数据采集脚本 v2.1
 运行于 GitHub Actions，每交易日北京时间 8:00 自动采集
 
-v2.1 更新:
+v2.2 更新:
+- 接入共享交易日历 scripts/trade_calendar.py
+- 新增交易日闸门：非交易日自动跳过
+
+v2.1 历史更新:
 - 新增个股技术指标计算（MACD/超跌评分/趋势评分/操作级别）
 - 新增 stock_data_YYYYMMDD.json 输出，供预测引擎直接消费
 - 标的池扩至 20 只（14股 + 3ETF + 3指数）
@@ -21,6 +25,11 @@ import os
 import urllib.request
 import urllib.error
 from datetime import datetime, timedelta, timezone
+import sys
+
+# 引入共享交易日历（单一日历源）
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
+from trade_calendar import is_trading_day as _is_trading_day, beijing_today
 
 # ==================== 配置 ====================
 TZ_CST = timezone(timedelta(hours=8))
@@ -97,14 +106,10 @@ def safe_float(val):
 
 
 def get_trade_date():
-    """获取上一个交易日（简化：跳过周末）"""
-    today = datetime.now(TZ_CST).date()
-    if today.weekday() == 0:  # 周一 -> 上周五
-        return today - timedelta(days=3)
-    elif today.weekday() == 6:  # 周日 -> 上周五
-        return today - timedelta(days=2)
-    else:
-        return today - timedelta(days=1)
+    """获取上一个交易日（使用共享交易日历，支持节假日）"""
+    today = beijing_today()
+    from trade_calendar import prev_trading_day
+    return datetime.fromisoformat(prev_trading_day(today)).date()
 
 
 # ==================== 行情数据采集 ====================
@@ -782,10 +787,17 @@ def update_manifest(date_str, quality_overall, sources_status, stock_data_filena
 # ==================== 主流程 ====================
 
 def main():
+    # === 交易日闸门：非交易日自动跳过 ===
+    today_bj = beijing_today()
+    if not _is_trading_day(today_bj):
+        from trade_calendar import describe
+        print(f"[SKIP] {today_bj} 非交易日（{describe(today_bj)}），跳过采集")
+        return
+
     trade_date = get_trade_date()
     date_str = trade_date.strftime("%Y-%m-%d")
     date_compact = trade_date.strftime("%Y%m%d")
-    print(f"=== LIVS-Stock 每日采集 v2.1 {date_str} ===")
+    print(f"=== LIVS-Stock 每日采集 v2.2 {date_str} ===")
     print(f"采集时间: {datetime.now(TZ_CST).strftime('%Y-%m-%d %H:%M:%S')} CST\n")
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)

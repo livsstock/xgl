@@ -24,57 +24,42 @@ import argparse
 import os
 from datetime import datetime, date, timedelta
 
-# ===== 2026年中国股市休市日历（节假日+周末）=====
-# 需每年更新。格式: "YYYY-MM-DD"
-CN_HOLIDAYS_2026 = {
-    # 元旦
-    "2026-01-01", "2026-01-02", "2026-01-03",
-    # 春节（预估，需根据国务院通知更新）
-    "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-21", "2026-02-22",
-    # 清明节
-    "2026-04-04", "2026-04-05", "2026-04-06",
-    # 劳动节
-    "2026-05-01", "2026-05-02", "2026-05-03", "2026-05-04", "2026-05-05",
-    # 端午节
-    "2026-05-31", "2026-06-01", "2026-06-02",
-    # 中秋节
-    "2026-09-25", "2026-09-26", "2026-09-27",
-    # 国庆节
-    "2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04", "2026-10-05", "2026-10-06", "2026-10-07",
-}
+# ===== 使用共享交易日历（单一日历源）=====
+# 所有交易日判断统一走 scripts/trade_calendar.py，不再维护本地日历副本
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
+from trade_calendar import (
+    is_trading_day,
+    shift as _shift,
+    prev_trading_day as _prev_td,
+    next_trading_day as _next_td,
+    trading_days_between as _td_between,
+    beijing_today,
+    describe as _describe,
+)
 
-def is_trading_day(d):
-    """判断是否为A股交易日（排除周末和中国法定假日）"""
-    if d.weekday() >= 5:  # 周六日
-        return False
-    ds = d.strftime("%Y-%m-%d")
-    if ds in CN_HOLIDAYS_2026:
-        return False
-    return True
+def _to_date(d):
+    """兼容旧调用：确保返回 date 对象"""
+    if isinstance(d, str):
+        return date.fromisoformat(d)
+    if isinstance(d, datetime):
+        return d.date()
+    return d
 
 def get_prev_trading_day(d):
     """获取指定日期之前的最近交易日"""
-    d = d - timedelta(days=1)
-    while not is_trading_day(d):
-        d = d - timedelta(days=1)
-    return d
+    return _prev_td(_to_date(d))
 
 def get_next_trading_day(d):
     """获取指定日期之后的最近交易日"""
-    d = d + timedelta(days=1)
-    while not is_trading_day(d):
-        d = d + timedelta(days=1)
-    return d
+    return _next_td(_to_date(d))
 
 def get_trading_days_between(start, end):
     """获取两个日期之间的所有交易日（含首尾）"""
-    days = []
-    d = start
-    while d <= end:
-        if is_trading_day(d):
-            days.append(d)
-        d = d + timedelta(days=1)
-    return days
+    s = _to_date(start)
+    e = _to_date(end)
+    # trading_days_between 是 (start, end]，需要包含 start
+    result = _td_between(s, e, inclusive_start=True)
+    return [date.fromisoformat(d) for d in result]
 
 def check_data_quality(dahai_data, wb_data, target_date_str):
     """

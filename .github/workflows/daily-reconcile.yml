@@ -1,0 +1,120 @@
+name: LIVS-Stock 每日收盘对账（16:10）
+
+on:
+  schedule:
+    # 北京时间 16:10 = UTC 8:10（周一到周五）
+    - cron: '10 8 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Trading day gate
+        id: gate
+        run: |
+          python -c "
+          import sys, os
+          sys.path.insert(0, os.path.join(os.getcwd(), 'scripts'))
+          from trade_calendar import beijing_today, is_trading_day, describe
+          today = beijing_today()
+          if not is_trading_day(today):
+              print(f'[SKIP] {today} 非交易日（{describe(today)}），跳过对账')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('skip=true\n')
+          else:
+              print(f'[OK] {today} 是交易日，继续对账')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('skip=false\n')
+          "
+
+      - name: Install dependencies
+        if: steps.gate.outputs.skip != 'true'
+        run: pip install requests 2>/dev/null || true
+
+      - name: Run dual-model alignment
+        if: steps.gate.outputs.skip != 'true'
+        env:
+          GH_TOKEN_FINEGRAINED: ${{ secrets.GH_TOKEN_FINEGRAINED }}
+          GH_TOKEN_CLASSIC: ${{ secrets.GH_TOKEN_CLASSIC }}
+        run: |
+          python scripts/align_core6.py --date "$(python -c "
+          import sys, os
+          sys.path.insert(0, os.path.join(os.getcwd(), 'scripts'))
+          from trade_calendar import last_trading_day
+          print(last_trading_day(before_close=False))
+          ")"
+
+      - name: Check prediction quality
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          python -c "
+          import json, os, glob
+          from datetime import datetime, timezone, timedelta
+          TZ = timezone(timedelta(hours=8))
+          today = datetime.now(TZ).strftime('%Y-%m-%d')
+
+          # Check dahai predictions for degradation
+          pred_dir = 'predictions-dahai'
+          latest = None
+          if os.path.isdir(pred_dir):
+              files = sorted(glob.glob(os.path.join(pred_dir, '*_dahai.json')))
+              if files:
+                  latest = files[-1]
+
+          issues = []
+          if latest:
+              with open(latest) as f:
+                  data = json.load(f)
+              preds = data.get('predictions', [])
+              if len(preds) == 0:
+                  issues.append('predictions 为空数组')
+              ver = data.get('model_version', '')
+              if 'kuramoto' not in ver.lower() and 'v13' not in ver.lower():
+                  issues.append(f'模型版本异常: {ver}')
+              idx = data.get('index_summary', {})
+              if idx.get('close') is None:
+                  issues.append('index_summary.close 为 null')
+
+              if issues:
+                  print(f'[DEGRADED] {latest}: ' + '; '.join(issues))
+                  # Write degradation alert
+                  with open('prediction_degradation.md', 'w') as out:
+                      out.write(f'# ⚠️ 预测管道降级告警\n\n')
+                      out.write(f'**日期:** {today}\n')
+                      out.write(f'**文件:** {latest}\n\n')
+                      out.write(f'**问题:\n')
+                      for i in issues:
+                          out.write(f'- {i}\n')
+                      out.write(f'\n请检查预测管道是否正常运行。\n')
+                  with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                      f.write('degraded=true\n')
+              else:
+                  print(f'[OK] {latest}: 预测正常')
+                  with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                      f.write('degraded=false\n')
+          else:
+              print('[WARN] 未找到大海预测文件')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('degraded=false\n')
+          "
+
+      - name: Commit alignment results
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          git config user.name "LIVS-Stock-Bot"
+          git config user.email "livs-stock@github-actions"
+          git add reconcile/daily/ predictions-dahai/ prediction_degradation.md 2>/dev/null || true
+          git commit -m "📊 auto: dual-model alignment $(date +%Y-%m-%d)" || true
+          git push
