@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-08",
+  "generated_at": "2026-10-08T16:51:09+08:00",
+  "status": "wb_missing",
+  "dahai_available": true,
+  "wb_available": false,
+  "alignment_note": "WB侧缺失，无法对齐",
+  "dahai_summary": {
+    "market_direction": "neutral",
+    "market_confidence": 42,
+    "sse_close": 3811.9,
+    "sse_change_pct": -0.79,
+    "overall": "全面观望",
+    "stock_actions": {
+      "sh601899_紫金矿业": {
+        "direction": "neutral",
+        "action": "watch"
+      },
+      "sh600111_北方稀土": {
+        "direction": "neutral",
+        "action": "watch"
+      },
+      "sh603799_华友钴业": {
+        "direction": "neutral",
+        "action": "watch"
+      },
+      "sh601958_金钼股份": {
+        "direction": "neutral",
+        "action": "watch"
+      },
+      "sh512480_半导体ETF": {
+        "direction": "neutral",
+        "action": "watch"
+      },
+      "sz000858_五粮液": {
+        "direction": "bullish",
+        "action": "hold"
+      }
+    }
+  },
+  "dual_model_result": {
+    "aligned_buy_signals": 0,
+    "action": "不出手",
+    "reason": "WB侧预测缺失，根据对齐规则：一方缺失=不出手"
+  },
+  "key_observations": [
+    "国庆后首日(10/8)大盘偏弱-0.79%，核心池5/6下跌",
+    "半导体ETF 10日暴跌-13.04%触发超跌线，但无止跌信号",
+    "北方稀土RSI6=13.78极度超卖，金钼10日跌-9.86%接近超跌线",
+    "五粮液MACD金叉维持，长效轨唯一偏多信号",
+    "大海侧建议全部观望/持有，无买入信号",
+    "WB侧2026-10-08预测文件缺失，无法进行双模型对齐"
+  ]
+}
