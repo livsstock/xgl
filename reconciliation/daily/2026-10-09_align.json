@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-09",
+  "generated_at": "2026-10-09T16:50:00Z",
+  "status": "wb_missing",
+  "market": {
+    "wb": null,
+    "dahai": {
+      "direction": "neutral",
+      "confidence": 50,
+      "source": "market_outlook",
+      "reason": "上证+0.05%几乎平盘，结构分化修复中"
+    },
+    "risk_level": "UNKNOWN",
+    "risk_detail": "⚠️ WB侧预测缺失，无法执行大盘风控门双模型比对",
+    "is_high_risk": true,
+    "market_freeze": false,
+    "market_caution": false,
+    "note": "WB侧predictions/2026-10-09.json不存在，对齐无法完成。按fail-closed原则，缺少任一方数据时暂停买入操作。"
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "bullish",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "wb_action": "无数据",
+      "dahai_action": "hold",
+      "dahai_direction": "bullish",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "⚠️ WB侧预测缺失，无法执行双模型对齐。大海侧：5只观望+1只持有(五粮液)，无买入信号。按规则分歧或一方缺失=不出手。",
+  "dahai_summary": {
+    "watch": 4,
+    "hold": 1,
+    "buy_probe": 0,
+    "buy_standard": 0,
+    "key_signals": [
+      "紫金矿业大涨4.87%，MACD收敛待金叉",
+      "华友钴业MACD金叉确认，方向偏多但量能不足",
+      "半导体ETF 10日跌-8.99%接近超跌线，无止跌",
+      "五粮液MACD金叉维持，长效轨持有"
+    ]
+  }
+}
