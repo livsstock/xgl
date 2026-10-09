@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-01",
-  "status": "alert",
+  "date": "2026-10-09",
+  "status": "failed",
   "anomalies": [
     {
       "type": "missing_stock",
@@ -25,6 +25,14 @@
       "value": null,
       "level": "alert",
       "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
+    },
+    {
+      "type": "prediction_degradation",
+      "stock": "预测管道",
+      "code": "N/A",
+      "value": null,
+      "level": "critical",
+      "message": "预测文件 predictions-dahai/2026-10-08_dahai.json: predictions 为空，管道可能降级"
     }
   ],
   "missing_stocks": [
@@ -49,6 +57,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-10-01T08:02:55+08:00",
+  "generated_at": "2026-10-09T08:04:08+08:00",
   "detector_version": "1.0"
 }

@@ -177,7 +177,7 @@
       "filename": "output/daily-finance-2026-09-30.json",
       "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-09-30.json",
       "quality": "partial",
-      "updated_at": "2026-10-01T08:02:55+08:00",
+      "updated_at": "2026-10-09T08:04:08+08:00",
       "sources": {
         "tencent_quotes": "ok",
         "sina_fx_futures": "ok",
