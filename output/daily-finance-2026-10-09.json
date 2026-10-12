@@ -1,0 +1,265 @@
+{
+  "schema_version": "2.1",
+  "date": "2026-10-09",
+  "collector": "LIVS-Stock-WorkBuddy/2.1",
+  "generated_at": "2026-10-12T08:03:56+08:00",
+  "data_quality": {
+    "overall": "partial",
+    "sources": {
+      "tencent_quotes": "ok",
+      "sina_fx_futures": "ok",
+      "cboe_vix": "ok",
+      "a50_futures": "failed",
+      "usd_cny": "failed",
+      "ths_margin": "failed",
+      "sina_sectors": "failed",
+      "kline_data": "ok"
+    }
+  },
+  "data_notes": [
+    "自动采集：腾讯财经+新浪+同花顺+CBOE公开接口",
+    "北向资金：东财2024/8起停披，填null",
+    "v2.1: 新增个股技术指标计算"
+  ],
+  "macro": {
+    "us_market": {
+      "djia": {
+        "close": null,
+        "change_pct": null
+      },
+      "sp500": {
+        "close": null,
+        "change_pct": null
+      },
+      "nasdaq": {
+        "close": null,
+        "change_pct": null
+      },
+      "china_golden_dragon": {
+        "close": null,
+        "change_pct": null
+      }
+    },
+    "a50_futures": {
+      "change_pct": null
+    },
+    "usd_cny_offshore": null,
+    "vix": 14.84
+  },
+  "capital_flow": {
+    "northbound": {
+      "net_inflow_yesterday": null,
+      "net_inflow_5d_cum": null,
+      "top_add": []
+    },
+    "margin_balance_change": null
+  },
+  "market_sentiment": {
+    "limit_up_count": null,
+    "limit_down_count": null,
+    "total_turnover_billion": 19005.6,
+    "turnover_change_pct": null,
+    "advance_count": null,
+    "decline_count": null
+  },
+  "sector": {
+    "top5": [],
+    "bottom5": [],
+    "hot_topics": []
+  },
+  "watchlist_news": [],
+  "policy": [],
+  "breaking_news": [],
+  "commodities": {
+    "wti_crude": {
+      "price": null,
+      "change_pct": 92.62
+    },
+    "gold": {
+      "price": null,
+      "change_pct": 4224.4
+    },
+    "copper": {
+      "price": null,
+      "change_pct": 671.85
+    }
+  },
+  "eod_quotes": {
+    "indices": {
+      "上证指数": {
+        "close": 3813.79,
+        "change_pct": 0.05
+      },
+      "深证成指": {
+        "close": 12641.86,
+        "change_pct": 0.17
+      },
+      "创业板指": {
+        "close": 3043.33,
+        "change_pct": 0.22
+      },
+      "沪深300": {
+        "close": 4317.25,
+        "change_pct": 0.16
+      }
+    },
+    "watchlist": [
+      {
+        "code": "601398",
+        "name": "��������",
+        "close": 8.22,
+        "change_pct": -1.08
+      },
+      {
+        "code": "601288",
+        "name": "ũҵ����",
+        "close": 6.98,
+        "change_pct": -0.57
+      },
+      {
+        "code": "600036",
+        "name": "��������",
+        "close": 41.42,
+        "change_pct": -0.7
+      },
+      {
+        "code": "002142",
+        "name": "��������",
+        "close": 35.24,
+        "change_pct": -1.23
+      },
+      {
+        "code": "600111",
+        "name": "����ϡ��",
+        "close": 35.01,
+        "change_pct": 1.48
+      },
+      {
+        "code": "600392",
+        "name": "ʢ����Դ",
+        "close": 19.84,
+        "change_pct": 0.71
+      },
+      {
+        "code": "000960",
+        "name": "��ҵ�ɷ�",
+        "close": 29.9,
+        "change_pct": -0.17
+      },
+      {
+        "code": "002155",
+        "name": "���ϻƽ�",
+        "close": 23.96,
+        "change_pct": 5.27
+      },
+      {
+        "code": "601212",
+        "name": "������ɫ",
+        "close": 5.73,
+        "change_pct": 2.87
+      },
+      {
+        "code": "601958",
+        "name": "����ɷ�",
+        "close": 19.05,
+        "change_pct": 0.69
+      },
+      {
+        "code": "000725",
+        "name": "��������",
+        "close": 5.5,
+        "change_pct": 0.0
+      },
+      {
+        "code": "600875",
+        "name": "��������",
+        "close": 23.5,
+        "change_pct": 0.09
+      },
+      {
+        "code": "600019",
+        "name": "���ֹɷ�",
+        "close": 5.87,
+        "change_pct": -1.68
+      },
+      {
+        "code": "600893",
+        "name": "��������",
+        "close": 37.83,
+        "change_pct": -0.68
+      },
+      {
+        "code": "000858",
+        "name": "�� �� Һ",
+        "close": 70.56,
+        "change_pct": 0.6
+      },
+      {
+        "code": "600519",
+        "name": "����ę́",
+        "close": 1263.0,
+        "change_pct": 0.57
+      },
+      {
+        "code": "601012",
+        "name": "¡������",
+        "close": 11.24,
+        "change_pct": 1.54
+      },
+      {
+        "code": "601899",
+        "name": "�Ͻ��ҵ",
+        "close": 30.8,
+        "change_pct": 4.87
+      },
+      {
+        "code": "603799",
+        "name": "������ҵ",
+        "close": 35.6,
+        "change_pct": 1.05
+      },
+      {
+        "code": "601088",
+        "name": "�й���",
+        "close": 48.4,
+        "change_pct": 1.92
+      },
+      {
+        "code": "510300",
+        "name": "����300ETF��̩����",
+        "close": 4.385,
+        "change_pct": -0.09
+      },
+      {
+        "code": "510500",
+        "name": "��֤500ETF�Ϸ�",
+        "close": 7.282,
+        "change_pct": 0.04
+      },
+      {
+        "code": "159915",
+        "name": "��ҵ��ETF�׷���",
+        "close": 3.064,
+        "change_pct": 0.36
+      },
+      {
+        "code": "562500",
+        "name": "������ETF����",
+        "close": 0.863,
+        "change_pct": 0.12
+      },
+      {
+        "code": "518880",
+        "name": "�ƽ�ETF����",
+        "close": 8.617,
+        "change_pct": 1.69
+      },
+      {
+        "code": "512480",
+        "name": "�뵼��ETF������",
+        "close": 0.911,
+        "change_pct": -0.33
+      }
+    ]
+  }
+}
