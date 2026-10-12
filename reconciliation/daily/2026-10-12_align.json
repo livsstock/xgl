@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-12",
+  "generated_at": "2026-10-12T16:50:00+08:00",
+  "status": "wb_missing",
+  "market": {
+    "wb": null,
+    "dahai": {
+      "direction": "neutral",
+      "confidence": 40,
+      "source": "market_outlook",
+      "reason": "上证-0.43%，10日累跌-2.93%，结构性走弱，防御型消费股相对强势"
+    },
+    "risk_level": "UNKNOWN",
+    "risk_detail": "⚠️ WB侧预测缺失，无法执行大盘风控门双模型比对",
+    "is_high_risk": true,
+    "market_freeze": false,
+    "market_caution": false,
+    "note": "WB侧predictions/2026-10-12.json不存在，对齐无法完成。按fail-closed原则，缺少任一方数据时暂停买入操作。"
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "wb_action": "无数据",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "wb_action": "无数据",
+      "dahai_action": "hold",
+      "dahai_direction": "bullish",
+      "status": "⚠️ WB侧缺失，无法对齐"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "⚠️ WB侧预测缺失，无法执行双模型对齐。大海侧：5只观望+1只持有(五粮液)，无买入信号。按规则分歧或一方缺失=不出手。",
+  "dahai_summary": {
+    "watch": 5,
+    "hold": 1,
+    "buy_probe": 0,
+    "buy_standard": 0,
+    "key_signals": [
+      "大盘-0.43%，10日累跌-2.93%结构性走弱",
+      "紫金矿业-1.88%回吐涨幅，MACD金叉推迟",
+      "华友钴业-3.01%大跌，10/9金叉信号濒危",
+      "金钼股份-3.15%，10日-9.78%逼近超跌线",
+      "半导体ETF 10日暴跌-14.70%极端超跌，无止跌",
+      "五粮液逆势+0.71%唯一亮点，长效轨持有"
+    ]
+  }
+}
