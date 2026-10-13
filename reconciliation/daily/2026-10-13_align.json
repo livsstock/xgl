@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-13",
+  "generated_at": "2026-10-13T08:45:46.333022Z",
+  "wb_status": "MISSING",
+  "wb_note": "WB侧预测文件缺失 (predictions/2026-10-13.json 不存在)，无法执行双模型对齐。WB最近一次预测为2026-09-28",
+  "dahai_status": "PRESENT",
+  "market": {
+    "dahai": {
+      "direction": "neutral",
+      "confidence": 42,
+      "source": "market_outlook"
+    },
+    "wb": null,
+    "risk_level": "UNKNOWN",
+    "risk_detail": "⚠️ WB侧缺失，无法判断大盘风控等级。基于大海侧：neutral(MODERATE)",
+    "is_high_risk": null,
+    "market_freeze": false,
+    "market_caution": false
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "wb_action": "无数据",
+      "wb_direction": "无",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "dahai_close": 30.4,
+      "dahai_change_pct": 0.6,
+      "status": "⚠️ WB缺失·仅大海侧"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "wb_action": "无数据",
+      "wb_direction": "无",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "dahai_close": 36.07,
+      "dahai_change_pct": 3.5,
+      "status": "⚠️ WB缺失·仅大海侧"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "wb_action": "无数据",
+      "wb_direction": "无",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "dahai_close": 34.08,
+      "dahai_change_pct": -1.3,
+      "status": "⚠️ WB缺失·仅大海侧"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "wb_action": "无数据",
+      "wb_direction": "无",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "dahai_close": 18.84,
+      "dahai_change_pct": 2.11,
+      "status": "⚠️ WB缺失·仅大海侧"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "wb_action": "无数据",
+      "wb_direction": "无",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "dahai_close": 0.886,
+      "dahai_change_pct": -0.23,
+      "status": "⚠️ WB缺失·仅大海侧"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "wb_action": "无数据",
+      "wb_direction": "无",
+      "dahai_action": "hold",
+      "dahai_direction": "bullish",
+      "dahai_close": 70.46,
+      "dahai_change_pct": -0.84,
+      "status": "⚠️ WB缺失·仅大海侧"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "⚠️ WB侧缺失，无法对齐。仅显示大海侧预测供参考",
+  "dahai_only_summary": {
+    "watch": 5,
+    "hold": 1,
+    "buy_probe": 0,
+    "buy_standard": 0,
+    "overall": "大盘微涨+0.10%企稳，10日累跌-3.77%仍处弱势。资源板块超跌反弹初现：北方稀土+3.50%、金钼+2.11%、紫金+0.60%。北方稀土RSI从15.79→52.32脱离超卖，MACD即将金叉。华友钴业逆势-1.30%金叉濒危。半导体ETF 10日暴跌-15.13%极端超跌但MACD否决。五粮液小幅回调不改趋势。无买入信号，全仓观望",
+    "key_signals": [
+      "大盘微涨+0.10%大盘门通过，但10日累跌-3.77%结构性偏弱",
+      "北方稀土大涨+3.50%！RSI6从15.79→52.32脱离超卖，MACD柱-0.37→-0.07急速收敛，即将金叉",
+      "金钼股份反弹+2.11%，10日跌-9.99%触及10%超跌线，但MACD死叉未变",
+      "华友钴业逆势-1.30%，MACD金叉勉强维持(MACD柱0.14)但RSI6降至32.42接近超卖",
+      "半导体ETF 10日暴跌-15.13%极端超跌(RSI6=15.34)，DIF与DEA仅差0.01接近金叉但未确认",
+      "紫金矿业+0.60%温和反弹，MACD空头收敛中(DIF与DEA差0.08)",
+      "五粮液-0.84%正常回调，MACD金叉维持+10日涨+0.27%，长效轨持有",
+      "5只观望+1只持有，无买入信号"
+    ]
+  },
+  "action_rule": "双模型对齐规则：双方方向一致且均为买入信号才建议买；一方缺失=不出手"
+}
