@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "status": "failed",
   "anomalies": [
     {
@@ -27,28 +27,12 @@
       "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
     },
     {
-      "type": "sharp_drop",
-      "stock": "��ҵ�ɷ�",
-      "code": "sz000960",
-      "value": -5.52,
-      "level": "alert",
-      "message": "��ҵ�ɷ� 单日跌幅 -5.52%，超过 5% 阈值"
-    },
-    {
-      "type": "sharp_drop",
-      "stock": "������ɫ",
-      "code": "sh601212",
-      "value": -5.76,
-      "level": "alert",
-      "message": "������ɫ 单日跌幅 -5.76%，超过 5% 阈值"
-    },
-    {
       "type": "prediction_degradation",
       "stock": "预测管道",
       "code": "N/A",
       "value": null,
       "level": "critical",
-      "message": "预测文件 predictions-dahai/2026-10-12_dahai.json: predictions 为空，管道可能降级"
+      "message": "预测文件 predictions-dahai/2026-10-13_dahai.json: predictions 为空，管道可能降级"
     }
   ],
   "missing_stocks": [
@@ -73,6 +57,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-10-13T08:05:38+08:00",
+  "generated_at": "2026-10-14T10:23:51+08:00",
   "detector_version": "1.0"
 }
