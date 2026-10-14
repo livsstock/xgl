@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-14",
+  "generated_at": "2026-10-14T08:52:49.917713Z",
+  "status": "wb_missing",
+  "market": {
+    "dahai": {
+      "direction": "neutral",
+      "confidence": 35,
+      "reason": "上证继续下跌-0.88%至3767点，10日累跌-4.68%。大盘跌破3800整数关口，向3750靠拢。资源板块集体回调：北方稀土-3.35%(昨日反弹今日回吐)、华友钴业-2.46%(MACD死叉)...",
+      "source": "market_outlook"
+    },
+    "wb": null,
+    "risk_level": "HIGH",
+    "risk_detail": "⚠️ WB侧预测缺失，无法完成双模型对齐。大海侧大盘方向neutral但无法交叉验证",
+    "is_high_risk": true,
+    "market_freeze": false,
+    "market_caution": false,
+    "note": "WB侧预测文件 predictions/2026-10-14.json 不存在，可能WB侧今日未生成预测。按规则：WB侧缺失=不出手"
+  },
+  "results": [],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "⚠️ WB侧缺失，无法对齐 — 按规则不出手",
+  "dahai_only": {
+    "note": "仅展示大海侧判断，未经双模型对齐验证，不作为操作依据",
+    "watch": 5,
+    "hold": 1,
+    "buy_probe": 0,
+    "buy_standard": 0,
+    "stocks": [
+      {
+        "code": "sh601899",
+        "name": "紫金矿业",
+        "direction": "neutral",
+        "action": "watch"
+      },
+      {
+        "code": "sh600111",
+        "name": "北方稀土",
+        "direction": "bearish",
+        "action": "watch"
+      },
+      {
+        "code": "sh603799",
+        "name": "华友钴业",
+        "direction": "bearish",
+        "action": "watch"
+      },
+      {
+        "code": "sh601958",
+        "name": "金钼股份",
+        "direction": "bearish",
+        "action": "watch"
+      },
+      {
+        "code": "sh512480",
+        "name": "半导体ETF",
+        "direction": "bearish",
+        "action": "watch"
+      },
+      {
+        "code": "sz000858",
+        "name": "五粮液",
+        "direction": "bullish",
+        "action": "hold"
+      }
+    ]
+  }
+}
