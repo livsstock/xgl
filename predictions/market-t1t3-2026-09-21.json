@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "_说明": "14:35 盘中大盘三档评估 · WorkBuddy vs 大海 vs 实际盘中 · 首日 9/21 真实分歧记录",
+  "scan_time": "2026-09-21 14:35:45",
+  "actual_market_status": {
+    "sh000001_price": 3945.77,
+    "sh000001_change_pct": 0.87,
+    "vs_9_18_close": "+33.90 / +0.87%",
+    "ma20": 3922.42,
+    "above_ma20": true,
+    "above_ma20_pct": 0.59
+  },
+  "T+0_today": {
+    "horizon": "9/21 今日（已实现 14:35）",
+    "workbuddy": {
+      "direction": "down",
+      "range_pred": "3880-3940",
+      "label": "中性（M_sse=42.1），看空下行",
+      "hit": "MISS（方向错；区间 3940 上沿差 5.77 点）"
+    },
+    "dahai": {
+      "direction": "up",
+      "range_pred": "-0.3% ~ +1.0%",
+      "label": "偏多（v1.1-kuramoto）",
+      "hit": "HIT（方向+区间均对：实际 +0.87% 落在区间内）"
+    },
+    "winner": "大海",
+    "_意义": "首日真实分歧——WB M_sse 双因子加权在 9/18 收盘基线上低估了反弹动能；大海 Kuramoto 相位耦合（9 票池）捕捉到了板块轮动"
+  },
+  "T+1_tomorrow": {
+    "horizon": "9/22 周二",
+    "workbuddy": {
+      "direction": "No formal T+1 stand-alone forecast",
+      "fallback_midterm": "上行趋势未破坏，但 4000 关口前需要一次像样的回踩蓄势",
+      "sh_index_view": "bullish_pullback",
+      "range": [3800, 4050],
+      "key_levels": {"support": [3880, 3850, 3800], "resistance": [3950, 4000]},
+      "confidence": 0.55
+    },
+    "dahai": {
+      "direction": "未在 9/21 文件中提供独立 T+1 预测（仅 T+1 晨报为 9/21 当日）",
+      "missing": true
+    },
+    "_gap": "WB 未拆 T+0/T+1 分档输出，仅有 5-10 日中期；大海 T+1 文件按同日 9/21 当日预测。需要 9/22 起的 T+1 输出才能对照"
+  },
+  "T+3_short_horizon": {
+    "horizon": "9/21 ~ 9/24（本周内）",
+    "workbuddy": {
+      "midterm_5_10d": "上行趋势未破坏",
+      "sh_range": [3800, 4050],
+      "key_event": "4000 关口前需要回踩蓄势",
+      "support_levels": [3880, 3850, 3800],
+      "resistance_levels": [3950, 4000]
+    },
+    "dahai": {
+      "missing": "未提供 T+3 输出"
+    },
+    "_gap": "双模型均无 T+3 短期档位预测，需扩展采集"
+  },
+  "discovery_2026_09_21": {
+    "title": "WorkBuddy 9/21 大盘方向首日错",
+    "reason_analysis": "WB M_sse=42.1 中性偏空，基于 15 日涨幅 + MA20 偏离双因子加权。9/18 收盘上证 3911.87，15 日涨幅 -1.02%，MA20 偏离 -0.27%——两个因子都是负数，叠加 M_raw=-0.158 → M_score=42.1 → 暗示下行",
+    "actual_outcome": "9/21 上证开盘 3930（高开），午后最高 3950（站上 3940 WB 上沿）——半导体板块领涨 +4%、房地产走强（与大海 key_picks_summary 完全吻合）",
+    "fix_v2.5": [
+      "M_sse 双因子加权（15日+MA20偏离）对'指数横盘但板块轮动'的环境不敏感——这种环境恰恰是 Kuramoto 模型擅长捕捉的",
+      "建议：M_sse 加第三因子'板块宽度'=上涨家数占比，权重 20%",
+      "或：把 v1.1-kuramoto R_value 作为 M_sse 的第四输入，与 15 日+MA20偏离等权融合",
+      "在 9/22 起的预测中验证修复效果"
+    ]
+  },
+  "_next_step": "16:10 收盘后 reconcile.py 跑 hit/miss → 链路报告 link-report-2026-09-21.md → 9/26 周六带 5 天样本 × 修复版 M_sse 找大海对仲裁权重"
+}
