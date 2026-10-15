@@ -1,0 +1,130 @@
+{
+  "_说明": "14:00盘中扫描·今日尾盘买入决策（v1.1）。判定依据：白皮书v1.5 §7.8止跌信号三选一（量比≥1.3/MACD金叉/RSI6<30）+大盘门（上证跌幅>-2%且M_sse≥35）。verdict: buy_today_1430=今日尾盘可买 / watch_confirms=尾盘确认名单 / wait=继续等。⚠️ 本结果为信号辅助层，最终买入决策以大海v1.1-kuramoto评分（晚间16:10出）为准。",
+  "scan_time": "2026-09-23 14:57:11",
+  "trade_fraction": 0.988,
+  "market_gate": {
+    "ok": true,
+    "reason": "环境分≈47（上证-0.36%，MA20偏离+0.23%）",
+    "sse_close": 3937.85,
+    "sse_chg_pct": -0.36
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "verdict": "wait",
+      "note": "未触发止跌信号，继续等企稳",
+      "signals": [],
+      "near": [],
+      "price": 31.41,
+      "prev_close": 31.41,
+      "chg_today_pct": 0.0,
+      "volume_ratio_est": 0.56,
+      "rsi6_est": 37.0,
+      "macd_state": "below",
+      "dd_30d": -9.59,
+      "track": "short_oversold",
+      "position_pct": 10
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "verdict": "wait",
+      "note": "未触发止跌信号，继续等企稳",
+      "signals": [],
+      "near": [],
+      "price": 37.43,
+      "prev_close": 37.9,
+      "chg_today_pct": -1.24,
+      "volume_ratio_est": 0.58,
+      "rsi6_est": 41.7,
+      "macd_state": "above",
+      "dd_30d": -12.51,
+      "track": "short_oversold",
+      "position_pct": 10
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "verdict": "wait",
+      "note": "未触发止跌信号，继续等企稳",
+      "signals": [],
+      "near": [],
+      "price": 36.16,
+      "prev_close": 36.66,
+      "chg_today_pct": -1.36,
+      "volume_ratio_est": 0.79,
+      "rsi6_est": 44.0,
+      "macd_state": "above",
+      "dd_30d": -16.64,
+      "track": "short_oversold",
+      "position_pct": 10
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "verdict": "wait",
+      "note": "未触发止跌信号，继续等企稳",
+      "signals": [],
+      "near": [],
+      "price": 20.7,
+      "prev_close": 20.99,
+      "chg_today_pct": -1.38,
+      "volume_ratio_est": 0.52,
+      "rsi6_est": 47.0,
+      "macd_state": "above",
+      "dd_30d": -11.5,
+      "track": "short_oversold",
+      "position_pct": 10
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "verdict": "wait",
+      "note": "未触发止跌信号，继续等企稳",
+      "signals": [],
+      "near": [],
+      "price": 1.05,
+      "prev_close": 1.051,
+      "chg_today_pct": -0.1,
+      "volume_ratio_est": 0.59,
+      "rsi6_est": 71.2,
+      "macd_state": "above",
+      "dd_30d": -7.24,
+      "track": "slow_bull_hold",
+      "position_pct": 20
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "verdict": "watch_confirms",
+      "note": "接近触发：量比1.15接近1.3——尾盘14:30前确认",
+      "signals": [],
+      "near": [
+        "量比1.15接近1.3"
+      ],
+      "price": 70.34,
+      "prev_close": 70.54,
+      "chg_today_pct": -0.28,
+      "volume_ratio_est": 1.15,
+      "rsi6_est": 51.6,
+      "macd_state": "above",
+      "dd_30d": -6.56,
+      "track": "slow_bull_hold",
+      "position_pct": 20
+    }
+  ],
+  "tomorrow_summary": {
+    "buy": [],
+    "watch": [
+      "五粮液"
+    ],
+    "wait": [
+      "紫金矿业",
+      "北方稀土",
+      "华友钴业",
+      "金钼股份",
+      "半导体ETF"
+    ]
+  }
+}
