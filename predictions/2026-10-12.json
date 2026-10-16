@@ -2,7 +2,7 @@
   "date": "2026-10-12",
   "predict_date": "2026-10-12",
   "model_version": "WB-v2.5-rebuilt",
-  "generated_at": "2026-10-16T15:26:55+08:00",
+  "generated_at": "2026-10-16T15:28:58+08:00",
   "data_basis": "2026-10-12收盘数据（事后重建）",
   "type": "T+1_evening",
   "_rebuilt": true,
@@ -37,7 +37,7 @@
       "ma20_dev": -3.93,
       "vol_ratio": 1.03,
       "dd30": -12.78,
-      "action": "hold",
+      "action": "watch",
       "direction": "bullish",
       "trend": "bearish",
       "reason": "未触发（RSI6=53.1, MACD=below, dd30=-12.78%）",
@@ -75,7 +75,7 @@
       "ma20_dev": -3.78,
       "vol_ratio": 0.89,
       "dd30": -14.1,
-      "action": "hold",
+      "action": "watch",
       "direction": "bullish",
       "trend": "bearish",
       "reason": "未触发（RSI6=38.96, MACD=above, dd30=-14.1%）",
@@ -135,13 +135,13 @@
       "action": "hold",
       "direction": "bullish",
       "trend": "bullish",
-      "reason": "未触发（RSI6=71.79, MACD=above, dd30=-1.28%）",
+      "reason": "长效轨持仓，持有不动",
       "core_pool": true
     }
   ],
   "summary": {
-    "hold": 3,
-    "watch": 3,
+    "hold": 1,
+    "watch": 5,
     "buy": 0,
     "buy_probe": 0,
     "buy_standard": 0,
@@ -149,12 +149,12 @@
     "core_buy": [],
     "overall": "重建：上证-0.43%，核心池17%上涨，买入信号 无",
     "key_signals": [
-      "紫金矿业 [hold] 未触发（RSI6=53.1, MACD=below, dd30=-12.78%）",
+      "紫金矿业 [watch] 未触发（RSI6=53.1, MACD=below, dd30=-12.78%）",
       "北方稀土 [watch] RSI6=15.79<30（MACD=below）",
-      "华友钴业 [hold] 未触发（RSI6=38.96, MACD=above, dd30=-14.1%）",
+      "华友钴业 [watch] 未触发（RSI6=38.96, MACD=above, dd30=-14.1%）",
       "金钼股份 [watch] RSI6=18.59<30（MACD=below）",
       "半导体ETF [watch] RSI6=3.45<30（MACD=below）",
-      "五粮液 [hold] 未触发（RSI6=71.79, MACD=above, dd30=-1.28%）"
+      "五粮液 [hold] 长效轨持仓，持有不动"
     ]
   },
   "iron_rules": {
