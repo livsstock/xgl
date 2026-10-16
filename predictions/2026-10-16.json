@@ -5,10 +5,10 @@
   "target_date": "2026-10-16",
   "market_direction": "neutral",
   "market_confidence": 0.47,
-  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-16 15:02:54",
+  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-16 15:05:54",
   "data_basis": {
     "source": "腾讯 qt.gtimg.cn 实时盘口 + newfqkline qfq 日K",
-    "as_of": "2026-10-16 15:02",
+    "as_of": "2026-10-16 15:05",
     "note": "收盘定格",
     "partial": false,
     "failed_count": 0,
@@ -555,8 +555,20 @@
       "五粮液"
     ]
   },
+  "market_env": {
+    "M_sse": 57.2,
+    "M_sse_v1": 30.83,
+    "thresholds": {
+      "bull": 60,
+      "bear": 40
+    },
+    "breadth": null,
+    "kuramoto_r": 0.9932,
+    "vol_ratio_threshold": 7.65,
+    "market_amp_pct": 1.53
+  },
   "_market_environment": {
-    "timestamp": "2026-10-16 15:02",
+    "timestamp": "2026-10-16 15:05",
     "scope": "上证指数 sh000001",
     "index": {
       "close": 3716.28,
