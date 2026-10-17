@@ -1,0 +1,117 @@
+{
+  "model": "dahai",
+  "model_version": "v13.0-kuramoto-facts-v1",
+  "date": "2026-10-19",
+  "based_on_facts": "2026-10-16",
+  "schema_version": "opinion-v1.0",
+  "generated_at": "2026-10-17T08:50:00+08:00",
+  "market": {
+    "direction": "neutral",
+    "confidence": 45,
+    "reason": "上证收3716.28微涨+0.24%止跌，但10日仍-4.43%，MACD在零轴下方(state=below)、hist为负，RSI6=17.83极端超卖。超卖+未金叉，方向中性，不支持进攻。"
+  },
+  "calls": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 45,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 29.92,
+        "change_pct": 1.84,
+        "ten_day_chg": -0.3,
+        "rsi6": 45.01,
+        "macd_signal": "below"
+      },
+      "reason": "10日仅-0.3%不属超跌，RSI6=45中性，MACD空头柱虽收敛但仍在零轴下方，无买入信号。反弹首日不追。"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 50,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 35.32,
+        "change_pct": 0.51,
+        "ten_day_chg": -4.7,
+        "rsi6": 44.89,
+        "macd_signal": "golden_cross"
+      },
+      "reason": "核心6只中唯一MACD金叉，是积极变化；但10日-4.7%未超跌、大盘开关未打开，金叉需次日确认，先watch不抢跑。"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "direction": "bearish",
+      "action": "watch",
+      "confidence": 55,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 32.25,
+        "change_pct": 0.22,
+        "ten_day_chg": -8.95,
+        "rsi6": 20.46,
+        "macd_signal": "death_cross"
+      },
+      "reason": "RSI6=20.46超卖，但MACD空头柱仍在扩大(below_expanding)，铁律3 MACD否决生效。超卖不等于止跌，不接飞刀。"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "direction": "bearish",
+      "action": "watch",
+      "confidence": 55,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 17.92,
+        "change_pct": 0.22,
+        "ten_day_chg": -9.04,
+        "rsi6": 23.44,
+        "macd_signal": "below"
+      },
+      "reason": "近10日-9.04%接近超跌线，RSI6=23.44超卖，但MACD空头柱扩大，趋势未止跌，继续观望。"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "direction": "bearish",
+      "action": "watch",
+      "confidence": 60,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 0.834,
+        "change_pct": -0.71,
+        "ten_day_chg": -18.48,
+        "rsi6": 9.23,
+        "macd_signal": "below"
+      },
+      "reason": "10日暴跌-18.48%、RSI6=9.23极端超卖，但MACD空头柱仍扩大、当日还在跌-0.71%，无任何止跌确认，远离。"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "direction": "bullish",
+      "action": "hold",
+      "confidence": 60,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 72.07,
+        "change_pct": 1.08,
+        "ten_day_chg": 3.44,
+        "rsi6": 75.21,
+        "macd_signal": "above"
+      },
+      "reason": "长效轨，MACD多头扩大、10日+3.44%趋势向上，持有不动；但RSI6=75.21短线偏热，不新增仓。"
+    }
+  ]
+}
