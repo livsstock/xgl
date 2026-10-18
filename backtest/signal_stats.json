@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-10-18T14:28:50+08:00",
+  "syms": 10,
+  "total_bars": 7200,
+  "signal_defs": {
+    "S1": "RSI6<25 超卖",
+    "S2": "RSI6<15 深超卖",
+    "S3": "MACD近3日金叉",
+    "S4": "MACD空头加速",
+    "S5": "10日跌超10%",
+    "S6": "量比≥1.5",
+    "S7": "超卖+MACD空头(组合)",
+    "S8": "超卖+MACD金叉(组合)"
+  },
+  "_caliber": "Wilder RSI6 全历史; MACD EMA12/26/9; 无未来函数(信号只用当日及之前)",
+  "_note": "胜率=次日(T+h)收盘价高于信号日收盘价的样本占比",
+  "signals": {
+    "S1": {
+      "name": "RSI6<25 超卖",
+      "horizons": {
+        "T+1": {
+          "n": 656,
+          "win_rate": 50.46,
+          "avg_ret_pct": -0.032
+        },
+        "T+3": {
+          "n": 646,
+          "win_rate": 48.3,
+          "avg_ret_pct": 0.097
+        },
+        "T+5": {
+          "n": 638,
+          "win_rate": 51.41,
+          "avg_ret_pct": 0.423
+        }
+      }
+    },
+    "S2": {
+      "name": "RSI6<15 深超卖",
+      "horizons": {
+        "T+1": {
+          "n": 158,
+          "win_rate": 56.33,
+          "avg_ret_pct": 0.315
+        },
+        "T+3": {
+          "n": 151,
+          "win_rate": 56.95,
+          "avg_ret_pct": 0.996
+        },
+        "T+5": {
+          "n": 150,
+          "win_rate": 58.67,
+          "avg_ret_pct": 1.677
+        }
+      }
+    },
+    "S3": {
+      "name": "MACD近3日金叉",
+      "horizons": {
+        "T+1": {
+          "n": 885,
+          "win_rate": 47.12,
+          "avg_ret_pct": 0.057
+        },
+        "T+3": {
+          "n": 884,
+          "win_rate": 51.24,
+          "avg_ret_pct": 0.37
+        },
+        "T+5": {
+          "n": 883,
+          "win_rate": 49.04,
+          "avg_ret_pct": 0.591
+        }
+      }
+    },
+    "S4": {
+      "name": "MACD空头加速",
+      "horizons": {
+        "T+1": {
+          "n": 1978,
+          "win_rate": 50.96,
+          "avg_ret_pct": 0.03
+        },
+        "T+3": {
+          "n": 1966,
+          "win_rate": 47.81,
+          "avg_ret_pct": 0.206
+        },
+        "T+5": {
+          "n": 1960,
+          "win_rate": 50.05,
+          "avg_ret_pct": 0.477
+        }
+      }
+    },
+    "S5": {
+      "name": "10日跌超10%",
+      "horizons": {
+        "T+1": {
+          "n": 405,
+          "win_rate": 47.16,
+          "avg_ret_pct": 0.016
+        },
+        "T+3": {
+          "n": 396,
+          "win_rate": 50.51,
+          "avg_ret_pct": 0.498
+        },
+        "T+5": {
+          "n": 391,
+          "win_rate": 53.71,
+          "avg_ret_pct": 0.92
+        }
+      }
+    },
+    "S6": {
+      "name": "量比≥1.5",
+      "horizons": {
+        "T+1": {
+          "n": 644,
+          "win_rate": 48.91,
+          "avg_ret_pct": 0.234
+        },
+        "T+3": {
+          "n": 642,
+          "win_rate": 49.84,
+          "avg_ret_pct": 0.772
+        },
+        "T+5": {
+          "n": 641,
+          "win_rate": 48.67,
+          "avg_ret_pct": 0.829
+        }
+      }
+    },
+    "S7": {
+      "name": "超卖+MACD空头(组合)",
+      "horizons": {
+        "T+1": {
+          "n": 510,
+          "win_rate": 50.98,
+          "avg_ret_pct": -0.013
+        },
+        "T+3": {
+          "n": 500,
+          "win_rate": 47.6,
+          "avg_ret_pct": 0.188
+        },
+        "T+5": {
+          "n": 494,
+          "win_rate": 52.43,
+          "avg_ret_pct": 0.632
+        }
+      }
+    },
+    "S8": {
+      "name": "超卖+MACD金叉(组合)",
+      "horizons": {
+        "T+1": {
+          "n": 6,
+          "win_rate": 83.33,
+          "avg_ret_pct": 1.014
+        },
+        "T+3": {
+          "n": 6,
+          "win_rate": 66.67,
+          "avg_ret_pct": 1.724
+        },
+        "T+5": {
+          "n": 6,
+          "win_rate": 100.0,
+          "avg_ret_pct": 5.61
+        }
+      }
+    }
+  },
+  "fdr": {
+    "alpha": 0.05,
+    "tests": 24,
+    "passed": []
+  }
+}
