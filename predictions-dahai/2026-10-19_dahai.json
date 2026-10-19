@@ -2,7 +2,7 @@
  "date": "2026-10-19",
  "predict_date": "2026-10-19",
  "model_version": "WB-rebuilt-v1.0",
- "generated_at": "2026-10-19T08:55:20+08:00",
+ "generated_at": "2026-10-19T08:59:12+08:00",
  "data_basis": "2026-10-16收盘数据（最近已完成交易日）",
  "type": "T+1_morning",
  "market_outlook": {
@@ -914,9 +914,10 @@
   "rule_5_entry": "仅 RSI6<15 深超卖具备实测边缘；RSI6∈[15,25) 已知无效区间不出手",
   "rule_6_kelly": "A级=全凯利×半凯利；B级=再×0.5；C/D级不给仓位；≤20%/≤60%/<2%不操作"
  },
- "_rebuild": {
+ "_engine_note": {
   "note": "原始 daily_predict.py 在 2026-10-19 沙箱重置中丢失，本文件按仓库内已对齐口径（20261017 参数确认件 + 20261018 分歧修正规则 + correction_table.py + 26只标的池）重建。所有数值均由脚本实时拉取新浪日K计算，无人工填写。",
   "reproduce": "python3 daily_predict.py --date YYYY-MM-DD",
+  "same_day_generation": true,
   "model_version": "WB-v2.5-rebuilt+1.0",
   "kelly_formula": "f* = p - q/b；A级=f*×0.5；B级=f*×0.25；p/b 由个券自身 RSI6<15→T+3 历史向池化实测(57%/1.30)收缩",
   "data_rows": 800
