@@ -1,0 +1,120 @@
+[
+  {
+    "date": "2026-10-19",
+    "status": "ok",
+    "index": {
+      "wb_close": 3716.284,
+      "dahai_close": 3716.284,
+      "wb_chg": 0.24,
+      "dahai_chg": 0.24,
+      "close_match": true
+    },
+    "direction": {
+      "wb": "neutral",
+      "dahai": "neutral",
+      "match": true
+    },
+    "stocks": [
+      {
+        "name": "五粮液",
+        "wb_action": "hold",
+        "wb_semantic": "无操作",
+        "dahai_action": "hold",
+        "dahai_semantic": "无操作",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
+        "data_check": {},
+        "wb_close": 72.07,
+        "dahai_close": 72.07,
+        "wb_reason": "无有效信号（RSI6=75.21, MACD=above）；DIF＞DEA，多头动能增强；10日3.44%；趋势bullish",
+        "dahai_reason": "长效轨，MACD多头扩大、10日+3.44%趋势向上，持有不动；但RSI6=75.21短线偏热，不新增仓。",
+        "kelly_pct": null
+      },
+      {
+        "name": "紫金矿业",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
+        "dahai_action": "watch",
+        "dahai_semantic": "观察",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
+        "data_check": {},
+        "wb_close": 29.92,
+        "dahai_close": 29.92,
+        "wb_reason": "无有效信号（RSI6=45.01, MACD=below）；DIF＜DEA，空头动能衰减；10日-0.3%；趋势sideways",
+        "dahai_reason": "10日仅-0.3%不属超跌，RSI6=45中性，MACD空头柱虽收敛但仍在零轴下方，无买入信号。反弹首日不追。",
+        "kelly_pct": null
+      },
+      {
+        "name": "华友钴业",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
+        "dahai_action": "watch",
+        "dahai_semantic": "观察",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
+        "data_check": {},
+        "wb_close": 32.25,
+        "dahai_close": 32.25,
+        "wb_reason": "RSI6=20.46 落在15~25无效区间（实测胜率48.3%，无边缘）；DIF＜DEA，空头加速；10日-8.95%；趋势strong_bearish",
+        "dahai_reason": "RSI6=20.46超卖，但MACD空头柱仍在扩大(below_expanding)，铁律3 MACD否决生效。超卖不等于止跌，不接飞刀。",
+        "kelly_pct": null
+      },
+      {
+        "name": "金钼股份",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
+        "dahai_action": "watch",
+        "dahai_semantic": "观察",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
+        "data_check": {},
+        "wb_close": 17.92,
+        "dahai_close": 17.92,
+        "wb_reason": "RSI6=23.44 落在15~25无效区间（实测胜率48.3%，无边缘）；DIF＜DEA，空头加速；10日-9.04%；趋势strong_bearish",
+        "dahai_reason": "近10日-9.04%接近超跌线，RSI6=23.44超卖，但MACD空头柱扩大，趋势未止跌，继续观望。",
+        "kelly_pct": null
+      },
+      {
+        "name": "北方稀土",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
+        "dahai_action": "watch",
+        "dahai_semantic": "观察",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
+        "data_check": {},
+        "wb_close": 35.32,
+        "dahai_close": 35.32,
+        "wb_reason": "MACD近3日金叉（实测胜率51.2%，接近随机）；DIF＞DEA，多头动能增强；10日-4.7%；趋势bearish",
+        "dahai_reason": "核心6只中唯一MACD金叉，是积极变化；但10日-4.7%未超跌、大盘开关未打开，金叉需次日确认，先watch不抢跑。",
+        "kelly_pct": null
+      },
+      {
+        "name": "半导体ETF",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
+        "dahai_action": "watch",
+        "dahai_semantic": "观察",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
+        "data_check": {},
+        "wb_close": 0.834,
+        "dahai_close": 0.834,
+        "wb_reason": "RSI6=9.22<15（实测T+3胜率57.0%、均收+1.00%，唯一有边缘）；DIF＜DEA，空头加速；10日-18.48%；趋势strong_bearish",
+        "dahai_reason": "10日暴跌-18.48%、RSI6=9.23极端超卖，但MACD空头柱仍扩大、当日还在跌-0.71%，无任何止跌确认，远离。",
+        "kelly_pct": null
+      }
+    ],
+    "agree_semantic": 6,
+    "agree_raw": 6,
+    "total": 6,
+    "divergences": []
+  }
+]
