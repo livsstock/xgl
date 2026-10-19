@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-19",
+  "generated_at": "2026-10-19T08:46:50.904689Z",
+  "market": {
+    "wb": {
+      "direction": "neutral",
+      "confidence": 38,
+      "reason": "M=41.8（重建版合成：10日动量32/MA20偏离33/市场宽度0.73/指数RSI6 17.83），次日预期 -0.25%，阈值区间[−0.5,0.5]%，中心0.0%",
+      "source": "market_outlook"
+    },
+    "dahai": {
+      "direction": "neutral",
+      "confidence": 45,
+      "reason": "上证微涨+0.39%至3730.92点，止跌企稳但反弹力度有限。10日累跌-2.90%较前次-4.43%有所改善，下行通道收窄。资源板块分化明显：华友+1.02%反弹、金钼+0.45%微涨、紫金-0.43%回落、北稀-0.25%微跌。半导体ETF-1.68%继续承压创新低。五粮液+1.04%延续独立上升趋势。大盘方向不明确，处于震荡区间",
+      "source": "market_outlook"
+    },
+    "risk_level": "MODERATE",
+    "risk_detail": "🟡 双方大盘中性 — 观望为主，等待明确信号",
+    "is_high_risk": false,
+    "market_freeze": false,
+    "market_caution": false,
+    "oversold_info": {
+      "level": "NONE",
+      "detail": "⚠️ 无指数涨跌幅数据",
+      "index_data": {}
+    }
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "wb_action": "neutral",
+      "wb_direction": "neutral",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "🔶 弱分歧(WB:观望/大海:看跌)"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "wb_action": "neutral",
+      "wb_direction": "neutral",
+      "dahai_action": "neutral",
+      "dahai_direction": "neutral",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "wb_action": "neutral",
+      "wb_direction": "bearish",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "wb_action": "neutral",
+      "wb_direction": "bearish",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "wb_action": "neutral",
+      "wb_direction": "bearish",
+      "dahai_action": "neutral",
+      "dahai_direction": "bearish",
+      "status": "⚪ 一致不买"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "wb_action": "neutral",
+      "wb_direction": "bullish",
+      "dahai_action": "neutral",
+      "dahai_direction": "bullish",
+      "status": "⚪ 一致不买"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [
+    "紫金矿业(601899): WB:观望/大海:看跌"
+  ],
+  "conclusion": "⚪ 全部观望"
+}
