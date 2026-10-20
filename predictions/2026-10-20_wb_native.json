@@ -7,7 +7,7 @@
   "target_date": "2026-10-20",
   "market_direction": "neutral",
   "market_confidence": 0.47,
-  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-20 19:01:56",
+  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-20 19:06:40",
   "data_basis": {
     "source": null,
     "as_of": "2026-10-20",
@@ -1131,7 +1131,7 @@
     "market_amp_pct": 1.61
   },
   "_market_environment": {
-    "timestamp": "2026-10-20 19:01",
+    "timestamp": "2026-10-20 19:06",
     "scope": "上证指数 sh000001",
     "index": {
       "close": 3735.37,
