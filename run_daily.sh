@@ -52,7 +52,12 @@ else
   echo "[INFO] 大海文件未到位，跳过对账：predictions/${DATE}_dahai.json"
 fi
 
-# 7. 修正表
+# 7. 同基准对账（关键：消除 T/T-1 时点错位造成的"假分歧"）
+if [ -f "predictions/${DATE}_dahai.json" ]; then
+  python3 same_basis_reconcile.py --date "$DATE" || echo "[WARN] 同基准对账失败"
+fi
+
+# 8. 修正表
 python3 correction_table.py --date "$DATE" 2>/dev/null || echo "[INFO] 修正表跳过"
 
 echo "================ 完成 ================"
