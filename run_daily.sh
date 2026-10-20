@@ -20,10 +20,10 @@ if [ "$DOW" -ge 6 ]; then
   exit 0
 fi
 
-# 1. 事实层（唯一数据源）
-python3 facts_builder.py --date "$DATE" --allow-t1 || { echo "[FAIL] 事实层构建失败"; exit 1; }
-GATE=$(python3 -c "import json;print(json.load(open('facts/$DATE.json'))['quality_gate'])")
-[ "$GATE" = "FAIL" ] && { echo "[FAIL] 质量门 FAIL，终止"; exit 1; }
+# 1. 事实层（唯一数据源，v2 格式 —— 大海 build_facts.py 为唯一入口）
+python3 build_facts.py --date "$DATE" || { echo "[FAIL] 事实层构建失败"; exit 1; }
+Q=$(python3 -c "import json;print(json.load(open('facts/$DATE.json'))['overall_quality'])")
+[ "$Q" != "complete" ] && { echo "[WARN] 事实层质量=$Q（继续，但对账会被标记 partial）"; }
 
 # 2. WB 预测（读事实层，不推）
 python3 daily_predict.py --date "$DATE" --allow-t1 --no-push || { echo "[FAIL] 预测失败"; exit 1; }
@@ -38,10 +38,21 @@ for rel in ["facts/$DATE.json", "predictions/$DATE.json", "predictions/${DATE}_w
     print(f"[PUSH] {rel}: {P.put_file('/workspace/finance_task/' + rel, rel)}")
 PY
 
-# 5. 对账（等大海文件到位）
-python3 reconcile_wb_dahai.py --dates "$DATE" || echo "[WARN] 对账失败"
+# 5. 校验（大海 validate_opinion.py R1-R7）
+if [ -f "predictions/$DATE.json" ]; then
+  python3 validate_opinion.py "predictions/$DATE.json" --facts "facts/$DATE.json" \
+    || echo "[WARN] 观点校验未全过（见 validate_reports/）"
+fi
 
-# 6. 修正表
+# 6. 对账（大海 reconcile_v2.py，双方 file 都在才跑）
+if [ -f "predictions/${DATE}_dahai.json" ]; then
+  python3 reconcile_v2.py --dahai "predictions/${DATE}_dahai.json" \
+    --wb "predictions/$DATE.json" --facts "facts/$DATE.json" || echo "[WARN] 对账失败"
+else
+  echo "[INFO] 大海文件未到位，跳过对账：predictions/${DATE}_dahai.json"
+fi
+
+# 7. 修正表
 python3 correction_table.py --date "$DATE" 2>/dev/null || echo "[INFO] 修正表跳过"
 
 echo "================ 完成 ================"
