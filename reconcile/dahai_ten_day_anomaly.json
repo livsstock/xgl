@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-19",
+  "note": "大海 10/19 ten_day_chg 与同一份 close 序列无法自洽",
+  "rows": [
+    {
+      "name": "紫金矿业",
+      "close": 29.79,
+      "dahai_10d": -2.11,
+      "facts_10d": 1.26,
+      "diff": -3.37,
+      "implied_denominator": 30.4321,
+      "denominator_matched_date": "NO_MATCH"
+    },
+    {
+      "name": "北方稀土",
+      "close": 35.23,
+      "dahai_10d": -0.2,
+      "facts_10d": -0.96,
+      "diff": 0.76,
+      "implied_denominator": 35.3006,
+      "denominator_matched_date": [
+        "2026-09-30"
+      ]
+    },
+    {
+      "name": "华友钴业",
+      "close": 32.58,
+      "dahai_10d": -4.28,
+      "facts_10d": -4.57,
+      "diff": 0.29,
+      "implied_denominator": 34.0368,
+      "denominator_matched_date": "NO_MATCH"
+    },
+    {
+      "name": "金钼股份",
+      "close": 18.0,
+      "dahai_10d": -7.15,
+      "facts_10d": -5.91,
+      "diff": -1.24,
+      "implied_denominator": 19.3861,
+      "denominator_matched_date": "NO_MATCH"
+    },
+    {
+      "name": "半导体ETF",
+      "close": 0.82,
+      "dahai_10d": -14.15,
+      "facts_10d": -16.33,
+      "diff": 2.18,
+      "implied_denominator": 0.9552,
+      "denominator_matched_date": [
+        "2026-07-30",
+        "2026-09-11",
+        "2026-09-30"
+      ]
+    },
+    {
+      "name": "五粮液",
+      "close": 72.82,
+      "dahai_10d": 5.67,
+      "facts_10d": 5.67,
+      "diff": 0.0,
+      "implied_denominator": 68.9127,
+      "denominator_matched_date": [
+        "2026-09-28"
+      ]
+    }
+  ]
+}
