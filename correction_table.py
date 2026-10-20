@@ -171,8 +171,14 @@ def main():
 
         if not at_least_one_bullish:
             sig_key, conf = None, 0.0
-            sig_note = (f"信号命中({sig_note.split('：')[0] if sig_note else '-'})，"
-                        f"但双方均未给出买入 → 不建仓")
+            if sig_note and "：" in sig_note and not sig_note.startswith("无有效买入信号"):
+                # 确有信号命中，只是双方都不买
+                sig_note = (f"信号命中({sig_note.split('：')[0]})，"
+                            f"但双方均未给出买入 → 不建仓")
+            elif sig_note and sig_note.startswith("无有效买入信号"):
+                sig_note = sig_note + "；双方均未给出买入 → 不建仓"
+            else:
+                sig_note = "双方均未给出买入 → 不建仓"
 
         kelly = s.get("kelly_pct") or 0
         if not kelly and sig_key:
