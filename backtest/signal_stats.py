@@ -46,10 +46,22 @@ SINA = ("https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/"
         "CN_MarketData.getKLineData?symbol={sym}&scale=240&ma=no&datalen={n}")
 
 SYMS = [
+    # 核心 6 只
     ("sh601899", "紫金矿业"), ("sh600111", "北方稀土"),
     ("sh603799", "华友钴业"), ("sh601958", "金钼股份"),
     ("sh512480", "半导体ETF"), ("sz000858", "五粮液"),
-    ("sz000960", "锡业股份"), ("sz002155", "湖南黄金"),
+    # 其余 20 只
+    ("sh601398", "工商银行"), ("sh601288", "农业银行"),
+    ("sh600036", "招商银行"), ("sz002142", "宁波银行"),
+    ("sh600392", "盛和资源"), ("sz000960", "锡业股份"),
+    ("sz002155", "湖南黄金"), ("sh601212", "白银有色"),
+    ("sz000725", "京东方A"), ("sh600875", "东方电气"),
+    ("sh600019", "宝钢股份"), ("sh600893", "航发动力"),
+    ("sh600519", "贵州茅台"), ("sh601012", "隆基绿能"),
+    ("sh601088", "中国神华"), ("sh510300", "沪深300ETF"),
+    ("sh510500", "中证500ETF"), ("sz159915", "创业板ETF"),
+    ("sh562500", "机器人ETF"), ("sh518880", "黄金ETF"),
+    # 指数（轨A）
     ("sh000001", "上证指数"), ("sh000300", "沪深300"),
 ]
 
@@ -65,12 +77,12 @@ SIGNAL_NAMES = {
 }
 
 
-def fetch(sym, n=720, cache=True):
+def fetch(sym, n=2400, cache=True):
     os.makedirs(DATA_DIR, exist_ok=True)
     p = os.path.join(DATA_DIR, f"{sym}.json")
     if cache and os.path.exists(p):
         d = json.load(open(p, encoding="utf-8"))
-        if len(d) >= 600:
+        if len(d) >= 2000:
             return d
     try:
         url = SINA.format(sym=sym, n=n)
