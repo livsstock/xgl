@@ -2,7 +2,7 @@
   "date": "2026-10-19",
   "predict_date": "2026-10-19",
   "model_version": "WB-v2.5+1.0 自动生成",
-  "generated_at": "2026-10-20T15:12:51+08:00",
+  "generated_at": "2026-10-20T15:15:14+08:00",
   "data_basis": "2026-10-19收盘数据 | 事实层 facts/ 同源",
   "type": "T+1_evening",
   "market_outlook": {
