@@ -820,11 +820,11 @@
     "date": "2026-10-20",
     "status": "ok",
     "index": {
-      "wb_close": 3723.71,
+      "wb_close": 3728.7,
       "dahai_close": 3730.92,
-      "wb_chg": -0.19,
+      "wb_chg": -0.06,
       "dahai_chg": 0.39,
-      "wb_m_sse": 41.51,
+      "wb_m_sse": 41.81,
       "dahai_m_sse": null,
       "close_match": false
     },
@@ -898,13 +898,13 @@
       },
       {
         "name": "华友钴业",
-        "wb_action": "buy",
-        "wb_semantic": "买入",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
         "dahai_action": "watch",
         "dahai_semantic": "观察",
-        "same_semantic": false,
-        "same_raw": false,
-        "attribution": "真分歧（输入一致，模型判断不同）",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
         "data_check": {
           "wb": {
             "rsi6": null,
@@ -923,14 +923,14 @@
         },
         "wb_close": null,
         "dahai_close": 32.58,
-        "wb_reason": "触发：RSI6=28.38<30",
+        "wb_reason": "未触发：RSI6=28.38<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入",
         "dahai_reason": "无有效信号（RSI6=28.38, MACD=death_cross）；DIF＜DEA，空头动能衰减；10日-4.57%；趋势bearish",
         "kelly_pct": null
       },
       {
         "name": "半导体ETF国联安",
-        "wb_action": "hold",
-        "wb_semantic": "无操作",
+        "wb_action": "buy",
+        "wb_semantic": "买入",
         "dahai_action": "watch",
         "dahai_semantic": "观察",
         "same_semantic": false,
@@ -954,19 +954,19 @@
         },
         "wb_close": null,
         "dahai_close": 0.82,
-        "wb_reason": "触发：RSI6=14.2<30",
+        "wb_reason": "触发：RSI6=7.91<15（T+5胜率58.9%）",
         "dahai_reason": "RSI6=7.91<15（实测T+3胜率57.0%、均收+1.00%，唯一有边缘）；DIF＜DEA，空头加速；10日-16.33%；趋势strong_beari",
         "kelly_pct": null
       },
       {
         "name": "金钼股份",
-        "wb_action": "buy",
-        "wb_semantic": "买入",
+        "wb_action": "watch",
+        "wb_semantic": "观察",
         "dahai_action": "watch",
         "dahai_semantic": "观察",
-        "same_semantic": false,
-        "same_raw": false,
-        "attribution": "真分歧（输入一致，模型判断不同）",
+        "same_semantic": true,
+        "same_raw": true,
+        "attribution": "一致",
         "data_check": {
           "wb": {
             "rsi6": null,
@@ -985,7 +985,7 @@
         },
         "wb_close": null,
         "dahai_close": 18.0,
-        "wb_reason": "触发：RSI6=26.69<30",
+        "wb_reason": "未触发：RSI6=26.69<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入",
         "dahai_reason": "无有效信号（RSI6=26.69, MACD=below）；DIF＜DEA，空头动能衰减；10日-5.91%；趋势bearish",
         "kelly_pct": null
       },
@@ -1016,50 +1016,19 @@
         },
         "wb_close": null,
         "dahai_close": 35.23,
-        "wb_reason": "触发：MACD金叉",
+        "wb_reason": "未触发：MACD金叉（胜率50.0%，仅辅助）",
         "dahai_reason": "MACD近3日金叉（实测胜率51.2%，接近随机）；DIF＞DEA，多头动能增强；10日-0.96%；趋势sideways",
         "kelly_pct": null
       }
     ],
-    "agree_semantic": 3,
-    "agree_raw": 3,
+    "agree_semantic": 5,
+    "agree_raw": 5,
     "total": 6,
     "divergences": [
       {
-        "name": "华友钴业",
+        "name": "半导体ETF国联安",
         "wb_action": "buy",
         "wb_semantic": "买入",
-        "dahai_action": "watch",
-        "dahai_semantic": "观察",
-        "same_semantic": false,
-        "same_raw": false,
-        "attribution": "真分歧（输入一致，模型判断不同）",
-        "data_check": {
-          "wb": {
-            "rsi6": null,
-            "close": null,
-            "rsi_match": true,
-            "close_match": true
-          },
-          "dahai": {
-            "rsi6": 28.38,
-            "close": 32.58,
-            "rsi_match": true,
-            "close_match": true
-          },
-          "facts_rsi6": 28.38,
-          "facts_close": 32.58
-        },
-        "wb_close": null,
-        "dahai_close": 32.58,
-        "wb_reason": "触发：RSI6=28.38<30",
-        "dahai_reason": "无有效信号（RSI6=28.38, MACD=death_cross）；DIF＜DEA，空头动能衰减；10日-4.57%；趋势bearish",
-        "kelly_pct": null
-      },
-      {
-        "name": "半导体ETF国联安",
-        "wb_action": "hold",
-        "wb_semantic": "无操作",
         "dahai_action": "watch",
         "dahai_semantic": "观察",
         "same_semantic": false,
@@ -1083,39 +1052,8 @@
         },
         "wb_close": null,
         "dahai_close": 0.82,
-        "wb_reason": "触发：RSI6=14.2<30",
+        "wb_reason": "触发：RSI6=7.91<15（T+5胜率58.9%）",
         "dahai_reason": "RSI6=7.91<15（实测T+3胜率57.0%、均收+1.00%，唯一有边缘）；DIF＜DEA，空头加速；10日-16.33%；趋势strong_beari",
-        "kelly_pct": null
-      },
-      {
-        "name": "金钼股份",
-        "wb_action": "buy",
-        "wb_semantic": "买入",
-        "dahai_action": "watch",
-        "dahai_semantic": "观察",
-        "same_semantic": false,
-        "same_raw": false,
-        "attribution": "真分歧（输入一致，模型判断不同）",
-        "data_check": {
-          "wb": {
-            "rsi6": null,
-            "close": null,
-            "rsi_match": true,
-            "close_match": true
-          },
-          "dahai": {
-            "rsi6": 26.69,
-            "close": 18.0,
-            "rsi_match": true,
-            "close_match": true
-          },
-          "facts_rsi6": 26.69,
-          "facts_close": 18.0
-        },
-        "wb_close": null,
-        "dahai_close": 18.0,
-        "wb_reason": "触发：RSI6=26.69<30",
-        "dahai_reason": "无有效信号（RSI6=26.69, MACD=below）；DIF＜DEA，空头动能衰减；10日-5.91%；趋势bearish",
         "kelly_pct": null
       }
     ]
