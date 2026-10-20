@@ -45,11 +45,10 @@ ACTION_ALIGN = {
 }
 
 # 名称别名
+# [2026-10-20 修正] 原版把 "沪深300ETF" 映射成 "沪深300"（指数），
+# 会让 ETF 与指数撞名。ETF 名称本身在事实层与预测文件里都是一致的，无需映射。
 NAME_ALIAS = {
     "半导体ETF国联安": "半导体ETF",
-    "沪深300ETF": "沪深300",
-    "中证500ETF": "中证500",
-    "创业板ETF": "创业板指",
 }
 
 
@@ -322,10 +321,16 @@ def reconcile(dahai_data, wb_data, facts_data):
         })
 
     # 大盘方向对比
+    # [2026-10-20 修复] WB 原生 schema 没有 "market" 字段，方向在
+    # 顶层 market_direction / t1_prediction.sh_index.direction；
+    # 原版只读 wb["market"]["direction"] → WB 永远 None → 假分歧。
     dh_outlook = (dahai_data or {}).get("market_outlook", {})
-    wb_market = (wb_data or {}).get("market", {})
+    wb_data_ = (wb_data or {})
+    wb_market = wb_data_.get("market") or {}
     dh_dir = dh_outlook.get("direction")
-    wb_dir = wb_market.get("direction")
+    wb_dir = (wb_market.get("direction")
+              or wb_data_.get("market_direction")
+              or ((wb_data_.get("t1_prediction") or {}).get("sh_index") or {}).get("direction"))
 
     return {
         "date": date_str,
