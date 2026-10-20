@@ -1,8 +1,9 @@
 {
   "date": "2026-10-16",
-  "generated_at": "2026-10-18T14:30:09+08:00",
-  "_basis": "signal_stats.json 实测：FDR 0/24 显著；RSI6<15 是唯一有边缘的信号",
-  "_principle": "不改方向只调仓位；数据分歧与无效区间一律不出手",
+  "generated_at": "2026-10-20T08:47:17+08:00",
+  "_basis": "signal_stats.json（28标的/65249根K线/近10年）",
+  "_principle": "只调仓位不改方向；MACD金叉与量比不作买入依据（实测<50%）",
+  "hold_period": "T+5",
   "positions": [
     {
       "name": "五粮液",
@@ -12,12 +13,16 @@
       "attribution": "一致",
       "rsi6": 75.21,
       "macd": "above",
-      "signal_power": "none",
-      "signal_note": "无有效信号（RSI6=75.21, MACD=above）",
+      "ten_day_chg": 3.44,
+      "signal_key": null,
+      "signal_note": "无有效买入信号（RSI6=75.21, MACD=above, 10日=3.44%）",
+      "data_divergence": false,
+      "data_divergence_note": "",
       "base_kelly_pct": 0,
       "confidence": 0.0,
       "final_position_pct": 0.0,
-      "decision_reason": "双方一致不买 → 无仓位"
+      "blocked_by_gate_pct": null,
+      "decision_reason": ""
     },
     {
       "name": "紫金矿业",
@@ -27,12 +32,16 @@
       "attribution": "一致",
       "rsi6": 45.01,
       "macd": "below",
-      "signal_power": "none",
-      "signal_note": "无有效信号（RSI6=45.01, MACD=below）",
+      "ten_day_chg": -0.3,
+      "signal_key": null,
+      "signal_note": "无有效买入信号（RSI6=45.01, MACD=below, 10日=-0.3%）",
+      "data_divergence": false,
+      "data_divergence_note": "",
       "base_kelly_pct": 0,
       "confidence": 0.0,
       "final_position_pct": 0.0,
-      "decision_reason": "双方一致不买 → 无仓位"
+      "blocked_by_gate_pct": null,
+      "decision_reason": ""
     },
     {
       "name": "华友钴业",
@@ -42,12 +51,16 @@
       "attribution": "数据分歧（大海输入偏离事实）",
       "rsi6": 20.46,
       "macd": "death_cross",
-      "signal_power": "invalid",
-      "signal_note": "RSI6=20.46 落在15~25区间（实测胜率48.3%，无边缘）",
+      "ten_day_chg": -8.95,
+      "signal_key": "S7",
+      "signal_note": "超卖+MACD空头(组合)：T+5胜率55.28%，均收+0.566%，n=4410（过FDR）",
+      "data_divergence": true,
+      "data_divergence_note": "⚠ 数据分歧：对方输入偏离事实层，信心×0.6",
       "base_kelly_pct": 4.08,
-      "confidence": 0.0,
+      "confidence": 0.13,
       "final_position_pct": 0.0,
-      "decision_reason": "数据分歧 → 不出手"
+      "blocked_by_gate_pct": 0.53,
+      "decision_reason": "算出0.53%，低于2%门槛→不操作"
     },
     {
       "name": "半导体ETF国联安",
@@ -57,12 +70,16 @@
       "attribution": "真分歧（输入一致，模型判断不同）",
       "rsi6": 9.22,
       "macd": "below",
-      "signal_power": "strong",
-      "signal_note": "RSI6=9.22<15（实测T+3胜率57%，唯一有边缘）",
+      "ten_day_chg": -18.48,
+      "signal_key": "S2",
+      "signal_note": "RSI6<15 深超卖：T+5胜率58.89%，均收+1.053%，n=1209（过FDR）",
+      "data_divergence": false,
+      "data_divergence_note": "",
       "base_kelly_pct": 6.0,
-      "confidence": 0.5,
-      "final_position_pct": 3.0,
-      "decision_reason": "真分歧（输入一致、判断不同）→ 各让一半"
+      "confidence": 0.36,
+      "final_position_pct": 2.16,
+      "blocked_by_gate_pct": null,
+      "decision_reason": ""
     },
     {
       "name": "金钼股份",
@@ -72,12 +89,16 @@
       "attribution": "数据分歧（大海输入偏离事实）",
       "rsi6": 23.44,
       "macd": "below",
-      "signal_power": "invalid",
-      "signal_note": "RSI6=23.44 落在15~25区间（实测胜率48.3%，无边缘）",
+      "ten_day_chg": -9.04,
+      "signal_key": "S7",
+      "signal_note": "超卖+MACD空头(组合)：T+5胜率55.28%，均收+0.566%，n=4410（过FDR）",
+      "data_divergence": true,
+      "data_divergence_note": "⚠ 数据分歧：对方输入偏离事实层，信心×0.6",
       "base_kelly_pct": 4.08,
-      "confidence": 0.0,
+      "confidence": 0.13,
       "final_position_pct": 0.0,
-      "decision_reason": "数据分歧 → 不出手"
+      "blocked_by_gate_pct": 0.53,
+      "decision_reason": "算出0.53%，低于2%门槛→不操作"
     },
     {
       "name": "北方稀土",
@@ -87,13 +108,17 @@
       "attribution": "数据分歧（大海输入偏离事实）",
       "rsi6": 44.89,
       "macd": "golden_cross",
-      "signal_power": "weak",
-      "signal_note": "MACD金叉（实测胜率51.2%，接近随机）",
+      "ten_day_chg": -4.7,
+      "signal_key": null,
+      "signal_note": "无有效买入信号（RSI6=44.89, MACD=golden_cross, 10日=-4.7%）",
+      "data_divergence": true,
+      "data_divergence_note": "⚠ 数据分歧：对方输入偏离事实层，信心×0.6",
       "base_kelly_pct": 4.08,
       "confidence": 0.0,
       "final_position_pct": 0.0,
-      "decision_reason": "数据分歧 → 不出手"
+      "blocked_by_gate_pct": null,
+      "decision_reason": ""
     }
   ],
-  "total_position_pct": 3.0
+  "total_position_pct": 2.16
 }
