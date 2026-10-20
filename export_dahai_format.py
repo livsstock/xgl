@@ -88,12 +88,24 @@ def _ten_day(facts_map, name, tech):
 
 
 def load_facts(date):
-    """读当日事实包，构建 name -> fact 映射。缺包则返回空字典（不阻断）。"""
+    """读当日事实包，构建 name -> fact 映射。缺包则返回空字典（不阻断）。
+
+    [2026-10-20 修复] 原来只认 v1 的 {"stocks": [...]}，而 build_facts.py 输出的是
+    v2 的 {"instruments": {...}} → 静默返回 {} → ten_day_chg 退回 Tech 值（错位）。
+    现在复用 daily_predict._normalize_facts_pkg()，v1/v2 都认，单一实现。
+    """
     p = os.path.join(BASE_DIR, "facts", f"{date}.json")
     if not os.path.exists(p):
         return {}
-    j = json.load(open(p, encoding="utf-8"))
-    return {s["name"]: s for s in j.get("stocks", []) + j.get("indices", [])}
+    raw = json.load(open(p, encoding="utf-8"))
+    try:
+        from daily_predict import _normalize_facts_pkg
+        pkg = _normalize_facts_pkg(raw)
+    except Exception:
+        pkg = None
+    if pkg is None:
+        pkg = raw if isinstance(raw.get("stocks"), list) else {}
+    return {s["name"]: s for s in (pkg.get("stocks") or []) + (pkg.get("indices") or [])}
 
 
 def load_kelly():
