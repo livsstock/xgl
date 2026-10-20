@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-20",
+  "wb_basis_date": "2026-10-19",
+  "dahai_basis": "2026-10-19收盘数据（最近已完成交易日）",
+  "generated_at": "2026-10-20T15:49:45+08:00",
+  "note": "同基准：WB 用 wb_basis_date 的事实包重算，与大海当日文件在同一数据基准上比较",
+  "core_pool": {
+    "agree": 5,
+    "total": 6
+  },
+  "rsi_exact_match": "24/24",
+  "rows": [
+    {
+      "name": "工商银行",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 79.28,
+      "dahai_rsi6": 79.28,
+      "rsi_match": true
+    },
+    {
+      "name": "农业银行",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 83.39,
+      "dahai_rsi6": 83.39,
+      "rsi_match": true
+    },
+    {
+      "name": "隆基绿能",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 53.6,
+      "dahai_rsi6": 53.6,
+      "rsi_match": true
+    },
+    {
+      "name": "五粮液",
+      "core_pool": true,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 80.71,
+      "dahai_rsi6": 80.71,
+      "rsi_match": true
+    },
+    {
+      "name": "贵州茅台",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 76.53,
+      "dahai_rsi6": 76.53,
+      "rsi_match": true
+    },
+    {
+      "name": "紫金矿业",
+      "core_pool": true,
+      "wb_action": "watch",
+      "dahai_action": "watch",
+      "same_semantic": true,
+      "wb_rsi6": 42.92,
+      "dahai_rsi6": 42.92,
+      "rsi_match": true
+    },
+    {
+      "name": "华友钴业",
+      "core_pool": true,
+      "wb_action": "watch",
+      "dahai_action": "watch",
+      "same_semantic": true,
+      "wb_rsi6": 28.38,
+      "dahai_rsi6": 28.38,
+      "rsi_match": true
+    },
+    {
+      "name": "中国神华",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 86.16,
+      "dahai_rsi6": 86.16,
+      "rsi_match": true
+    },
+    {
+      "name": "宁波银行",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 60.58,
+      "dahai_rsi6": 60.58,
+      "rsi_match": true
+    },
+    {
+      "name": "宝钢股份",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 74.1,
+      "dahai_rsi6": 74.1,
+      "rsi_match": true
+    },
+    {
+      "name": "航发动力",
+      "core_pool": false,
+      "wb_action": "watch",
+      "dahai_action": "hold",
+      "same_semantic": false,
+      "wb_rsi6": 62.16,
+      "dahai_rsi6": 62.16,
+      "rsi_match": true
+    },
+    {
+      "name": "锡业股份",
+      "core_pool": false,
+      "wb_action": "buy",
+      "dahai_action": "buy_probe",
+      "same_semantic": true,
+      "wb_rsi6": 10.85,
+      "dahai_rsi6": 10.85,
+      "rsi_match": true
+    },
+    {
+      "name": "湖南黄金",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 34.77,
+      "dahai_rsi6": 34.77,
+      "rsi_match": true
+    },
+    {
+      "name": "白银有色",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 31.52,
+      "dahai_rsi6": 31.52,
+      "rsi_match": true
+    },
+    {
+      "name": "金钼股份",
+      "core_pool": true,
+      "wb_action": "watch",
+      "dahai_action": "watch",
+      "same_semantic": true,
+      "wb_rsi6": 26.69,
+      "dahai_rsi6": 26.69,
+      "rsi_match": true
+    },
+    {
+      "name": "京东方A",
+      "core_pool": false,
+      "wb_action": "buy",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 22.22,
+      "dahai_rsi6": 22.22,
+      "rsi_match": true
+    },
+    {
+      "name": "招商银行",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "hold",
+      "same_semantic": true,
+      "wb_rsi6": 75.46,
+      "dahai_rsi6": 75.46,
+      "rsi_match": true
+    },
+    {
+      "name": "北方稀土",
+      "core_pool": true,
+      "wb_action": "watch",
+      "dahai_action": "watch",
+      "same_semantic": true,
+      "wb_rsi6": 43.45,
+      "dahai_rsi6": 43.45,
+      "rsi_match": true
+    },
+    {
+      "name": "东方电气",
+      "core_pool": false,
+      "wb_action": "hold",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 37.06,
+      "dahai_rsi6": 37.06,
+      "rsi_match": true
+    },
+    {
+      "name": "盛和资源",
+      "core_pool": false,
+      "wb_action": "buy",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 7.05,
+      "dahai_rsi6": 7.05,
+      "rsi_match": true
+    },
+    {
+      "name": "沪深300ETF",
+      "core_pool": false,
+      "wb_action": "buy",
+      "dahai_action": "buy_probe",
+      "same_semantic": true,
+      "wb_rsi6": 10.33,
+      "dahai_rsi6": 10.33,
+      "rsi_match": true
+    },
+    {
+      "name": "中证500ETF",
+      "core_pool": false,
+      "wb_action": "buy",
+      "dahai_action": "buy_probe",
+      "same_semantic": true,
+      "wb_rsi6": 12.34,
+      "dahai_rsi6": 12.34,
+      "rsi_match": true
+    },
+    {
+      "name": "创业板ETF",
+      "core_pool": false,
+      "wb_action": "buy",
+      "dahai_action": "buy_probe",
+      "same_semantic": true,
+      "wb_rsi6": 5.8,
+      "dahai_rsi6": 5.8,
+      "rsi_match": true
+    },
+    {
+      "name": "半导体ETF",
+      "core_pool": true,
+      "wb_action": "buy",
+      "dahai_action": "watch",
+      "same_semantic": false,
+      "wb_rsi6": 7.91,
+      "dahai_rsi6": 7.91,
+      "rsi_match": true
+    }
+  ],
+  "true_divergences": [
+    "隆基绿能",
+    "航发动力",
+    "湖南黄金",
+    "白银有色",
+    "京东方A",
+    "东方电气",
+    "盛和资源",
+    "半导体ETF"
+  ],
+  "true_divergences_core": [
+    "半导体ETF"
+  ]
+}
