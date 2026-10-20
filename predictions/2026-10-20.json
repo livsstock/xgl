@@ -5,7 +5,7 @@
   "target_date": "2026-10-20",
   "market_direction": "neutral",
   "market_confidence": 0.48,
-  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-20 14:40:43",
+  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-20 14:49:52",
   "data_basis": {
     "source": "新浪日K money.finance.sina.com.cn scale=240 qfq",
     "as_of": "2026-10-19",
@@ -26,17 +26,17 @@
         0.5
       ],
       "center_pct": 0.0,
-      "close_ref": 3723.71,
+      "close_ref": 3728.7,
       "confidence": 0.48
     },
     "confidence": 0.48,
-    "_v25_note": "M_sse v2.5 = 41.5（v1 对比 27.2）"
+    "_v25_note": "M_sse v2.5 = 41.8（v1 对比 27.8）"
   },
   "midterm_trend": {
     "horizon": "5-10个交易日",
     "sh_index": {
       "direction": "neutral",
-      "view": "M_sse=41.5，中性",
+      "view": "M_sse=41.8，中性",
       "key_levels": {
         "support": [],
         "resistance": []
@@ -63,6 +63,15 @@
         "macd": "above",
         "dd30": 0.0
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -82,6 +91,15 @@
         "rsi6": 83.39,
         "macd": "above",
         "dd30": 0.0
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -103,6 +121,15 @@
         "macd": "above",
         "dd30": -8.12
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -122,6 +149,15 @@
         "rsi6": 80.71,
         "macd": "above",
         "dd30": 0.0
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -143,6 +179,15 @@
         "macd": "above",
         "dd30": -0.38
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -163,14 +208,23 @@
         "macd": "below",
         "dd30": -13.4
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "603799",
       "name": "华友钴业",
-      "action": "buy",
+      "action": "watch",
       "direction": "up",
-      "reason": "触发：RSI6=28.38<30",
+      "reason": "未触发：RSI6=28.38<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入",
       "signal_type": "oversold_rebound",
       "core_pool": true,
       "track_rule": "短线轨 +5%止盈/-5%止损/10日",
@@ -182,6 +236,17 @@
         "rsi6": 28.38,
         "macd": "death_cross",
         "dd30": -17.66
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [
+          "RSI仅边缘(<30)且MACD空头，否决买入"
+        ],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -203,6 +268,15 @@
         "macd": "above",
         "dd30": 0.0
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -223,14 +297,23 @@
         "macd": "below",
         "dd30": -1.22
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "510300",
       "name": "沪深300ETF",
-      "action": "watch",
+      "action": "buy",
       "direction": "up",
-      "reason": "触发：RSI6=10.33<30",
+      "reason": "触发：RSI6=10.33<15（T+5胜率58.9%）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -243,14 +326,23 @@
         "macd": "below",
         "dd30": -9.5
       },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "510500",
       "name": "中证500ETF",
-      "action": "watch",
+      "action": "buy",
       "direction": "up",
-      "reason": "触发：RSI6=12.34<30",
+      "reason": "触发：RSI6=12.34<15（T+5胜率58.9%）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -263,14 +355,23 @@
         "macd": "below",
         "dd30": -14.27
       },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "159915",
       "name": "创业板ETF",
-      "action": "watch",
+      "action": "buy",
       "direction": "down",
-      "reason": "触发：RSI6=5.8<30",
+      "reason": "触发：RSI6=5.8<15（T+5胜率58.9%）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -282,6 +383,15 @@
         "rsi6": 5.8,
         "macd": "below",
         "dd30": -20.08
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -303,6 +413,15 @@
         "macd": "above",
         "dd30": 0.0
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -310,7 +429,7 @@
       "name": "航发动力",
       "action": "watch",
       "direction": "up",
-      "reason": "触发：MACD金叉",
+      "reason": "未触发：MACD金叉（胜率50.0%，仅辅助）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -323,14 +442,23 @@
         "macd": "golden_cross",
         "dd30": -3.84
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": true,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "000960",
       "name": "锡业股份",
-      "action": "watch",
+      "action": "buy",
       "direction": "down",
-      "reason": "触发：RSI6=10.85<30",
+      "reason": "触发：RSI6=10.85<15（T+5胜率58.9%）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -342,6 +470,15 @@
         "rsi6": 10.85,
         "macd": "below",
         "dd30": -29.73
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -363,6 +500,15 @@
         "macd": "below",
         "dd30": -22.46
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -382,6 +528,15 @@
         "rsi6": 31.52,
         "macd": "below",
         "dd30": -28.65
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -403,6 +558,15 @@
         "macd": "below",
         "dd30": -16.14
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -423,34 +587,52 @@
         "macd": "below",
         "dd30": -6.67
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "512480",
       "name": "半导体ETF国联安",
-      "action": "hold",
-      "direction": "up",
-      "reason": "触发：RSI6=14.2<30",
+      "action": "buy",
+      "direction": "down",
+      "reason": "触发：RSI6=7.91<15（T+5胜率58.9%）",
       "signal_type": "slow_bull",
       "core_pool": true,
       "track_rule": "长效轨 -15%硬止损/20日",
       "_tech": {
-        "price": 0.826,
-        "chg_today": 0.73,
-        "ma20_dev": -12.5,
-        "vol_ratio": 0.93,
-        "rsi6": 14.2,
+        "price": 0.82,
+        "chg_today": -1.68,
+        "ma20_dev": -13.68,
+        "vol_ratio": 1.14,
+        "rsi6": 7.91,
         "macd": "below",
-        "dd30": -21.93
+        "dd30": -22.5
       },
-      "_data_source": "self"
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "_data_source": "facts"
     },
     {
       "code": "601958",
       "name": "金钼股份",
-      "action": "buy",
+      "action": "watch",
       "direction": "up",
-      "reason": "触发：RSI6=26.69<30",
+      "reason": "未触发：RSI6=26.69<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入",
       "signal_type": "oversold_rebound",
       "core_pool": true,
       "track_rule": "短线轨 +5%止盈/-5%止损/10日",
@@ -463,14 +645,25 @@
         "macd": "below",
         "dd30": -20.42
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [
+          "RSI仅边缘(<30)且MACD空头，否决买入"
+        ],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "000725",
       "name": "京东方A",
-      "action": "watch",
+      "action": "buy_probe",
       "direction": "down",
-      "reason": "触发：RSI6=22.22<30",
+      "reason": "触发：RSI6=22.22<25（T+5胜率55.2%）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -482,6 +675,15 @@
         "rsi6": 22.22,
         "macd": "below",
         "dd30": -16.64
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -503,6 +705,15 @@
         "macd": "above",
         "dd30": 0.0
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
@@ -510,7 +721,7 @@
       "name": "北方稀土",
       "action": "watch",
       "direction": "down",
-      "reason": "触发：MACD金叉",
+      "reason": "未触发：MACD金叉（胜率50.0%，仅辅助）",
       "signal_type": "oversold_rebound",
       "core_pool": true,
       "track_rule": "短线轨 +5%止盈/-5%止损/10日",
@@ -522,6 +733,15 @@
         "rsi6": 43.45,
         "macd": "golden_cross",
         "dd30": -13.27
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": true,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     },
@@ -543,14 +763,23 @@
         "macd": "below",
         "dd30": -15.4
       },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
       "_data_source": "facts"
     },
     {
       "code": "600392",
       "name": "盛和资源",
-      "action": "watch",
+      "action": "buy",
       "direction": "down",
-      "reason": "触发：RSI6=7.05<30",
+      "reason": "触发：RSI6=7.05<15（T+5胜率58.9%）",
       "signal_type": "watchlist",
       "core_pool": false,
       "track_rule": "watchlist 观察",
@@ -562,6 +791,15 @@
         "rsi6": 7.05,
         "macd": "below",
         "dd30": -30.4
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
       },
       "_data_source": "facts"
     }
@@ -586,8 +824,8 @@
     ]
   },
   "market_env": {
-    "M_sse": 41.51,
-    "M_sse_v1": 27.18,
+    "M_sse": 41.81,
+    "M_sse_v1": 27.81,
     "thresholds": {
       "bull": 60,
       "bear": 40
@@ -598,19 +836,19 @@
       "valid_count": 26,
       "up_ratio": 0.27
     },
-    "kuramoto_r": 0.9922,
+    "kuramoto_r": 0.9914,
     "vol_ratio_threshold": 8.05,
     "market_amp_pct": 1.61
   },
   "_market_environment": {
-    "timestamp": "2026-10-20 14:40",
+    "timestamp": "2026-10-20 14:49",
     "scope": "上证指数 sh000001",
     "index": {
-      "close": 3723.71,
-      "chg_today_pct": -0.19,
+      "close": 3728.7,
+      "chg_today_pct": -0.06,
       "amplitude_pct": 1.01,
-      "r_15": -5.73,
-      "ma20_dev": -2.82,
+      "r_15": -5.6,
+      "ma20_dev": -2.7,
       "breadth": -0.23,
       "r_value_kuramoto": 0.99
     },
@@ -620,17 +858,17 @@
       "up_ratio": 0.27
     },
     "amplitude_5d_avg_pct": 1.61,
-    "M_sse_v1": 27.2,
-    "M_sse_v2p5": 41.5,
+    "M_sse_v1": 27.8,
+    "M_sse_v2p5": 41.8,
     "M_sse_version": "v2.5",
-    "_m_sse_used": 41.5,
-    "_m_sse_v1_compare": 27.2,
-    "_kuramoto_r": 0.9922
+    "_m_sse_used": 41.8,
+    "_m_sse_v1_compare": 27.8,
+    "_kuramoto_r": 0.9914
   },
   "_param_versions": {
     "M_sse": "v2.5",
     "vol_ratio": "v2 (动态阈值 8.05 = max(1.3, 大盘振幅1.61%×5))",
-    "rsi6": "v2 (环境自适应阈值 30, M_sse=41.5)"
+    "rsi6": "v2 (环境自适应阈值 25, M_sse=41.8)"
   },
   "_link_protocol": {
     "version": "v1.1",
