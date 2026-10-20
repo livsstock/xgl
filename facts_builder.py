@@ -54,7 +54,6 @@ SINA = ("https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/"
         "CN_MarketData.getKLineData?symbol={sym}&scale=240&ma=no&datalen={n}")
 
 UNIVERSE = [
-    # (sym, name, sector, core)
     ("sh000001", "上证指数", "大盘", False),
     ("sh000300", "沪深300", "大盘", False),
     ("sh601899", "紫金矿业", "有色金属", True),
@@ -63,8 +62,26 @@ UNIVERSE = [
     ("sh601958", "金钼股份", "有色金属", True),
     ("sh512480", "半导体ETF", "半导体", True),
     ("sz000858", "五粮液", "白酒消费", True),
-    ("sz000960", "锡业股份", "有色金属", True),
-    ("sz002155", "湖南黄金", "有色金属", True),
+    ("sh601398", "工商银行", "银行", False),
+    ("sh601288", "农业银行", "银行", False),
+    ("sh600036", "招商银行", "银行", False),
+    ("sz002142", "宁波银行", "银行", False),
+    ("sh600392", "盛和资源", "稀土", False),
+    ("sz000960", "锡业股份", "有色金属", False),
+    ("sz002155", "湖南黄金", "贵金属", False),
+    ("sh601212", "白银有色", "有色金属", False),
+    ("sz000725", "京东方A", "面板", False),
+    ("sh600875", "东方电气", "电力设备", False),
+    ("sh600019", "宝钢股份", "钢铁", False),
+    ("sh600893", "航发动力", "军工", False),
+    ("sh600519", "贵州茅台", "白酒消费", False),
+    ("sh601012", "隆基绿能", "光伏", False),
+    ("sh601088", "中国神华", "煤炭", False),
+    ("sh510300", "沪深300ETF", "宽基ETF", False),
+    ("sh510500", "中证500ETF", "宽基ETF", False),
+    ("sz159915", "创业板ETF", "宽基ETF", False),
+    ("sh562500", "机器人ETF", "主题ETF", False),
+    ("sh518880", "黄金ETF", "商品ETF", False),
 ]
 
 
