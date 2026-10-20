@@ -1,0 +1,373 @@
+{
+  "date": "2026-10-20",
+  "generated_at": "2026-10-20T15:48:12+08:00",
+  "schema_version": "reconcile-v2",
+  "market_direction": {
+    "wb": "neutral",
+    "dahai": "neutral",
+    "match": true
+  },
+  "core_pool_compare": {
+    "total": 6,
+    "agree_semantic": 4,
+    "agree_rate": "4/6",
+    "agree_pct": 66.7
+  },
+  "details": [
+    {
+      "code": "000725",
+      "name": "京东方A",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "buy",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "hold",
+      "wb_semantic": "无操作",
+      "wb_direction": "up",
+      "wb_confidence": null,
+      "dahai_action": "hold",
+      "dahai_semantic": "无操作",
+      "dahai_direction": "bullish",
+      "dahai_confidence": 35,
+      "same_semantic": true,
+      "same_raw": true,
+      "same_direction": false,
+      "attribution": "一致",
+      "data_issues": [],
+      "actionability": "ALIGNED_HOLD",
+      "facts_close": 72.85,
+      "facts_rsi6": 80.92
+    },
+    {
+      "code": "000960",
+      "name": "锡业股份",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "buy",
+      "dahai_action": "buy_probe"
+    },
+    {
+      "code": "002142",
+      "name": "宁波银行",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "watch",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "159915",
+      "name": "创业板ETF",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "buy",
+      "dahai_action": "buy_probe"
+    },
+    {
+      "code": "510300",
+      "name": "沪深300ETF",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "buy",
+      "dahai_action": "buy_probe"
+    },
+    {
+      "code": "510500",
+      "name": "中证500ETF",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "buy",
+      "dahai_action": "buy_probe"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "buy",
+      "wb_semantic": "买入",
+      "wb_direction": "up",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "bearish",
+      "dahai_confidence": 48,
+      "same_semantic": false,
+      "same_raw": false,
+      "same_direction": false,
+      "attribution": "数据分歧（大海: close偏差1.09%, rsi6偏差9.1, ten_day_chg偏差0.49）",
+      "data_issues": [
+        "大海: close偏差1.09%, rsi6偏差9.1, ten_day_chg偏差0.49"
+      ],
+      "actionability": "DIVERGENT",
+      "facts_close": 0.829,
+      "facts_rsi6": 17.01
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "562500",
+      "name": "机器人ETF",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "600019",
+      "name": "宝钢股份",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "watch",
+      "wb_semantic": "观察",
+      "wb_direction": "up",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "neutral",
+      "dahai_confidence": 35,
+      "same_semantic": true,
+      "same_raw": true,
+      "same_direction": false,
+      "attribution": "一致",
+      "data_issues": [],
+      "actionability": "ALIGNED_HOLD",
+      "facts_close": 35.58,
+      "facts_rsi6": 50.81
+    },
+    {
+      "code": "600392",
+      "name": "盛和资源",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "buy",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "600875",
+      "name": "东方电气",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "600893",
+      "name": "航发动力",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "watch",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "601012",
+      "name": "隆基绿能",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "601088",
+      "name": "中国神华",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "601212",
+      "name": "白银有色",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "watch",
+      "dahai_action": "watch"
+    },
+    {
+      "code": "601288",
+      "name": "农业银行",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "601398",
+      "name": "工商银行",
+      "core_pool": false,
+      "status": "non_core",
+      "wb_action": "hold",
+      "dahai_action": "hold"
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "watch",
+      "wb_semantic": "观察",
+      "wb_direction": "down",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "neutral",
+      "dahai_confidence": 30,
+      "same_semantic": true,
+      "same_raw": true,
+      "same_direction": false,
+      "attribution": "一致",
+      "data_issues": [],
+      "actionability": "ALIGNED_HOLD",
+      "facts_close": 29.06,
+      "facts_rsi6": 32.7
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "buy",
+      "wb_semantic": "买入",
+      "wb_direction": "down",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "neutral",
+      "dahai_confidence": 30,
+      "same_semantic": false,
+      "same_raw": false,
+      "same_direction": false,
+      "attribution": "数据分歧（大海: ten_day_chg偏差1.4）",
+      "data_issues": [
+        "大海: ten_day_chg偏差1.4"
+      ],
+      "actionability": "DIVERGENT",
+      "facts_close": 17.89,
+      "facts_rsi6": 24.94
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "watch",
+      "wb_semantic": "观察",
+      "wb_direction": "down",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "neutral",
+      "dahai_confidence": 30,
+      "same_semantic": true,
+      "same_raw": true,
+      "same_direction": false,
+      "attribution": "一致",
+      "data_issues": [],
+      "actionability": "ALIGNED_HOLD",
+      "facts_close": 32.26,
+      "facts_rsi6": 25.43
+    }
+  ],
+  "divergences": [
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "buy",
+      "wb_semantic": "买入",
+      "wb_direction": "up",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "bearish",
+      "dahai_confidence": 48,
+      "same_semantic": false,
+      "same_raw": false,
+      "same_direction": false,
+      "attribution": "数据分歧（大海: close偏差1.09%, rsi6偏差9.1, ten_day_chg偏差0.49）",
+      "data_issues": [
+        "大海: close偏差1.09%, rsi6偏差9.1, ten_day_chg偏差0.49"
+      ],
+      "actionability": "DIVERGENT",
+      "facts_close": 0.829,
+      "facts_rsi6": 17.01
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "core_pool": true,
+      "status": "ok",
+      "wb_action": "buy",
+      "wb_semantic": "买入",
+      "wb_direction": "down",
+      "wb_confidence": null,
+      "dahai_action": "watch",
+      "dahai_semantic": "观察",
+      "dahai_direction": "neutral",
+      "dahai_confidence": 30,
+      "same_semantic": false,
+      "same_raw": false,
+      "same_direction": false,
+      "attribution": "数据分歧（大海: ten_day_chg偏差1.4）",
+      "data_issues": [
+        "大海: ten_day_chg偏差1.4"
+      ],
+      "actionability": "DIVERGENT",
+      "facts_close": 17.89,
+      "facts_rsi6": 24.94
+    }
+  ],
+  "actionable": {
+    "aligned_buy": [],
+    "aligned_sell": [],
+    "divergent": [
+      "半导体ETF",
+      "金钼股份"
+    ]
+  },
+  "_note": "核心池标的参与一致率计算，非核心池仅记录"
+}
