@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-correction_table.py — 双模型分歧的修正规则（v1.0，2026-10-18）
+correction_table.py — 双模型分歧的修正规则（v2.0，2026-10-20）
 ==============================================================
-【依据】
-backtest/signal_stats.py 实测（10标的/7200根K线）：
-  FDR 校正后 0/24 信号显著 → 单信号都没有可靠的 edge。
-  相对最优：RSI6<15 深超卖 T+3 胜率57.0%/均收+1.00% (n=151)
-  基本无效：RSI6<25 超卖 T+3 胜率48.3%/均收+0.10% (n=646)  ← 此前主力信号
-  样本不足：超卖+MACD金叉 83.3% 但仅 n=6，不作依据
+【v2.0 改了什么】
+v1.0 的信号效力是手工常量，基于 7200 根K线的旧回测（FDR 0/24）。
+v2.0 改为**从 backtest/signal_stats.json 动态读取**，回测一更新规则自动跟着变。
 
-【修正规则（替代"分歧就不动"）】
-  方向：一律不因单方观点改方向（双方都无显著 edge，改方向=赌博）
-  仓位：按信号级别的实测胜率给"信心系数"
+【当前回测基线（28标的 / 65249根K线 / 约10年）】
+  FDR 显著 13/24。关键发现：
+    · 超卖类信号 T+5 胜率显著高于 T+1/T+3 → 持有期改 T+5
+    · RSI6<15    T+5 58.9% / +1.05% (n=1209)  ← 主力
+    · 10日跌超10% T+5 56.0% / +0.87% (n=3078)  ← 辅助
+    · RSI6<25    T+5 55.2% / +0.54% (n=5572)  ← 可用但薄
+    · MACD金叉   T+5 49.98% → **不是买入信号**（仅作否决）
+    · 量比≥1.5   T+5 50.43% → 无效
 
-    confidence:
-      1.0  双方一致 AND 命中强信号(RSI6<15)
-      0.7  双方一致，但信号一般
-      0.5  真分歧（输入一致、判断不同）→ 各让一半
-      0.3  单方命中弱信号、另一方无信号
-      0.0  数据分歧 / 命中已知无效信号(RSI6 在 15~25 区间)
-
-  仓位 = 基础凯利 × confidence，再走硬约束（≤20%单标的 / ≤60%总仓 / <2%不操作）
+【修正原则】
+  1. 只调仓位，不改方向（双方都无方向 edge）
+  2. 信心系数由信号 T+5 胜率映射，再按样本量/FDR/双方一致性打折
+  3. 持有周期默认 T+5（实测最优窗口）
+  4. MACD 金叉、量比不作买入依据，只作风险否决
 
 【用法】
   python3 correction_table.py --date 2026-10-16
@@ -38,51 +37,72 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATS = os.path.join(BASE_DIR, "backtest", "signal_stats.json")
 OUT_DIR = os.path.join(BASE_DIR, "reconcile")
 
-# 实测得来的信号效力分档（每次重跑 signal_stats 后手工复核更新）
-SIGNAL_POWER = {
-    "strong": {"RSI6<15": {"t3_win": 57.0, "t3_ret": 1.00, "n": 151}},
-    "weak": {
-        "RSI6<25": {"t3_win": 48.3, "t3_ret": 0.10, "n": 646},
-        "MACD金叉": {"t3_win": 51.2, "t3_ret": 0.37, "n": 884},
-        "10日跌超10%": {"t3_win": 50.5, "t3_ret": 0.50, "n": 396},
-        "MACD空头加速": {"t3_win": 47.8, "t3_ret": 0.21, "n": 1966},
-    },
-    "invalid": {"RSI6 15~25 区间": {"t3_win": 48.3, "t3_ret": 0.10, "n": 646}},
-}
+NAME_ALIAS = {"半导体ETF国联安": "半导体ETF"}
 
 
-def classify_signal(facts_stock):
-    """根据事实包里的指标，判定该标的命中的信号强度"""
+def canon(n):
+    return NAME_ALIAS.get(n, n)
+
+
+def load_stats():
+    """读回测结果 → {signal_key: {name, win, ret, n, fdr_t5}}"""
+    if not os.path.exists(STATS):
+        return {}
+    j = json.load(open(STATS, encoding="utf-8"))
+    sig = {p["signal"] for p in j.get("fdr", {}).get("passed", [])
+           if p["horizon"] == "T+5"}
+    out = {}
+    for k, v in j.get("signals", {}).items():
+        h = v["horizons"].get("T+5")
+        if h:
+            out[k] = {"name": v["name"], "win": h["win_rate"],
+                      "ret": h["avg_ret_pct"], "n": h["n"],
+                      "fdr_t5": k in sig}
+    return out
+
+
+def classify(facts_stock, stats):
+    """判定命中的信号，多信号取 T+5 胜率最高者。返回 (key, 描述)"""
     rsi = facts_stock.get("rsi6")
     macd = (facts_stock.get("macd") or {}).get("state", "")
-    if rsi is None:
-        return "unknown", None
-    if rsi < 15:
-        return "strong", f"RSI6={rsi}<15（实测T+3胜率57%，唯一有边缘）"
-    if 15 <= rsi < 25:
-        return "invalid", f"RSI6={rsi} 落在15~25区间（实测胜率48.3%，无边缘）"
-    if macd in ("golden_cross",):
-        return "weak", f"MACD金叉（实测胜率51.2%，接近随机）"
-    return "none", f"无有效信号（RSI6={rsi}, MACD={macd}）"
+    ten = facts_stock.get("ten_day_chg")
+
+    hits = []
+    if rsi is not None:
+        if rsi < 15:
+            hits.append("S2")
+        elif rsi < 25:
+            hits.append("S1")
+    if ten is not None and ten <= -10:
+        hits.append("S5")
+    if ("S1" in hits or "S2" in hits):
+        if macd == "golden_cross":
+            hits.append("S8")
+        elif macd in ("below", "death_cross"):
+            hits.append("S7")
+
+    if not hits:
+        return None, f"无有效买入信号（RSI6={rsi}, MACD={macd}, 10日={ten}%）"
+
+    valid = [(k, stats[k]) for k in hits if k in stats and stats[k]["win"] > 50]
+    if not valid:
+        return None, f"命中信号均无 edge（{hits}）"
+    k, s = max(valid, key=lambda x: x[1]["win"])
+    return k, (f"{s['name']}：T+5胜率{s['win']}%，均收+{s['ret']}%，"
+               f"n={s['n']}{'（过FDR）' if s['fdr_t5'] else ''}")
 
 
-def decide(wb_action, dh_action, power, same_semantic, data_ok):
-    """核心修正逻辑：返回 (confidence, 理由)"""
-    if not data_ok:
-        return 0.0, "数据分歧 → 不出手"
-    if power == "strong":
-        if same_semantic and wb_action in ("buy",):
-            return 1.0, "双方一致 + 命中强信号(RSI6<15) → 足额"
-        if wb_action == "buy" or dh_action == "buy":
-            return 0.6, "强信号，但双方未完全一致 → 六成"
-    if power == "invalid":
-        return 0.0, "落在已知无效区间(RSI6 15~25) → 不出手"
-    if same_semantic:
-        if wb_action == "buy":
-            return 0.7, "双方一致买入，但信号一般 → 七成"
-        return 0.0, "双方一致不买 → 无仓位"
-    # 真分歧
-    return 0.5, "真分歧（输入一致、判断不同）→ 各让一半"
+def confidence_of(sig_key, stats, same_semantic):
+    """信心系数 = f(T+5胜率) × 样本量修正 × FDR修正 × 一致性修正"""
+    s = stats.get(sig_key)
+    if not s:
+        return 0.0
+    base = max(0.0, min(1.0, (s["win"] - 50.0) / 12.5))   # 50%→0, 62.5%→1.0
+    if s["n"] < 200:
+        base *= 0.5
+    if not s["fdr_t5"]:
+        base *= 0.8
+    return round(base * (1.0 if same_semantic else 0.5), 2)
 
 
 def main():
@@ -92,76 +112,97 @@ def main():
     args = ap.parse_args()
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    # 加载事实 / WB观点 / 对账结果
     fp = os.path.join(BASE_DIR, "facts", f"{args.date}.json")
     cp = os.path.join(OUT_DIR, "daily_compare.json")
     if not os.path.exists(fp):
         print(f"[ERR] 缺事实包 {fp}，先跑 facts_builder.py --date {args.date}")
         return 1
     facts = json.load(open(fp, encoding="utf-8"))
-    fm = {s["name"]: s for s in facts["stocks"]}
+    fm = {canon(s["name"]): s for s in facts["stocks"]}
 
-    # 对账结果里已含双方 action 与归因
     comp = None
     if os.path.exists(cp):
-        arr = json.load(open(cp, encoding="utf-8"))
-        for r in arr:
+        for r in json.load(open(cp, encoding="utf-8")):
             if r.get("date") == args.date:
                 comp = r
     if not comp or comp.get("status") != "ok":
-        print("[ERR] 缺当日对账结果，先跑 reconcile_wb_dahai.py --dates " + args.date)
+        print("[ERR] 缺当日对账结果，先跑 reconcile_wb_dahai.py")
+        return 1
+
+    stats = load_stats()
+    if not stats:
+        print("[ERR] 缺回测结果，先跑 backtest/signal_stats.py")
         return 1
 
     rows = []
     for s in comp["stocks"]:
         name = s["name"]
-        f = fm.get(name) or fm.get("半导体ETF" if "半导体" in name else name)
+        f = fm.get(canon(name))
         if not f:
             continue
-        power, why_signal = classify_signal(f)
-        data_ok = (s.get("attribution", "").startswith("一致")
-                   or s.get("attribution", "").startswith("真分歧")
-                   or s.get("attribution", "").startswith("无事实包") is False
-                   and "数据分歧" not in s.get("attribution", ""))
-        conf, why = decide(s["wb_action"], s["dahai_action"], power,
-                           s["same_semantic"], data_ok)
+        att = s.get("attribution") or ""
+        # [2026-10-20 调整] 数据分歧不再一律阻断——它是"对方输错数"，
+        # 不是"没有机会"。处理：信号照判，信心额外打 6 折，并在输出标注。
+        is_data_div = att.startswith("数据分歧")
+        no_facts = att.startswith("无事实包")
+        data_ok = not no_facts
+        sig_key, sig_note = classify(f, stats)
+        conf = (confidence_of(sig_key, stats, s["same_semantic"])
+                if (sig_key and data_ok) else 0.0)
+        if conf and is_data_div:
+            conf = round(conf * 0.6, 2)
+
         kelly = s.get("kelly_pct") or 0
-        # 若双方均未给凯利（如 hold/watch），但命中强信号，用基准凯利补一个底仓
-        if not kelly and power == "strong":
-            kelly = 6.0   # A级信号基准（全凯利约12% × 半凯利）
-        final = round(kelly * conf, 2) if kelly else 0.0
+        if not kelly and sig_key:
+            kelly = 6.0
+        final = round(kelly * conf, 2) if (kelly and conf) else 0.0
+        note = ""
+        blocked = None
         if 0 < final < 2.0:
+            blocked = final
             final = 0.0
-            why += "；仓位<2%门槛，不操作"
+            note = f"算出{blocked}%，低于2%门槛→不操作"
+
         rows.append({
             "name": name, "wb_action": s["wb_action"], "dahai_action": s["dahai_action"],
             "same_semantic": s["same_semantic"], "attribution": s.get("attribution"),
             "rsi6": f.get("rsi6"), "macd": (f.get("macd") or {}).get("state"),
-            "signal_power": power, "signal_note": why_signal,
+            "ten_day_chg": f.get("ten_day_chg"),
+            "signal_key": sig_key, "signal_note": sig_note,
+            "data_divergence": is_data_div,
+            "data_divergence_note": ("⚠ 数据分歧：对方输入偏离事实层，信心×0.6"
+                                     if is_data_div else ""),
             "base_kelly_pct": kelly, "confidence": conf,
-            "final_position_pct": final, "decision_reason": why,
+            "final_position_pct": final, "blocked_by_gate_pct": blocked,
+            "decision_reason": note,
         })
 
     out = {
         "date": args.date,
         "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S+08:00"),
-        "_basis": "signal_stats.json 实测：FDR 0/24 显著；RSI6<15 是唯一有边缘的信号",
-        "_principle": "不改方向只调仓位；数据分歧与无效区间一律不出手",
+        "_basis": "signal_stats.json（28标的/65249根K线/近10年）",
+        "_principle": "只调仓位不改方向；MACD金叉与量比不作买入依据（实测<50%）",
+        "hold_period": "T+5",
         "positions": rows,
         "total_position_pct": round(sum(r["final_position_pct"] for r in rows), 2),
     }
     dst = os.path.join(OUT_DIR, f"correction-{args.date}.json")
     json.dump(out, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
-    print(f"\n{'='*74}")
-    print(f"修正规则裁决  {args.date}")
-    print(f"{'='*74}")
-    print(f"{'标的':10s} {'WB':6s} {'大海':6s} {'RSI6':>6s} {'信号':8s} {'信心':>5s} {'仓位':>6s}")
+    print(f"\n{'='*82}")
+    print(f"修正裁决 {args.date}  （持有期 T+5）")
+    print(f"{'='*82}")
+    print(f"{'标的':10s} {'WB':6s} {'大海':6s} {'RSI6':>6s} {'信号':6s} {'信心':>5s} {'仓位':>6s}")
+    print("-" * 82)
     for r in rows:
         print(f"{r['name'][:9]:10s} {r['wb_action']:6s} {r['dahai_action']:6s} "
-              f"{r['rsi6'] or 0:6.2f} {r['signal_power']:8s} "
-              f"{r['confidence']:5.1f} {r['final_position_pct']:5.2f}%")
-    print(f"\n总仓位建议: {out['total_position_pct']}%")
+              f"{r['rsi6'] or 0:6.2f} {(r['signal_key'] or '-'):6s} "
+              f"{r['confidence']:5.2f} {r['final_position_pct']:5.2f}%")
+        if r["signal_key"]:
+            print(f"       └ {r['signal_note']}")
+        if r["decision_reason"]:
+            print(f"       ⚠ {r['decision_reason']}")
+    print(f"\n总仓位: {out['total_position_pct']}%")
     print(f"已写入 {dst}")
 
     if args.push:
