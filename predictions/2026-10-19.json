@@ -2,10 +2,12 @@
   "schema_version": "2.5",
   "predictor": "WorkBuddy",
   "predict_date": "2026-10-19",
+  "date": "2026-10-19",
+  "based_on_facts": "facts/2026-10-19.json",
   "target_date": "2026-10-19",
   "market_direction": "neutral",
   "market_confidence": 0.47,
-  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-20 15:12:51",
+  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-20 15:15:14",
   "data_basis": {
     "source": null,
     "as_of": "2026-10-19",
@@ -1127,7 +1129,7 @@
     "market_amp_pct": 1.61
   },
   "_market_environment": {
-    "timestamp": "2026-10-20 15:12",
+    "timestamp": "2026-10-20 15:15",
     "scope": "上证指数 sh000001",
     "index": {
       "close": 3735.37,
