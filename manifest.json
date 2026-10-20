@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "status": "failed",
   "anomalies": [
     {
@@ -27,20 +27,12 @@
       "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
     },
     {
-      "type": "sharp_drop",
-      "stock": "ʢ����Դ",
-      "code": "sh600392",
-      "value": -9.43,
-      "level": "critical",
-      "message": "ʢ����Դ 单日跌幅 -9.43%，超过 -8% 紧急阈值"
-    },
-    {
       "type": "prediction_degradation",
       "stock": "预测管道",
       "code": "N/A",
       "value": null,
       "level": "critical",
-      "message": "预测文件 predictions-dahai/2026-10-19_dahai.json: predictions 为空，管道可能降级"
+      "message": "预测文件 predictions-dahai/2026-10-20_dahai.json: predictions 为空，管道可能降级"
     },
     {
       "type": "prediction_degradation",
@@ -48,7 +40,7 @@
       "code": "N/A",
       "value": "WB-rebuilt-v1.0",
       "level": "alert",
-      "message": "预测文件 predictions-dahai/2026-10-19_dahai.json: 模型版本回退为 WB-rebuilt-v1.0，疑似降级"
+      "message": "预测文件 predictions-dahai/2026-10-20_dahai.json: 模型版本回退为 WB-rebuilt-v1.0，疑似降级"
     }
   ],
   "missing_stocks": [
@@ -73,6 +65,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-10-19T10:04:50+08:00",
+  "generated_at": "2026-10-20T10:21:26+08:00",
   "detector_version": "1.0"
 }
