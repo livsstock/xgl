@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-18T14:28:50+08:00",
-  "syms": 10,
-  "total_bars": 7200,
+  "generated_at": "2026-10-19T16:40:06+08:00",
+  "syms": 28,
+  "total_bars": 65249,
   "signal_defs": {
     "S1": "RSI6<25 超卖",
     "S2": "RSI6<15 深超卖",
@@ -19,19 +19,19 @@
       "name": "RSI6<25 超卖",
       "horizons": {
         "T+1": {
-          "n": 656,
-          "win_rate": 50.46,
-          "avg_ret_pct": -0.032
+          "n": 5617,
+          "win_rate": 52.47,
+          "avg_ret_pct": 0.044
         },
         "T+3": {
-          "n": 646,
-          "win_rate": 48.3,
-          "avg_ret_pct": 0.097
+          "n": 5592,
+          "win_rate": 51.68,
+          "avg_ret_pct": 0.203
         },
         "T+5": {
-          "n": 638,
-          "win_rate": 51.41,
-          "avg_ret_pct": 0.423
+          "n": 5572,
+          "win_rate": 55.17,
+          "avg_ret_pct": 0.536
         }
       }
     },
@@ -39,19 +39,19 @@
       "name": "RSI6<15 深超卖",
       "horizons": {
         "T+1": {
-          "n": 158,
-          "win_rate": 56.33,
-          "avg_ret_pct": 0.315
+          "n": 1237,
+          "win_rate": 55.21,
+          "avg_ret_pct": 0.194
         },
         "T+3": {
-          "n": 151,
-          "win_rate": 56.95,
-          "avg_ret_pct": 0.996
+          "n": 1219,
+          "win_rate": 54.72,
+          "avg_ret_pct": 0.548
         },
         "T+5": {
-          "n": 150,
-          "win_rate": 58.67,
-          "avg_ret_pct": 1.677
+          "n": 1209,
+          "win_rate": 58.89,
+          "avg_ret_pct": 1.053
         }
       }
     },
@@ -59,19 +59,19 @@
       "name": "MACD近3日金叉",
       "horizons": {
         "T+1": {
-          "n": 885,
-          "win_rate": 47.12,
-          "avg_ret_pct": 0.057
+          "n": 7745,
+          "win_rate": 46.87,
+          "avg_ret_pct": 0.075
         },
         "T+3": {
-          "n": 884,
-          "win_rate": 51.24,
-          "avg_ret_pct": 0.37
+          "n": 7743,
+          "win_rate": 49.59,
+          "avg_ret_pct": 0.218
         },
         "T+5": {
-          "n": 883,
-          "win_rate": 49.04,
-          "avg_ret_pct": 0.591
+          "n": 7737,
+          "win_rate": 49.98,
+          "avg_ret_pct": 0.317
         }
       }
     },
@@ -79,19 +79,19 @@
       "name": "MACD空头加速",
       "horizons": {
         "T+1": {
-          "n": 1978,
-          "win_rate": 50.96,
-          "avg_ret_pct": 0.03
+          "n": 16836,
+          "win_rate": 50.02,
+          "avg_ret_pct": 0.001
         },
         "T+3": {
-          "n": 1966,
-          "win_rate": 47.81,
-          "avg_ret_pct": 0.206
+          "n": 16806,
+          "win_rate": 49.43,
+          "avg_ret_pct": 0.062
         },
         "T+5": {
-          "n": 1960,
-          "win_rate": 50.05,
-          "avg_ret_pct": 0.477
+          "n": 16788,
+          "win_rate": 50.3,
+          "avg_ret_pct": 0.208
         }
       }
     },
@@ -99,19 +99,19 @@
       "name": "10日跌超10%",
       "horizons": {
         "T+1": {
-          "n": 405,
-          "win_rate": 47.16,
-          "avg_ret_pct": 0.016
+          "n": 3113,
+          "win_rate": 55.57,
+          "avg_ret_pct": 0.252
         },
         "T+3": {
-          "n": 396,
-          "win_rate": 50.51,
-          "avg_ret_pct": 0.498
+          "n": 3095,
+          "win_rate": 54.41,
+          "avg_ret_pct": 0.532
         },
         "T+5": {
-          "n": 391,
-          "win_rate": 53.71,
-          "avg_ret_pct": 0.92
+          "n": 3078,
+          "win_rate": 56.04,
+          "avg_ret_pct": 0.868
         }
       }
     },
@@ -119,19 +119,19 @@
       "name": "量比≥1.5",
       "horizons": {
         "T+1": {
-          "n": 644,
-          "win_rate": 48.91,
-          "avg_ret_pct": 0.234
+          "n": 6823,
+          "win_rate": 47.55,
+          "avg_ret_pct": 0.095
         },
         "T+3": {
-          "n": 642,
-          "win_rate": 49.84,
-          "avg_ret_pct": 0.772
+          "n": 6815,
+          "win_rate": 49.35,
+          "avg_ret_pct": 0.395
         },
         "T+5": {
-          "n": 641,
-          "win_rate": 48.67,
-          "avg_ret_pct": 0.829
+          "n": 6811,
+          "win_rate": 50.43,
+          "avg_ret_pct": 0.549
         }
       }
     },
@@ -139,19 +139,19 @@
       "name": "超卖+MACD空头(组合)",
       "horizons": {
         "T+1": {
-          "n": 510,
-          "win_rate": 50.98,
-          "avg_ret_pct": -0.013
+          "n": 4450,
+          "win_rate": 52.4,
+          "avg_ret_pct": 0.03
         },
         "T+3": {
-          "n": 500,
-          "win_rate": 47.6,
-          "avg_ret_pct": 0.188
+          "n": 4426,
+          "win_rate": 51.24,
+          "avg_ret_pct": 0.198
         },
         "T+5": {
-          "n": 494,
-          "win_rate": 52.43,
-          "avg_ret_pct": 0.632
+          "n": 4410,
+          "win_rate": 55.28,
+          "avg_ret_pct": 0.566
         }
       }
     },
@@ -159,19 +159,19 @@
       "name": "超卖+MACD金叉(组合)",
       "horizons": {
         "T+1": {
-          "n": 6,
-          "win_rate": 83.33,
-          "avg_ret_pct": 1.014
+          "n": 68,
+          "win_rate": 54.41,
+          "avg_ret_pct": 0.221
         },
         "T+3": {
-          "n": 6,
-          "win_rate": 66.67,
-          "avg_ret_pct": 1.724
+          "n": 68,
+          "win_rate": 52.94,
+          "avg_ret_pct": 0.846
         },
         "T+5": {
-          "n": 6,
-          "win_rate": 100.0,
-          "avg_ret_pct": 5.61
+          "n": 68,
+          "win_rate": 60.29,
+          "avg_ret_pct": 1.669
         }
       }
     }
@@ -179,6 +179,98 @@
   "fdr": {
     "alpha": 0.05,
     "tests": 24,
-    "passed": []
+    "passed": [
+      {
+        "signal": "S3",
+        "horizon": "T+1",
+        "n": 7745,
+        "win_rate": 46.87,
+        "p_value": 0.0
+      },
+      {
+        "signal": "S6",
+        "horizon": "T+1",
+        "n": 6823,
+        "win_rate": 47.55,
+        "p_value": 5e-05
+      },
+      {
+        "signal": "S1",
+        "horizon": "T+1",
+        "n": 5617,
+        "win_rate": 52.47,
+        "p_value": 0.00022
+      },
+      {
+        "signal": "S7",
+        "horizon": "T+1",
+        "n": 4450,
+        "win_rate": 52.4,
+        "p_value": 0.00134
+      },
+      {
+        "signal": "S1",
+        "horizon": "T+3",
+        "n": 5592,
+        "win_rate": 51.68,
+        "p_value": 0.01194
+      },
+      {
+        "signal": "S1",
+        "horizon": "T+5",
+        "n": 5572,
+        "win_rate": 55.17,
+        "p_value": 0.0
+      },
+      {
+        "signal": "S7",
+        "horizon": "T+5",
+        "n": 4410,
+        "win_rate": 55.28,
+        "p_value": 0.0
+      },
+      {
+        "signal": "S2",
+        "horizon": "T+1",
+        "n": 1237,
+        "win_rate": 55.21,
+        "p_value": 0.00024
+      },
+      {
+        "signal": "S2",
+        "horizon": "T+3",
+        "n": 1219,
+        "win_rate": 54.72,
+        "p_value": 0.00099
+      },
+      {
+        "signal": "S2",
+        "horizon": "T+5",
+        "n": 1209,
+        "win_rate": 58.89,
+        "p_value": 0.0
+      },
+      {
+        "signal": "S5",
+        "horizon": "T+1",
+        "n": 3113,
+        "win_rate": 55.57,
+        "p_value": 0.0
+      },
+      {
+        "signal": "S5",
+        "horizon": "T+3",
+        "n": 3095,
+        "win_rate": 54.41,
+        "p_value": 0.0
+      },
+      {
+        "signal": "S5",
+        "horizon": "T+5",
+        "n": 3078,
+        "win_rate": 56.04,
+        "p_value": 0.0
+      }
+    ]
   }
 }
