@@ -137,7 +137,13 @@ def build_v2(target_date):
                 "macd_signal": item["macd"]["state"],
             }
 
-    overall_quality = "complete" if not errors else "partial"
+    # 质量判定：0 标的 = 数据源整体不可用（节假日/未开盘/接口挂），不能只判 partial
+    if not instruments:
+        overall_quality = "empty"
+    elif errors:
+        overall_quality = "partial"
+    else:
+        overall_quality = "complete"
     return {
         "date": target_date,
         "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S+08:00"),
@@ -167,6 +173,13 @@ def main():
     os.makedirs(FACTS_DIR, exist_ok=True)
     out = build_v2(args.date)
     dst = os.path.join(FACTS_DIR, f"{args.date}.json")
+    # 数据源整体不可用 → 不写盘，退出码 2，避免下游拿空包当"已跑完"
+    if not out["instruments"]:
+        print(f"[EMPTY] facts/{args.date}.json 未生成：0 个标的通过质量门")
+        print(f"        常见原因：{args.date} 非交易日 / 当日尚未收盘 / 数据源接口异常")
+        print(f"        错误样本：{out['quality_errors'][:2]}")
+        return 2
+
     with open(dst, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
