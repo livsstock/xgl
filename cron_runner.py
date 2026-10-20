@@ -12,8 +12,10 @@ cron_runner.py — daily_predict 的 cron 守护包装（v1.0）
 
 部署：
   crontab -e
-  # WB 每日全链路（收盘后 15:10，走 run_daily.sh）
-  10 15 * * 1-5 cd /workspace/finance_task && python3 cron_runner.py >> logs/cron.log 2>&1
+  # WB 三个决策时点（与老板实际操作节奏对齐）
+  36 8  * * 1-5 cd /workspace/finance_task && python3 cron_runner.py >> logs/cron.log 2>&1   # 盘前卖
+  30 14 * * 1-5 cd /workspace/finance_task && python3 cron_runner.py >> logs/cron.log 2>&1   # 尾盘买
+  10 15 * * 1-5 cd /workspace/finance_task && python3 cron_runner.py >> logs/cron.log 2>&1   # 收盘全链路
 """
 
 import os
@@ -27,8 +29,10 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 
 def is_trade_day():
-    """工作日才算交易日（A 股节假日由 build_facts 的新鲜度门兜底拦截）。"""
-    return datetime.now().weekday() < 5
+    """委托 trade_calendar：周末 + 法定节假日都算非交易日。"""
+    sys.path.insert(0, os.path.join(PROJECT_DIR, "reconcile"))
+    from trade_calendar import is_trading_day
+    return is_trading_day(datetime.now().strftime("%Y-%m-%d"))
 
 
 def is_in_trade_window():
@@ -44,6 +48,11 @@ def is_in_trade_window():
 
 
 def main():
+    """三个时点（2026-10-20 按老板实际节奏重构）：
+      08:36  盘前卖  → decision_points --point 0836（T-1 数据）
+      14:30  尾盘买  → decision_points --point 1430（T 日实时）
+      15:10  全链路  → run_daily.sh（事实层→T+1预测→推送→对账）
+    """
     now = datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -51,33 +60,42 @@ def main():
         print(f"[{timestamp}] SKIP: 周末非交易日")
         return 0
 
-    if not is_in_trade_window():
-        print(f"[{timestamp}] SKIP: 非收盘后时段")
+    date_str = now.strftime("%Y-%m-%d")
+    t = now.hour * 60 + now.minute
+
+    # 时点 → (脚本, 参数, 容差分钟)
+    if 8 * 60 + 30 <= t <= 8 * 60 + 50:
+        cmd = ["python3", os.path.join(PROJECT_DIR, "decision_points.py"),
+               "--date", date_str, "--point", "0836", "--push"]
+        tag = "0836"
+    elif 14 * 60 + 25 <= t <= 14 * 60 + 45:
+        cmd = ["python3", os.path.join(PROJECT_DIR, "decision_points.py"),
+               "--date", date_str, "--point", "1430", "--push"]
+        tag = "1430"
+    elif 15 * 60 + 5 <= t <= 23 * 60 + 59:
+        cmd = ["bash", os.path.join(PROJECT_DIR, "run_daily.sh"), date_str]
+        tag = "close"
+    else:
+        print(f"[{timestamp}] SKIP: 非决策时点")
         return 0
 
-    date_str = now.strftime("%Y-%m-%d")
-    log_path = os.path.join(LOG_DIR, f"daily_predict-{date_str}.log")
-    # 走全链路，不再单跑 daily_predict：否则预测推上去了事实层没推，大海对不上
-    cmd = ["bash", os.path.join(PROJECT_DIR, "run_daily.sh"), date_str]
-
-    print(f"[{timestamp}] RUN: {' '.join(cmd)}")
+    log_path = os.path.join(LOG_DIR, f"decision-{tag}-{date_str}.log")
+    print(f"[{timestamp}] RUN[{tag}]: {' '.join(cmd)}")
     print(f"[{timestamp}] LOG: {log_path}")
 
-    # 重试 1 次
     for attempt in (1, 2):
         with open(log_path, "a", encoding="utf-8") as f:
-            f.write(f"\n=== cron_runner attempt {attempt} @ {timestamp} ===\n")
+            f.write(f"\n=== cron_runner {tag} attempt {attempt} @ {timestamp} ===\n")
             rc = subprocess.call(cmd, stdout=f, stderr=subprocess.STDOUT)
         if rc == 0:
-            print(f"[{timestamp}] OK attempt {attempt}")
+            print(f"[{timestamp}] OK[{tag}] attempt {attempt}")
             return 0
         if rc == 2:
-            # 无数据日主动拦截，重试无意义
-            print(f"[{timestamp}] ABORT: 当日无可用数据（非交易日/未收盘/接口异常）")
+            print(f"[{timestamp}] ABORT[{tag}]: 当日无可用数据（非交易日/未收盘/接口异常）")
             return 0
-        print(f"[{timestamp}] FAIL attempt {attempt} rc={rc}")
+        print(f"[{timestamp}] FAIL[{tag}] attempt {attempt} rc={rc}")
 
-    print(f"[{timestamp}] FINAL FAIL after 2 attempts")
+    print(f"[{timestamp}] FINAL FAIL[{tag}] after 2 attempts")
     return 2
 
 
