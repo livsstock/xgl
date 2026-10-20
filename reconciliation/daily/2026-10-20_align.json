@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-20",
+  "generated_at": "2026-10-20T08:48:52Z",
+  "status": "WB侧缺失，无法对齐",
+  "wb_prediction_found": false,
+  "dahai_prediction_found": true,
+  "market": {
+    "dahai": {
+      "direction": "neutral",
+      "confidence": 40,
+      "reason": "上证微涨+0.12%至3735点，10日累跌-2.48%持续收窄改善",
+      "source": "market_outlook"
+    },
+    "wb": "缺失",
+    "risk_level": "MODERATE",
+    "risk_detail": "⚠️ WB侧预测缺失，无法完成双模型大盘对齐。大海侧大盘方向neutral，大盘门通过(+0.12%>-2%)",
+    "is_high_risk": false,
+    "market_freeze": false,
+    "market_caution": true
+  },
+  "results": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "dahai_close": 29.06,
+      "dahai_change_pct": -2.45,
+      "wb_action": "缺失",
+      "status": "⚠️ WB缺失，无法对齐"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "dahai_action": "watch",
+      "dahai_direction": "neutral",
+      "dahai_close": 35.58,
+      "dahai_change_pct": 0.99,
+      "wb_action": "缺失",
+      "status": "⚠️ WB缺失，无法对齐"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "dahai_close": 32.26,
+      "dahai_change_pct": -0.98,
+      "wb_action": "缺失",
+      "status": "⚠️ WB缺失，无法对齐"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "dahai_close": 17.89,
+      "dahai_change_pct": -0.61,
+      "wb_action": "缺失",
+      "status": "⚠️ WB缺失，无法对齐"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "dahai_action": "watch",
+      "dahai_direction": "bearish",
+      "dahai_close": 0.829,
+      "dahai_change_pct": 1.1,
+      "wb_action": "缺失",
+      "status": "⚠️ WB缺失，无法对齐"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "dahai_action": "hold",
+      "dahai_direction": "bullish",
+      "dahai_close": 72.85,
+      "dahai_change_pct": 0.04,
+      "wb_action": "缺失",
+      "status": "⚠️ WB缺失，无法对齐"
+    }
+  ],
+  "aligned_buy": [],
+  "divergence": [],
+  "conclusion": "⚠️ WB侧预测缺失，无法完成双模型对齐。按对齐规则（分歧或一方缺失=不出手），今日无操作建议。大海侧：5只观望+1只持有(五粮液)，无买入信号。今日要点：紫金-2.45%大跌进入超卖区；北稀+0.99%反弹10日转正；半导体ETF+1.10%超跌反弹但10日仍暴跌-15.84%"
+}
