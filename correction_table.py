@@ -118,7 +118,16 @@ def main():
         print(f"[ERR] 缺事实包 {fp}，先跑 facts_builder.py --date {args.date}")
         return 1
     facts = json.load(open(fp, encoding="utf-8"))
-    fm = {canon(s["name"]): s for s in facts["stocks"]}
+    # [2026-10-20] 兼容 facts v1（stocks 数组）与 v2（instruments 字典）
+    try:
+        from daily_predict import _normalize_facts_pkg
+        _pkg = _normalize_facts_pkg(facts)
+    except Exception:
+        _pkg = facts if isinstance(facts.get("stocks"), list) else None
+    if not _pkg:
+        print(f"[ERR] 事实包格式无法识别 {fp}")
+        return 1
+    fm = {canon(s["name"]): s for s in _pkg["stocks"]}
 
     comp = None
     if os.path.exists(cp):
@@ -151,6 +160,19 @@ def main():
                 if (sig_key and data_ok) else 0.0)
         if conf and is_data_div:
             conf = round(conf * 0.6, 2)
+
+        # [2026-10-20 关键修正] 仓位必须"至少一方看多"。
+        # 原逻辑只看 facts 层信号，导致双方都 watch 的标的（金钼 RSI=24.94 命中 S7）
+        # 也给出 2.52% 仓位——逻辑矛盾（观察 ≠ 买入）。
+        def _bullish(a):
+            return a in ("buy", "buy_probe", "buy_standard")
+        at_least_one_bullish = _bullish(s.get("wb_action")) or _bullish(s.get("dahai_action"))
+        consensus = s.get("same_semantic")
+
+        if not at_least_one_bullish:
+            sig_key, conf = None, 0.0
+            sig_note = (f"信号命中({sig_note.split('：')[0] if sig_note else '-'})，"
+                        f"但双方均未给出买入 → 不建仓")
 
         kelly = s.get("kelly_pct") or 0
         if not kelly and sig_key:
