@@ -118,20 +118,18 @@ def kelly_for_call(call, kelly_mod):
     chg = t.get("chg_today", 0.0)
     macd = t.get("macd", "above")
 
-    # --- 信号分级（与 risk_report 的 A/B/C/D 同口径）---
-    # A：RSI6 极端超卖 + MACD 未恶化（近似"过样本外+过FDR"的强信号）
-    # B：RSI6 超卖 或 MACD 金叉，但另一项不满足
-    # C/D：无有效信号
+    # --- 信号分级（v3.0 2026-10-20，与 daily_predict v3 / 回测口径同源）---
+    # A：RSI6 < 15（S2，T+5 胜率 58.9%，FDR 通过）→ 强信号
+    # B：RSI6 < 25（S1，T+5 胜率 55.2%，FDR 通过）→ 中等信号，试探仓
+    # 注意：MACD金叉 T+5 仅 50.0%、量比 50.4%，不再作为提升等级的独立依据；
+    #       RSI6 25~30 边缘区（原 B 级门槛）已废弃，胜率不足。
     tier = None
     p = 0.0
 
-    if action == "buy":
-        # WB 已判 buy → 至少 B 级；若 RSI6<25 且 macd != 恶化 → 提 A
-        if rsi6 is not None and rsi6 < 25 and macd in ("above", "golden_cross"):
+    if action in ("buy", "buy_probe"):
+        if rsi6 is not None and rsi6 < 15 and macd != "death_cross":
             tier = "A"
-        elif rsi6 is not None and rsi6 < 30:
-            tier = "B"
-        elif macd == "golden_cross":
+        elif rsi6 is not None and rsi6 < 25:
             tier = "B"
         else:
             tier = "C"
@@ -164,6 +162,19 @@ def kelly_for_call(call, kelly_mod):
     return k
 
 
+def _basis_str(wb, date):
+    """[2026-10-20] 数据基准必须显式标注"哪天收盘"+"是否 stale"，
+    避免大海再看到"用 T-1 却标 T 日"的错位。"""
+    b = wb.get("data_basis") or {}
+    as_of = b.get("as_of") or date
+    s = f"{as_of}收盘数据"
+    if b.get("facts_stale"):
+        s += f"（⚠️ 收盘前生成，数据日 {as_of} < 目标日 {date}）"
+    if b.get("facts_source") == "shared":
+        s += " | 事实层 facts/ 同源"
+    return s
+
+
 def build_dahai_schema(wb, ks=None, facts_map=None):
     """把 WB schema v2.5 → 大海 schema（facts_map 提供事实层真值）"""
     facts_map = facts_map or {}
@@ -183,7 +194,7 @@ def build_dahai_schema(wb, ks=None, facts_map=None):
         "predict_date": wb.get("target_date", date),
         "model_version": "WB-v2.5+" + (wb.get("_生成方式", "").split("@")[0].strip()[-8:] if wb.get("_生成方式") else ""),
         "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S+08:00"),
-        "data_basis": wb.get("data_basis", {}).get("as_of", date) + "收盘数据",
+        "data_basis": _basis_str(wb, date),
         "type": "T+1_evening",
         "market_outlook": {
             "direction": DIR_MAP.get(direction, "neutral"),
@@ -296,6 +307,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=datetime.now().strftime("%Y-%m-%d"))
     ap.add_argument("--push", action="store_true", help="生成后推送到 GitHub")
+    ap.add_argument("--inplace", action="store_true",
+                    help="[危险] 覆盖写回 predictions/{date}.json（默认关闭）")
     args = ap.parse_args()
 
     src = os.path.join(PRED_DIR, f"{args.date}.json")
@@ -305,16 +318,29 @@ def main():
         return 1
 
     wb = json.load(open(src, encoding="utf-8"))
+    # [2026-10-20 修复] 防止把已经是"大海格式"的文件再次当源（会丢字段）
+    if wb.get("predictor") != "WorkBuddy":
+        print(f"[ERR] {src} 不是 WB 原生格式（predictor={wb.get('predictor')}），"
+              f"拒绝转换——请在 daily_predict.py 之后立即运行本脚本。")
+        return 2
+
     ks = load_kelly()
     facts_map = load_facts(args.date)
     if not facts_map:
         print("[WARN] 无事实包，ten_day_chg 退回 Tech 值")
     out = build_dahai_schema(wb, ks, facts_map)
 
-    dst = os.path.join(PRED_DIR, f"{args.date}.json")
+    # [2026-10-20 关键修复] 输出到**独立文件** predictions/{date}_wbview.json。
+    # 原来写回 predictions/{date}.json，把 WB 原生 schema 覆盖掉，
+    # 导致 predictor/market_env/_data_source 等字段全丢，大海读不到 WB 的判断。
+    if args.inplace:
+        dst = src
+    else:
+        dst = os.path.join(PRED_DIR, f"{args.date}_wbview.json")
     json.dump(out, open(dst, "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
-    print(f"[OK] 已生成对齐版 → {dst} ({os.path.getsize(dst)} bytes)")
+    print(f"[OK] 已生成对齐视图 → {os.path.relpath(dst, BASE_DIR)} "
+          f"({os.path.getsize(dst)} bytes)")
     print(f"     核心池 {out['summary']['core_count']} 只，"
           f"买入 {out['summary']['core_buy']}")
     for c in out["stock_calls"]:
@@ -324,10 +350,9 @@ def main():
                   f"凯利={kk['f_final_pct']}% {'(低于门槛)' if kk['below_min'] else ''}")
 
     if args.push:
-        r = subprocess.run([sys.executable, os.path.join(BASE_DIR, "push_api.py"),
-                            f"predictions/{args.date}.json"],
-                           capture_output=True, text=True, timeout=90)
-        print(r.stdout.strip().splitlines()[-1] if r.stdout else r.stderr[:200])
+        rel = os.path.relpath(dst, BASE_DIR).replace(os.sep, "/")
+        import push_api
+        print(f"[推送] {rel} → main: {push_api.put_file(dst, rel)}")
     return 0
 
 
