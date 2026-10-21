@@ -1,10 +1,10 @@
 {
   "date": "2026-10-21",
   "model_version": "v1.2-kuramoto",
-  "generated_at": "2026-10-21 16:00:26",
+  "generated_at": "2026-10-21 16:01:43",
   "market_outlook": {
-    "direction": "偏空",
-    "confidence": 56,
+    "direction": "震荡",
+    "confidence": 40,
     "ts_level": 5,
     "ts_label": "5档·偏空",
     "ts_position": 10,
@@ -12,8 +12,261 @@
   },
   "index_summary": {
     "close": 3735.37,
-    "change_percent": 0,
-    "ten_day_change": 0
+    "change_percent": 0.12,
+    "ten_day_change": -2.4822479795004906
   },
-  "predictions": []
+  "predictions": [
+    {
+      "name": "京东方A",
+      "code": "sz000725",
+      "close": 5.04,
+      "change_pct": -0.4,
+      "ten_day_chg": -11.733800350262696,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 5.04
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 42,
+        "target": 5.15
+      },
+      "action": "关注",
+      "reason": "10日跌-11.7%超跌反弹，偏差修正-0.012",
+      "trend_context": "跌势",
+      "sector": "科技制造"
+    },
+    {
+      "name": "北方稀土",
+      "code": "sh600111",
+      "close": 35.58,
+      "change_pct": 0.99,
+      "ten_day_chg": 0.48009036995199583,
+      "t1": {
+        "direction": "跌",
+        "confidence": 60,
+        "target": 35.15
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 34.73
+      },
+      "action": "回避",
+      "reason": "跌势中反弹-0.1",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "宝钢股份",
+      "code": "sh600019",
+      "close": 6.02,
+      "change_pct": -1.31,
+      "ten_day_chg": 2.905982905982905,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 6.02
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 5.9
+      },
+      "action": "观望",
+      "reason": "涨势中回调+0.1",
+      "trend_context": "涨势",
+      "sector": "钢铁"
+    },
+    {
+      "name": "航发动力",
+      "code": "sh600893",
+      "close": 39.91,
+      "change_pct": -0.5,
+      "ten_day_chg": 3.9052330122363967,
+      "t1": {
+        "direction": "跌",
+        "confidence": 55,
+        "target": 39.47
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 38.95
+      },
+      "action": "回避",
+      "reason": "10日涨3.9%回调压力",
+      "trend_context": "横盘",
+      "sector": "科技制造"
+    },
+    {
+      "name": "锡业股份",
+      "code": "sz000960",
+      "close": 25.69,
+      "change_pct": 1.02,
+      "ten_day_chg": -16.045751633986928,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 25.69
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 43,
+        "target": 26.24
+      },
+      "action": "关注",
+      "reason": "MACD偏空，10日跌-16.0%超跌反弹，跌势中反弹-0.1，偏差修正-0.027",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "湖南黄金",
+      "code": "sz002155",
+      "close": 21.72,
+      "change_pct": -1.85,
+      "ten_day_chg": -5.892547660311957,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 21.72
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 21.29
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "贵金属"
+    },
+    {
+      "name": "盛和资源",
+      "code": "sh600392",
+      "close": 16.66,
+      "change_pct": 2.9,
+      "ten_day_chg": -17.809570794277256,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 16.66
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 43,
+        "target": 17.02
+      },
+      "action": "关注",
+      "reason": "10日跌-17.8%超跌反弹，跌势中反弹-0.1，偏差修正-0.028",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "金钼股份",
+      "code": "sh601958",
+      "close": 17.89,
+      "change_pct": -0.61,
+      "ten_day_chg": -7.305699481865285,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 17.89
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 44,
+        "target": 18.28
+      },
+      "action": "关注",
+      "reason": "10日跌-7.3%超跌反弹，偏差修正-0.003",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "白银有色",
+      "code": "sh601212",
+      "close": 5.18,
+      "change_pct": -0.96,
+      "ten_day_chg": -7.664884135472382,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 5.18
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 44,
+        "target": 5.29
+      },
+      "action": "关注",
+      "reason": "10日跌-7.7%超跌反弹，偏差修正-0.003",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "机器人ETF易方达",
+      "code": "sz159530",
+      "close": 1.22,
+      "change_pct": 4.81,
+      "ten_day_chg": -4.012588512981899,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 1.21
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 1.2
+      },
+      "action": "观望",
+      "reason": "今日涨4.8%动量延续，跌势中反弹-0.1",
+      "trend_context": "跌势",
+      "sector": null
+    },
+    {
+      "name": "黄金ETF华安",
+      "code": "sh518880",
+      "close": 8.457,
+      "change_pct": -1.12,
+      "ten_day_chg": -0.727784951285355,
+      "t1": {
+        "direction": "跌",
+        "confidence": 57,
+        "target": 8.36
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 8.29
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "ETF"
+    },
+    {
+      "name": "半导体ETF国联安",
+      "code": "sh512480",
+      "close": 0.829,
+      "change_pct": 1.1,
+      "ten_day_chg": -15.837563451776655,
+      "t1": {
+        "direction": "涨",
+        "confidence": 54,
+        "target": 0.84
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 49,
+        "target": 0.85
+      },
+      "action": "观望",
+      "reason": "10日跌-15.8%超跌反弹，跌势中反弹-0.1，偏差修正-0.037",
+      "trend_context": "跌势",
+      "sector": "ETF"
+    }
+  ]
 }
