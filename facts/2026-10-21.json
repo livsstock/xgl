@@ -1,0 +1,613 @@
+{
+  "date": "2026-10-21",
+  "data_date": "2026-10-20",
+  "_is_stale": true,
+  "_stale_note": "目标日 2026-10-21 尚未收盘，事实层采用最近已收盘交易日 2026-10-20 的数据（T-1 基准），不冒充当日收盘值",
+  "generated_at": "2026-10-21T08:43:46+08:00",
+  "quality_gate": "PASS",
+  "gate_failures": [],
+  "_partial": false,
+  "indices": [
+    {
+      "code": "sh000001",
+      "name": "上证指数",
+      "sector": "大盘",
+      "core_pool": false,
+      "close": 3735.37,
+      "chg_pct": 0.12,
+      "ten_day_chg": -2.48,
+      "rsi6": 29.54,
+      "macd": {
+        "dif": -49.461,
+        "dea": -37.367,
+        "hist": -12.094,
+        "state": "below"
+      },
+      "ma20": 3832.381,
+      "ma20_dev": -2.53,
+      "dd30": -6.14,
+      "vol_ratio": 0.88,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh000300",
+      "name": "沪深300",
+      "sector": "大盘",
+      "core_pool": false,
+      "close": 4152.108,
+      "chg_pct": -0.54,
+      "ten_day_chg": -4.44,
+      "rsi6": 12.09,
+      "macd": {
+        "dif": -102.963,
+        "dea": -85.772,
+        "hist": -17.19,
+        "state": "below"
+      },
+      "ma20": 4352.708,
+      "ma20_dev": -4.61,
+      "dd30": -9.96,
+      "vol_ratio": 0.93,
+      "data_day": "2026-10-20"
+    }
+  ],
+  "stocks": [
+    {
+      "code": "sh601899",
+      "name": "紫金矿业",
+      "sector": "有色金属",
+      "core_pool": true,
+      "close": 29.06,
+      "chg_pct": -2.45,
+      "ten_day_chg": -1.36,
+      "rsi6": 32.7,
+      "macd": {
+        "dif": -0.778,
+        "dea": -0.749,
+        "hist": -0.03,
+        "state": "below"
+      },
+      "ma20": 30.394,
+      "ma20_dev": -4.39,
+      "dd30": -15.52,
+      "vol_ratio": 1.43,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600111",
+      "name": "北方稀土",
+      "sector": "有色金属",
+      "core_pool": true,
+      "close": 35.58,
+      "chg_pct": 0.99,
+      "ten_day_chg": 0.48,
+      "rsi6": 50.81,
+      "macd": {
+        "dif": -0.996,
+        "dea": -1.117,
+        "hist": 0.12,
+        "state": "above"
+      },
+      "ma20": 36.076,
+      "ma20_dev": -1.37,
+      "dd30": -11.43,
+      "vol_ratio": 0.73,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh603799",
+      "name": "华友钴业",
+      "sector": "有色金属",
+      "core_pool": true,
+      "close": 32.26,
+      "chg_pct": -0.98,
+      "ten_day_chg": -5.2,
+      "rsi6": 25.43,
+      "macd": {
+        "dif": -1.507,
+        "dea": -1.394,
+        "hist": -0.112,
+        "state": "below"
+      },
+      "ma20": 34.553,
+      "ma20_dev": -6.64,
+      "dd30": -17.56,
+      "vol_ratio": 0.78,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh601958",
+      "name": "金钼股份",
+      "sector": "有色金属",
+      "core_pool": true,
+      "close": 17.89,
+      "chg_pct": -0.61,
+      "ten_day_chg": -7.31,
+      "rsi6": 24.94,
+      "macd": {
+        "dif": -0.895,
+        "dea": -0.806,
+        "hist": -0.089,
+        "state": "below"
+      },
+      "ma20": 19.361,
+      "ma20_dev": -7.6,
+      "dd30": -18.98,
+      "vol_ratio": 0.6,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh512480",
+      "name": "半导体ETF",
+      "sector": "半导体",
+      "core_pool": true,
+      "close": 0.829,
+      "chg_pct": 1.1,
+      "ten_day_chg": -15.84,
+      "rsi6": 17.01,
+      "macd": {
+        "dif": -0.056,
+        "dea": -0.046,
+        "hist": -0.011,
+        "state": "below"
+      },
+      "ma20": 0.944,
+      "ma20_dev": -12.18,
+      "dd30": -21.12,
+      "vol_ratio": 0.93,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sz000858",
+      "name": "五粮液",
+      "sector": "白酒消费",
+      "core_pool": true,
+      "close": 72.85,
+      "chg_pct": 0.04,
+      "ten_day_chg": 5.93,
+      "rsi6": 80.92,
+      "macd": {
+        "dif": 0.22,
+        "dea": -0.23,
+        "hist": 0.45,
+        "state": "above"
+      },
+      "ma20": 70.436,
+      "ma20_dev": 3.43,
+      "dd30": 0.0,
+      "vol_ratio": 0.88,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh601398",
+      "name": "工商银行",
+      "sector": "银行",
+      "core_pool": false,
+      "close": 8.58,
+      "chg_pct": -0.23,
+      "ten_day_chg": 5.15,
+      "rsi6": 74.96,
+      "macd": {
+        "dif": 0.152,
+        "dea": 0.127,
+        "hist": 0.024,
+        "state": "above"
+      },
+      "ma20": 8.278,
+      "ma20_dev": 3.65,
+      "dd30": -0.23,
+      "vol_ratio": 1.26,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh601288",
+      "name": "农业银行",
+      "sector": "银行",
+      "core_pool": false,
+      "close": 7.41,
+      "chg_pct": -1.07,
+      "ten_day_chg": 6.77,
+      "rsi6": 71.42,
+      "macd": {
+        "dif": 0.142,
+        "dea": 0.1,
+        "hist": 0.042,
+        "state": "above"
+      },
+      "ma20": 7.038,
+      "ma20_dev": 5.29,
+      "dd30": -1.07,
+      "vol_ratio": 1.31,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600036",
+      "name": "招商银行",
+      "sector": "银行",
+      "core_pool": false,
+      "close": 42.52,
+      "chg_pct": -1.23,
+      "ten_day_chg": 4.96,
+      "rsi6": 57.66,
+      "macd": {
+        "dif": 0.643,
+        "dea": 0.554,
+        "hist": 0.089,
+        "state": "above"
+      },
+      "ma20": 41.54,
+      "ma20_dev": 2.36,
+      "dd30": -1.23,
+      "vol_ratio": 0.97,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sz002142",
+      "name": "宁波银行",
+      "sector": "银行",
+      "core_pool": false,
+      "close": 34.79,
+      "chg_pct": -2.49,
+      "ten_day_chg": -0.06,
+      "rsi6": 44.18,
+      "macd": {
+        "dif": 0.26,
+        "dea": 0.356,
+        "hist": -0.096,
+        "state": "below"
+      },
+      "ma20": 35.011,
+      "ma20_dev": -0.63,
+      "dd30": -3.68,
+      "vol_ratio": 1.19,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600392",
+      "name": "盛和资源",
+      "sector": "稀土",
+      "core_pool": false,
+      "close": 16.66,
+      "chg_pct": 2.9,
+      "ten_day_chg": -17.81,
+      "rsi6": 19.58,
+      "macd": {
+        "dif": -1.321,
+        "dea": -0.947,
+        "hist": -0.374,
+        "state": "below"
+      },
+      "ma20": 19.963,
+      "ma20_dev": -16.55,
+      "dd30": -26.77,
+      "vol_ratio": 1.14,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sz000960",
+      "name": "锡业股份",
+      "sector": "有色金属",
+      "core_pool": false,
+      "close": 25.69,
+      "chg_pct": 1.02,
+      "ten_day_chg": -16.05,
+      "rsi6": 17.09,
+      "macd": {
+        "dif": -2.333,
+        "dea": -1.882,
+        "hist": -0.451,
+        "state": "below"
+      },
+      "ma20": 30.164,
+      "ma20_dev": -14.83,
+      "dd30": -27.57,
+      "vol_ratio": 0.75,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sz002155",
+      "name": "湖南黄金",
+      "sector": "贵金属",
+      "core_pool": false,
+      "close": 21.72,
+      "chg_pct": -1.85,
+      "ten_day_chg": -5.89,
+      "rsi6": 29.72,
+      "macd": {
+        "dif": -1.01,
+        "dea": -0.806,
+        "hist": -0.204,
+        "state": "below"
+      },
+      "ma20": 23.754,
+      "ma20_dev": -8.56,
+      "dd30": -23.9,
+      "vol_ratio": 0.9,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh601212",
+      "name": "白银有色",
+      "sector": "有色金属",
+      "core_pool": false,
+      "close": 5.18,
+      "chg_pct": -0.96,
+      "ten_day_chg": -7.66,
+      "rsi6": 29.34,
+      "macd": {
+        "dif": -0.286,
+        "dea": -0.226,
+        "hist": -0.06,
+        "state": "below"
+      },
+      "ma20": 5.705,
+      "ma20_dev": -9.2,
+      "dd30": -29.33,
+      "vol_ratio": 0.74,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sz000725",
+      "name": "京东方A",
+      "sector": "面板",
+      "core_pool": false,
+      "close": 5.04,
+      "chg_pct": -0.4,
+      "ten_day_chg": -11.73,
+      "rsi6": 21.35,
+      "macd": {
+        "dif": -0.188,
+        "dea": -0.128,
+        "hist": -0.06,
+        "state": "below"
+      },
+      "ma20": 5.535,
+      "ma20_dev": -8.94,
+      "dd30": -16.97,
+      "vol_ratio": 0.76,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600875",
+      "name": "东方电气",
+      "sector": "电力设备",
+      "core_pool": false,
+      "close": 22.1,
+      "chg_pct": -0.9,
+      "ten_day_chg": -3.79,
+      "rsi6": 33.44,
+      "macd": {
+        "dif": -0.812,
+        "dea": -0.759,
+        "hist": -0.053,
+        "state": "below"
+      },
+      "ma20": 23.256,
+      "ma20_dev": -4.97,
+      "dd30": -16.16,
+      "vol_ratio": 0.68,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600019",
+      "name": "宝钢股份",
+      "sector": "钢铁",
+      "core_pool": false,
+      "close": 6.02,
+      "chg_pct": -1.31,
+      "ten_day_chg": 2.91,
+      "rsi6": 58.61,
+      "macd": {
+        "dif": 0.055,
+        "dea": 0.032,
+        "hist": 0.023,
+        "state": "above"
+      },
+      "ma20": 5.879,
+      "ma20_dev": 2.4,
+      "dd30": -1.31,
+      "vol_ratio": 0.75,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600893",
+      "name": "航发动力",
+      "sector": "军工",
+      "core_pool": false,
+      "close": 39.91,
+      "chg_pct": -0.5,
+      "ten_day_chg": 3.91,
+      "rsi6": 59.5,
+      "macd": {
+        "dif": 0.201,
+        "dea": 0.139,
+        "hist": 0.062,
+        "state": "golden_cross"
+      },
+      "ma20": 39.06,
+      "ma20_dev": 2.18,
+      "dd30": -4.32,
+      "vol_ratio": 0.59,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh600519",
+      "name": "贵州茅台",
+      "sector": "白酒消费",
+      "core_pool": false,
+      "close": 1331.88,
+      "chg_pct": 0.52,
+      "ten_day_chg": 7.79,
+      "rsi6": 78.82,
+      "macd": {
+        "dif": 9.346,
+        "dea": -0.808,
+        "hist": 10.154,
+        "state": "above"
+      },
+      "ma20": 1272.702,
+      "ma20_dev": 4.65,
+      "dd30": 0.0,
+      "vol_ratio": 0.92,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh601012",
+      "name": "隆基绿能",
+      "sector": "光伏",
+      "core_pool": false,
+      "close": 10.95,
+      "chg_pct": -1.26,
+      "ten_day_chg": 0.55,
+      "rsi6": 45.17,
+      "macd": {
+        "dif": -0.228,
+        "dea": -0.26,
+        "hist": 0.032,
+        "state": "above"
+      },
+      "ma20": 11.073,
+      "ma20_dev": -1.11,
+      "dd30": -9.28,
+      "vol_ratio": 0.89,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh601088",
+      "name": "中国神华",
+      "sector": "煤炭",
+      "core_pool": false,
+      "close": 51.3,
+      "chg_pct": -0.39,
+      "ten_day_chg": 8.46,
+      "rsi6": 79.99,
+      "macd": {
+        "dif": 1.16,
+        "dea": 0.834,
+        "hist": 0.326,
+        "state": "above"
+      },
+      "ma20": 48.476,
+      "ma20_dev": 5.83,
+      "dd30": -0.39,
+      "vol_ratio": 1.0,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh510300",
+      "name": "沪深300ETF",
+      "sector": "宽基ETF",
+      "core_pool": false,
+      "close": 4.22,
+      "chg_pct": -0.47,
+      "ten_day_chg": -4.44,
+      "rsi6": 8.91,
+      "macd": {
+        "dif": -0.102,
+        "dea": -0.084,
+        "hist": -0.018,
+        "state": "below"
+      },
+      "ma20": 4.424,
+      "ma20_dev": -4.61,
+      "dd30": -9.91,
+      "vol_ratio": 0.62,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh510500",
+      "name": "中证500ETF",
+      "sector": "宽基ETF",
+      "core_pool": false,
+      "close": 6.871,
+      "chg_pct": 0.6,
+      "ten_day_chg": -8.09,
+      "rsi6": 20.84,
+      "macd": {
+        "dif": -0.25,
+        "dea": -0.19,
+        "hist": -0.059,
+        "state": "below"
+      },
+      "ma20": 7.376,
+      "ma20_dev": -6.85,
+      "dd30": -12.82,
+      "vol_ratio": 1.2,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sz159915",
+      "name": "创业板ETF",
+      "sector": "宽基ETF",
+      "core_pool": false,
+      "close": 2.756,
+      "chg_pct": -0.22,
+      "ten_day_chg": -12.84,
+      "rsi6": 5.66,
+      "macd": {
+        "dif": -0.168,
+        "dea": -0.131,
+        "hist": -0.037,
+        "state": "below"
+      },
+      "ma20": 3.121,
+      "ma20_dev": -11.69,
+      "dd30": -19.42,
+      "vol_ratio": 0.95,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh562500",
+      "name": "机器人ETF",
+      "sector": "主题ETF",
+      "core_pool": false,
+      "close": 0.842,
+      "chg_pct": 3.19,
+      "ten_day_chg": -6.44,
+      "rsi6": 50.79,
+      "macd": {
+        "dif": -0.036,
+        "dea": -0.031,
+        "hist": -0.004,
+        "state": "below"
+      },
+      "ma20": 0.877,
+      "ma20_dev": -3.99,
+      "dd30": -12.66,
+      "vol_ratio": 1.61,
+      "data_day": "2026-10-20"
+    },
+    {
+      "code": "sh518880",
+      "name": "黄金ETF",
+      "sector": "商品ETF",
+      "core_pool": false,
+      "close": 8.457,
+      "chg_pct": -1.12,
+      "ten_day_chg": -0.73,
+      "rsi6": 33.7,
+      "macd": {
+        "dif": -0.125,
+        "dea": -0.114,
+        "hist": -0.011,
+        "state": "below"
+      },
+      "ma20": 8.68,
+      "ma20_dev": -2.57,
+      "dd30": -7.71,
+      "vol_ratio": 1.06,
+      "data_day": "2026-10-20"
+    }
+  ],
+  "_caliber": {
+    "rsi": "Wilder平滑, n=6（通达信口径）",
+    "macd": "EMA12/26, DEA=EMA9, hist=dif-dea",
+    "ma20": "简单算术均线",
+    "vol_ratio": "当日量 / 前5日均量",
+    "ten_day_chg": "close / 10个交易日前close - 1",
+    "dd30": "close / 30日最高close - 1",
+    "source": "新浪日K money.finance.sina.com.cn scale=240 qfq"
+  },
+  "_prohibit": "本包为事实层，禁止写入 direction/action/kelly 等观点字段；观点请写入 predictions/*.json 并引用本包 date+数值",
+  "_schema_version": "facts-v1"
+}
