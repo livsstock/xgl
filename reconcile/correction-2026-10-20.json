@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "generated_at": "2026-10-20T19:03:37+08:00",
+  "generated_at": "2026-10-21T10:08:36+08:00",
   "_basis": "signal_stats.json（28标的/65249根K线/近10年）",
   "_principle": "只调仓位不改方向；MACD金叉与量比不作买入依据（实测<50%）",
   "hold_period": "T+5",
@@ -120,5 +120,9 @@
       "decision_reason": ""
     }
   ],
-  "total_position_pct": 0.0
+  "total_position_pct": 0.0,
+  "caliber_check": {
+    "passed": false,
+    "note": "往返校验 5/6，未通过：半导体ETF。口径不一致 → 本日分歧样本作废，全部按 0 仓位处理"
+  }
 }
