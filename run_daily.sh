@@ -76,6 +76,13 @@ if [ -f "predictions/${DATE}_dahai.json" ]; then
   python3 same_basis_reconcile.py --date "$DATE" || echo "[WARN] 同基准对账失败"
 fi
 
+# 8.5 往返校验（关键：先证明口径一致，再谈分歧。
+#     不能复现 = 假分歧，样本作废，不能进修正表）
+if [ -f "predictions/${DATE}_dahai.json" ]; then
+  python3 roundtrip_check.py --date "$DATE" \
+    || echo "[WARN] 往返校验存在不可复现项（该日分歧样本不可用）"
+fi
+
 # 9. 修正表
 python3 correction_table.py --date "$DATE" 2>/dev/null || echo "[INFO] 修正表跳过"
 
