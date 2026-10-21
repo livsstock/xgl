@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-16",
+  "generated_at": "2026-10-21T10:05:12+08:00",
+  "dahai_file": "predictions/2026-10-16_dahai.json",
+  "summary": {
+    "total": 6,
+    "reproducible": 0,
+    "rate": "0/6",
+    "calibers_detected": {
+      "sma6": [
+        "紫金矿业",
+        "北方稀土",
+        "华友钴业",
+        "金钼股份",
+        "半导体ETF",
+        "五粮液"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "dahai_rsi6": 38,
+      "wb_rsi6": 33.87,
+      "recomputed": {
+        "wilder_full": 33.87,
+        "wilder_120": 33.87,
+        "sma6": 44.35
+      },
+      "basis_day": "2026-10-15",
+      "matched_caliber": "sma6",
+      "matched_caliber_desc": "SMA6 简单均值",
+      "diff": 6.35,
+      "reproducible": false,
+      "verdict": "整数估值（疑似人工四舍五入，非算法输出）"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "dahai_rsi6": 42,
+      "wb_rsi6": 41.67,
+      "recomputed": {
+        "wilder_full": 41.67,
+        "wilder_120": 41.67,
+        "sma6": 48.09
+      },
+      "basis_day": "2026-10-15",
+      "matched_caliber": "sma6",
+      "matched_caliber_desc": "SMA6 简单均值",
+      "diff": 6.09,
+      "reproducible": false,
+      "verdict": "整数估值（疑似人工四舍五入，非算法输出）"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "dahai_rsi6": 22,
+      "wb_rsi6": 18.87,
+      "recomputed": {
+        "wilder_full": 18.87,
+        "wilder_120": 18.87,
+        "sma6": 14.93
+      },
+      "basis_day": "2026-10-15",
+      "matched_caliber": "sma6",
+      "matched_caliber_desc": "SMA6 简单均值",
+      "diff": -7.07,
+      "reproducible": false,
+      "verdict": "整数估值（疑似人工四舍五入，非算法输出）"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "dahai_rsi6": 28,
+      "wb_rsi6": 23.44,
+      "recomputed": {
+        "wilder_full": 23.44,
+        "wilder_120": 23.44,
+        "sma6": 26.42
+      },
+      "basis_day": "2026-10-16",
+      "matched_caliber": "sma6",
+      "matched_caliber_desc": "SMA6 简单均值",
+      "diff": -1.58,
+      "reproducible": false,
+      "verdict": "整数估值（疑似人工四舍五入，非算法输出）"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF",
+      "dahai_rsi6": 10,
+      "wb_rsi6": 9.22,
+      "recomputed": {
+        "wilder_full": 9.22,
+        "wilder_120": 9.22,
+        "sma6": 0.0
+      },
+      "basis_day": "2026-10-16",
+      "matched_caliber": "sma6",
+      "matched_caliber_desc": "SMA6 简单均值",
+      "diff": -10.0,
+      "reproducible": false,
+      "verdict": "整数估值（疑似人工四舍五入，非算法输出）"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "dahai_rsi6": 68,
+      "wb_rsi6": 67.21,
+      "recomputed": {
+        "wilder_full": 67.21,
+        "wilder_120": 67.21,
+        "sma6": 75.41
+      },
+      "basis_day": "2026-10-15",
+      "matched_caliber": "sma6",
+      "matched_caliber_desc": "SMA6 简单均值",
+      "diff": 7.41,
+      "reproducible": false,
+      "verdict": "整数估值（疑似人工四舍五入，非算法输出）"
+    }
+  ]
+}
