@@ -143,6 +143,24 @@ def main():
         print("[ERR] 缺回测结果，先跑 backtest/signal_stats.py")
         return 1
 
+    # [2026-10-21] 往返校验否决：口径不一致的日期，分歧样本一律作废。
+    # 理由：10-20 发现大海当天用 SMA6、我这边用 Wilder，同一只票 RSI 差到 12 点，
+    # 这种"分歧"不是判断不同，是输入不同 —— 拿去算修正仓位等于拿噪声当信号。
+    rt_path = os.path.join(BASE_DIR, "reconcile", "roundtrip", f"{args.date}.json")
+    rt_ok, rt_note = True, ""
+    if os.path.exists(rt_path):
+        rt = json.load(open(rt_path, encoding="utf-8"))
+        s = rt.get("summary") or {}
+        tot, ok = s.get("total", 0), s.get("reproducible", 0)
+        if tot and ok < tot:
+            rt_ok = False
+            bad = [r["name"] for r in rt.get("rows", []) if not r.get("reproducible")]
+            rt_note = (f"往返校验 {ok}/{tot}，未通过：{'、'.join(bad)}。"
+                       f"口径不一致 → 本日分歧样本作废，全部按 0 仓位处理")
+    else:
+        rt_ok = False
+        rt_note = "缺往返校验结果 → 无法证明口径一致，本日按 0 仓位处理"
+
     rows = []
     for s in comp["stocks"]:
         name = s["name"]
@@ -191,6 +209,11 @@ def main():
             final = 0.0
             note = f"算出{blocked}%，低于2%门槛→不操作"
 
+        # 口径不一致 → 一律 0（不看信号，不看分歧，直接作废这天）
+        if not rt_ok and final:
+            note = f"口径校验未通过，仓位作废（原可给 {final}%）：{rt_note}"
+            final = 0.0
+
         rows.append({
             "name": name, "wb_action": s["wb_action"], "dahai_action": s["dahai_action"],
             "same_semantic": s["same_semantic"], "attribution": s.get("attribution"),
@@ -213,6 +236,7 @@ def main():
         "hold_period": "T+5",
         "positions": rows,
         "total_position_pct": round(sum(r["final_position_pct"] for r in rows), 2),
+        "caliber_check": {"passed": rt_ok, "note": rt_note},
     }
     dst = os.path.join(OUT_DIR, f"correction-{args.date}.json")
     json.dump(out, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
@@ -220,6 +244,9 @@ def main():
     print(f"\n{'='*82}")
     print(f"修正裁决 {args.date}  （持有期 T+5）")
     print(f"{'='*82}")
+    if not rt_ok:
+        print(f"  ⛔ 口径校验未通过：{rt_note}")
+        print(f"  ⛔ 本日全部仓位强制归零（分歧样本不可用于统计）\n")
     print(f"{'标的':10s} {'WB':6s} {'大海':6s} {'RSI6':>6s} {'信号':6s} {'信心':>5s} {'仓位':>6s}")
     print("-" * 82)
     for r in rows:
