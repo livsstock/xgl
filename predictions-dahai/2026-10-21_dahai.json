@@ -1,7 +1,10 @@
 {
   "date": "2026-10-21",
+  "predict_date": "2026-10-22",
+  "data_basis": "2026-10-21收盘数据",
+  "type": "T+1_evening",
   "model_version": "v1.2-kuramoto",
-  "generated_at": "2026-10-21 16:01:43",
+  "generated_at": "2026-10-23 15:49:17",
   "market_outlook": {
     "direction": "震荡",
     "confidence": 40,
