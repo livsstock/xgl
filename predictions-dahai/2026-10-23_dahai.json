@@ -1,0 +1,338 @@
+{
+  "date": "2026-10-23",
+  "predict_date": "2026-10-26",
+  "data_basis": "2026-10-23收盘数据",
+  "type": "T+1_evening",
+  "model_version": "v1.2-kuramoto",
+  "generated_at": "2026-10-23 15:55:34",
+  "market_outlook": {
+    "direction": "偏空",
+    "confidence": 60,
+    "ts_level": 5,
+    "ts_label": "5档·偏空",
+    "ts_position": 10,
+    "ts_value": 0.0
+  },
+  "index_summary": {
+    "close": 3658,
+    "change_percent": 0.3,
+    "ten_day_change": -6.8
+  },
+  "predictions": [
+    {
+      "name": "京东方A",
+      "code": "sz000725",
+      "close": 4.89,
+      "change_pct": -1.0,
+      "ten_day_chg": -8.0,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 4.89
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 43,
+        "target": 5.0
+      },
+      "action": "关注",
+      "reason": "10日跌-8.0%超跌反弹，偏差修正-0.007",
+      "trend_context": "跌势",
+      "sector": "科技制造"
+    },
+    {
+      "name": "北方稀土",
+      "code": "sh600111",
+      "close": 35.77,
+      "change_pct": -0.31,
+      "ten_day_chg": 0.5,
+      "t1": {
+        "direction": "跌",
+        "confidence": 57,
+        "target": 35.36
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 34.91
+      },
+      "action": "回避",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "宝钢股份",
+      "code": "sh600019",
+      "close": 5.92,
+      "change_pct": -1.65,
+      "ten_day_chg": 1.5,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 5.92
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 5.8
+      },
+      "action": "观望",
+      "reason": "涨势中回调+0.1",
+      "trend_context": "涨势",
+      "sector": "钢铁"
+    },
+    {
+      "name": "航发动力",
+      "code": "sh600893",
+      "close": 39.2,
+      "change_pct": -1.78,
+      "ten_day_chg": 2.0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 38.78
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 38.42
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "横盘",
+      "sector": "科技制造"
+    },
+    {
+      "name": "锡业股份",
+      "code": "sz000960",
+      "close": 25.1,
+      "change_pct": -2.3,
+      "ten_day_chg": -10.0,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 25.1
+      },
+      "t3": {
+        "direction": "涨",
+        "confidence": 43,
+        "target": 25.64
+      },
+      "action": "关注",
+      "reason": "10日跌-10.0%超跌反弹，有色稀土板块弱势-0.01，偏差修正-0.010",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "湖南黄金",
+      "code": "sz002155",
+      "close": 21.3,
+      "change_pct": -1.93,
+      "ten_day_chg": -4.5,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 21.07
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 20.87
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "贵金属"
+    },
+    {
+      "name": "盛和资源",
+      "code": "sh600392",
+      "close": 15.9,
+      "change_pct": -2.45,
+      "ten_day_chg": -5.0,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 15.9
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 15.58
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "金钼股份",
+      "code": "sh601958",
+      "close": 17.26,
+      "change_pct": -2.92,
+      "ten_day_chg": -3.5,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 17.07
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 16.91
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "白银有色",
+      "code": "sh601212",
+      "close": 5.08,
+      "change_pct": -1.74,
+      "ten_day_chg": -3.0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 5.03
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 4.98
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "机器人ETF易方达",
+      "code": "sz159530",
+      "close": 1.18,
+      "change_pct": -2.48,
+      "ten_day_chg": -6.0,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 1.18
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 1.16
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": null
+    },
+    {
+      "name": "黄金ETF华安",
+      "code": "sh518880",
+      "close": 8.2,
+      "change_pct": -1.92,
+      "ten_day_chg": -3.5,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 8.11
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 8.04
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "跌势",
+      "sector": "ETF"
+    },
+    {
+      "name": "半导体ETF国联安",
+      "code": "sh512480",
+      "close": 0.795,
+      "change_pct": -3.03,
+      "ten_day_chg": -8.5,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 0.8
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 0.78
+      },
+      "action": "观望",
+      "reason": "10日跌-8.5%超跌反弹，今日跌-3.0%承压",
+      "trend_context": "跌势",
+      "sector": "ETF"
+    },
+    {
+      "name": "紫金矿业",
+      "code": "sh601899",
+      "close": 27.84,
+      "change_pct": -3.57,
+      "ten_day_chg": -4.2,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 27.84
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 27.28
+      },
+      "action": "观望",
+      "reason": "今日跌-3.6%承压",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "华友钴业",
+      "code": "sh603799",
+      "close": 31.01,
+      "change_pct": -2.3,
+      "ten_day_chg": -5.0,
+      "t1": {
+        "direction": "平",
+        "confidence": 48,
+        "target": 31.01
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 30.39
+      },
+      "action": "观望",
+      "reason": "有色稀土板块弱势-0.00，偏差修正-0.007",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "五粮液",
+      "code": "sz000858",
+      "close": 71.73,
+      "change_pct": -1.54,
+      "ten_day_chg": -2.5,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 71.73
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 70.3
+      },
+      "action": "观望",
+      "reason": "因子信号中性",
+      "trend_context": "横盘",
+      "sector": "白酒"
+    }
+  ]
+}
