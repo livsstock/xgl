@@ -1,0 +1,1167 @@
+{
+  "schema_version": "2.5",
+  "predictor": "WorkBuddy",
+  "predict_date": "2026-10-23",
+  "date": "2026-10-23",
+  "based_on_facts": "facts/2026-10-23.json",
+  "target_date": "2026-10-23",
+  "market_direction": "down",
+  "market_confidence": 0.54,
+  "_生成方式": "daily_predict.py v1.0 自动生成 @ 2026-10-23 08:37:47",
+  "data_basis": {
+    "source": "新浪日K money.finance.sina.com.cn scale=240 qfq",
+    "as_of": "2026-10-22",
+    "facts_date": "2026-10-23",
+    "facts_quality_gate": "PASS",
+    "facts_stale": true,
+    "facts_source": "shared",
+    "note": "收盘定格",
+    "partial": false,
+    "failed_count": 0,
+    "failed_stocks": []
+  },
+  "t1_prediction": {
+    "sh_index": {
+      "direction": "down",
+      "range_pct": [
+        -1.0,
+        0.3
+      ],
+      "center_pct": -0.3,
+      "close_ref": 3658.03,
+      "confidence": 0.54
+    },
+    "confidence": 0.54,
+    "_v25_note": "M_sse v2.5 = 35.8（v1 对比 20.6）"
+  },
+  "midterm_trend": {
+    "horizon": "5-10个交易日",
+    "sh_index": {
+      "direction": "bearish",
+      "view": "M_sse=35.8，偏空",
+      "key_levels": {
+        "support": [],
+        "resistance": []
+      }
+    },
+    "confidence": 0.54
+  },
+  "stock_calls": [
+    {
+      "code": "601398",
+      "name": "工商银行",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-0.12%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 8.59,
+        "chg_today": 1.66,
+        "ma20_dev": 3.27,
+        "vol_ratio": 1.3,
+        "rsi6": 65.79,
+        "macd": "above",
+        "dd30": -0.12
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 8.59,
+        "rsi6": 65.79,
+        "ten_day_chg": 3.37,
+        "macd_signal": "above",
+        "vol_ratio": 1.3,
+        "ma20_dev": 3.27,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "601288",
+      "name": "农业银行",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-1.2%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 7.4,
+        "chg_today": 1.51,
+        "ma20_dev": 4.48,
+        "vol_ratio": 1.25,
+        "rsi6": 64.72,
+        "macd": "above",
+        "dd30": -1.2
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 7.4,
+        "rsi6": 64.72,
+        "ten_day_chg": 5.41,
+        "macd_signal": "above",
+        "vol_ratio": 1.25,
+        "ma20_dev": 4.48,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "601012",
+      "name": "隆基绿能",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-6.06%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 11.16,
+        "chg_today": 1.55,
+        "ma20_dev": 0.75,
+        "vol_ratio": 1.5,
+        "rsi6": 58.74,
+        "macd": "above",
+        "dd30": -6.06
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 11.16,
+        "rsi6": 58.74,
+        "ten_day_chg": 0.81,
+        "macd_signal": "above",
+        "vol_ratio": 1.5,
+        "ma20_dev": 0.75,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-1.54%",
+      "signal_type": "slow_bull",
+      "core_pool": true,
+      "track_rule": "长效轨 -15%硬止损/20日",
+      "_tech": {
+        "price": 71.73,
+        "chg_today": -0.37,
+        "ma20_dev": 1.49,
+        "vol_ratio": 0.79,
+        "rsi6": 54.13,
+        "macd": "above",
+        "dd30": -1.54
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 71.73,
+        "rsi6": 54.13,
+        "ten_day_chg": 2.27,
+        "macd_signal": "above",
+        "vol_ratio": 0.79,
+        "ma20_dev": 1.49,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-1.01%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 1318.49,
+        "chg_today": 0.67,
+        "ma20_dev": 3.2,
+        "vol_ratio": 1.04,
+        "rsi6": 62.19,
+        "macd": "above",
+        "dd30": -1.01
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 1318.49,
+        "rsi6": 62.19,
+        "ten_day_chg": 4.99,
+        "macd_signal": "above",
+        "vol_ratio": 1.04,
+        "ma20_dev": 3.2,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=20.98<25（T+5胜率55.2%）",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "短线轨 +5%止盈/-5%止损/10日",
+      "_tech": {
+        "price": 27.84,
+        "chg_today": -3.57,
+        "ma20_dev": -7.31,
+        "vol_ratio": 1.43,
+        "rsi6": 20.98,
+        "macd": "below",
+        "dd30": -19.07
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 27.84,
+        "rsi6": 20.98,
+        "ten_day_chg": -5.21,
+        "macd_signal": "below",
+        "vol_ratio": 1.43,
+        "ma20_dev": -7.31,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=16.47<25（T+5胜率55.2%）",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "短线轨 +5%止盈/-5%止损/10日",
+      "_tech": {
+        "price": 31.01,
+        "chg_today": -2.3,
+        "ma20_dev": -9.22,
+        "vol_ratio": 1.2,
+        "rsi6": 16.47,
+        "macd": "below",
+        "dd30": -19.73
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 31.01,
+        "rsi6": 16.47,
+        "ten_day_chg": -11.98,
+        "macd_signal": "below",
+        "vol_ratio": 1.2,
+        "ma20_dev": -9.22,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "601088",
+      "name": "中国神华",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-3.03%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 49.94,
+        "chg_today": 1.36,
+        "ma20_dev": 2.48,
+        "vol_ratio": 0.88,
+        "rsi6": 51.63,
+        "macd": "above",
+        "dd30": -3.03
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 49.94,
+        "rsi6": 51.63,
+        "ten_day_chg": 5.16,
+        "macd_signal": "above",
+        "vol_ratio": 0.88,
+        "ma20_dev": 2.48,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "002142",
+      "name": "宁波银行",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "down",
+      "reason": "未触发：回撤-5.7%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 34.06,
+        "chg_today": -1.7,
+        "ma20_dev": -2.61,
+        "vol_ratio": 1.55,
+        "rsi6": 33.74,
+        "macd": "below",
+        "dd30": -5.7
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 34.06,
+        "rsi6": 33.74,
+        "ten_day_chg": -4.54,
+        "macd_signal": "below",
+        "vol_ratio": 1.55,
+        "ma20_dev": -2.61,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "510300",
+      "name": "沪深300ETF",
+      "action": "buy",
+      "action_internal": "buy",
+      "direction": "down",
+      "reason": "触发：RSI6=4.33<15（T+5胜率58.9%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 4.107,
+        "chg_today": -1.86,
+        "ma20_dev": -6.34,
+        "vol_ratio": 1.95,
+        "rsi6": 4.33,
+        "macd": "below",
+        "dd30": -11.43
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 4.107,
+        "rsi6": 4.33,
+        "ten_day_chg": -6.43,
+        "macd_signal": "below",
+        "vol_ratio": 1.95,
+        "ma20_dev": -6.34,
+        "source": "facts"
+      },
+      "kelly_grade": "A",
+      "_data_source": "facts"
+    },
+    {
+      "code": "510500",
+      "name": "中证500ETF",
+      "action": "buy",
+      "action_internal": "buy",
+      "direction": "down",
+      "reason": "触发：RSI6=12.76<15（T+5胜率58.9%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 6.684,
+        "chg_today": -2.62,
+        "ma20_dev": -8.29,
+        "vol_ratio": 1.62,
+        "rsi6": 12.76,
+        "macd": "below",
+        "dd30": -15.09
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 6.684,
+        "rsi6": 12.76,
+        "ten_day_chg": -8.17,
+        "macd_signal": "below",
+        "vol_ratio": 1.62,
+        "ma20_dev": -8.29,
+        "source": "facts"
+      },
+      "kelly_grade": "A",
+      "_data_source": "facts"
+    },
+    {
+      "code": "159915",
+      "name": "创业板ETF",
+      "action": "buy",
+      "action_internal": "buy",
+      "direction": "down",
+      "reason": "触发：RSI6=2.89<15（T+5胜率58.9%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 2.592,
+        "chg_today": -4.46,
+        "ma20_dev": -15.18,
+        "vol_ratio": 1.6,
+        "rsi6": 2.89,
+        "macd": "below",
+        "dd30": -24.21
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 2.592,
+        "rsi6": 2.89,
+        "ten_day_chg": -15.1,
+        "macd_signal": "below",
+        "vol_ratio": 1.6,
+        "ma20_dev": -15.18,
+        "source": "facts"
+      },
+      "kelly_grade": "A",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600019",
+      "name": "宝钢股份",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-2.13%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 5.97,
+        "chg_today": -0.33,
+        "ma20_dev": 1.29,
+        "vol_ratio": 0.98,
+        "rsi6": 50.12,
+        "macd": "above",
+        "dd30": -2.13
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 5.97,
+        "rsi6": 50.12,
+        "ten_day_chg": 0.0,
+        "macd_signal": "above",
+        "vol_ratio": 0.98,
+        "ma20_dev": 1.29,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600893",
+      "name": "航发动力",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-5.78%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 39.3,
+        "chg_today": -1.8,
+        "ma20_dev": 0.61,
+        "vol_ratio": 0.67,
+        "rsi6": 49.83,
+        "macd": "above",
+        "dd30": -5.78
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 39.3,
+        "rsi6": 49.83,
+        "ten_day_chg": 3.18,
+        "macd_signal": "above",
+        "vol_ratio": 0.67,
+        "ma20_dev": 0.61,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "000960",
+      "name": "锡业股份",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=15.76<25（T+5胜率55.2%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 24.85,
+        "chg_today": -3.94,
+        "ma20_dev": -15.4,
+        "vol_ratio": 0.8,
+        "rsi6": 15.76,
+        "macd": "below",
+        "dd30": -29.2
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 24.85,
+        "rsi6": 15.76,
+        "ten_day_chg": -17.03,
+        "macd_signal": "below",
+        "vol_ratio": 0.8,
+        "ma20_dev": -15.4,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=23.04<25（T+5胜率55.2%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 20.92,
+        "chg_today": -4.26,
+        "ma20_dev": -9.85,
+        "vol_ratio": 1.1,
+        "rsi6": 23.04,
+        "macd": "below",
+        "dd30": -26.7
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 20.92,
+        "rsi6": 23.04,
+        "ten_day_chg": -8.08,
+        "macd_signal": "below",
+        "vol_ratio": 1.1,
+        "ma20_dev": -9.85,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "601212",
+      "name": "白银有色",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=21.9<25（T+5胜率55.2%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 4.97,
+        "chg_today": -4.42,
+        "ma20_dev": -11.0,
+        "vol_ratio": 1.22,
+        "rsi6": 21.9,
+        "macd": "below",
+        "dd30": -32.2
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 4.97,
+        "rsi6": 21.9,
+        "ten_day_chg": -10.77,
+        "macd_signal": "below",
+        "vol_ratio": 1.22,
+        "ma20_dev": -11.0,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "562500",
+      "name": "机器人ETF",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "down",
+      "reason": "未触发：回撤-13.28%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 0.829,
+        "chg_today": -0.96,
+        "ma20_dev": -4.6,
+        "vol_ratio": 1.01,
+        "rsi6": 43.43,
+        "macd": "below",
+        "dd30": -13.28
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 0.829,
+        "rsi6": 43.43,
+        "ten_day_chg": -3.83,
+        "macd_signal": "below",
+        "vol_ratio": 1.01,
+        "ma20_dev": -4.6,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF",
+      "action": "watch",
+      "action_internal": "watch",
+      "direction": "down",
+      "reason": "未触发：RSI6=25.87<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 8.36,
+        "chg_today": -0.62,
+        "ma20_dev": -3.15,
+        "vol_ratio": 1.67,
+        "rsi6": 25.87,
+        "macd": "below",
+        "dd30": -8.77
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [
+          "RSI仅边缘(<30)且MACD空头，否决买入"
+        ],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 8.36,
+        "rsi6": 25.87,
+        "ten_day_chg": -1.35,
+        "macd_signal": "below",
+        "vol_ratio": 1.67,
+        "ma20_dev": -3.15,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF国联安",
+      "action": "buy",
+      "action_internal": "buy",
+      "direction": "down",
+      "reason": "触发：RSI6=14.13<15（T+5胜率58.9%）",
+      "signal_type": "slow_bull",
+      "core_pool": true,
+      "track_rule": "长效轨 -15%硬止损/20日",
+      "_tech": {
+        "price": 0.808,
+        "chg_today": -2.77,
+        "ma20_dev": -12.84,
+        "vol_ratio": 0.89,
+        "rsi6": 14.13,
+        "macd": "below",
+        "dd30": -23.12
+      },
+      "_signal_detail": {
+        "rsi_strong": true,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 0.808,
+        "rsi6": 14.13,
+        "ten_day_chg": -11.6,
+        "macd_signal": "below",
+        "vol_ratio": 0.89,
+        "ma20_dev": -12.84,
+        "source": "facts"
+      },
+      "kelly_grade": "A",
+      "_data_source": "facts"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=16.37<25（T+5胜率55.2%）",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "短线轨 +5%止盈/-5%止损/10日",
+      "_tech": {
+        "price": 17.26,
+        "chg_today": -2.92,
+        "ma20_dev": -9.5,
+        "vol_ratio": 0.94,
+        "rsi6": 16.37,
+        "macd": "below",
+        "dd30": -20.13
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 17.26,
+        "rsi6": 16.37,
+        "ten_day_chg": -8.77,
+        "macd_signal": "below",
+        "vol_ratio": 0.94,
+        "ma20_dev": -9.5,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "000725",
+      "name": "京东方A",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=15.2<25（T+5胜率55.2%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 4.86,
+        "chg_today": -3.76,
+        "ma20_dev": -11.56,
+        "vol_ratio": 1.51,
+        "rsi6": 15.2,
+        "macd": "below",
+        "dd30": -19.93
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 4.86,
+        "rsi6": 15.2,
+        "ten_day_chg": -11.64,
+        "macd_signal": "below",
+        "vol_ratio": 1.51,
+        "ma20_dev": -11.56,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "up",
+      "reason": "未触发：回撤-2.86%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 41.82,
+        "chg_today": -1.09,
+        "ma20_dev": 0.42,
+        "vol_ratio": 1.23,
+        "rsi6": 40.52,
+        "macd": "death_cross",
+        "dd30": -2.86
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 41.82,
+        "rsi6": 40.52,
+        "ten_day_chg": 0.26,
+        "macd_signal": "death_cross",
+        "vol_ratio": 1.23,
+        "ma20_dev": 0.42,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "action": "watch",
+      "action_internal": "watch",
+      "direction": "down",
+      "reason": "未触发：回撤-8.38%",
+      "signal_type": "oversold_rebound",
+      "core_pool": true,
+      "track_rule": "短线轨 +5%止盈/-5%止损/10日",
+      "_tech": {
+        "price": 35.77,
+        "chg_today": -0.31,
+        "ma20_dev": -0.41,
+        "vol_ratio": 1.3,
+        "rsi6": 53.82,
+        "macd": "above",
+        "dd30": -8.38
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 35.77,
+        "rsi6": 53.82,
+        "ten_day_chg": 3.68,
+        "macd_signal": "above",
+        "vol_ratio": 1.3,
+        "ma20_dev": -0.41,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600875",
+      "name": "东方电气",
+      "action": "hold",
+      "action_internal": "hold",
+      "direction": "down",
+      "reason": "未触发：回撤-16.73%",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 21.95,
+        "chg_today": -1.39,
+        "ma20_dev": -4.82,
+        "vol_ratio": 0.89,
+        "rsi6": 32.64,
+        "macd": "below",
+        "dd30": -16.73
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": false,
+        "rsi_edge": false,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 21.95,
+        "rsi6": 32.64,
+        "ten_day_chg": -6.52,
+        "macd_signal": "below",
+        "vol_ratio": 0.89,
+        "ma20_dev": -4.82,
+        "source": "facts"
+      },
+      "kelly_grade": "D",
+      "_data_source": "facts"
+    },
+    {
+      "code": "600392",
+      "name": "盛和资源",
+      "action": "buy",
+      "action_internal": "buy_probe",
+      "direction": "down",
+      "reason": "触发：RSI6=15.18<25（T+5胜率55.2%）",
+      "signal_type": "watchlist",
+      "core_pool": false,
+      "track_rule": "watchlist 观察",
+      "_tech": {
+        "price": 15.9,
+        "chg_today": -2.51,
+        "ma20_dev": -18.1,
+        "vol_ratio": 0.64,
+        "rsi6": 15.18,
+        "macd": "below",
+        "dd30": -28.6
+      },
+      "_signal_detail": {
+        "rsi_strong": false,
+        "rsi_normal": true,
+        "rsi_edge": true,
+        "macd_golden": false,
+        "vol_hit": false,
+        "veto": [],
+        "rule_version": "v3.0-20261020"
+      },
+      "evidence": {
+        "close": 15.9,
+        "rsi6": 15.18,
+        "ten_day_chg": -19.29,
+        "macd_signal": "below",
+        "vol_ratio": 0.64,
+        "ma20_dev": -18.1,
+        "source": "facts"
+      },
+      "kelly_grade": "B",
+      "_data_source": "facts"
+    }
+  ],
+  "reconciliation_hooks": {
+    "t1_direction": "down",
+    "t1_range": "[-1.0, 0.3]",
+    "stock_direction": "26只全覆盖，核心池6只重点",
+    "divergence_check": "对比大海 2026-10-23 预测"
+  },
+  "core_pool": {
+    "_说明": "核心池 v2.2：4超跌 + 2长效",
+    "oversold_rebound": [
+      "紫金矿业",
+      "北方稀土",
+      "华友钴业",
+      "金钼股份"
+    ],
+    "slow_bull": [
+      "半导体ETF国联安",
+      "五粮液"
+    ]
+  },
+  "market_env": {
+    "M_sse": 35.76,
+    "M_sse_v1": 20.64,
+    "thresholds": {
+      "bull": 60,
+      "bear": 40
+    },
+    "breadth": -0.31,
+    "breadth_detail": {
+      "up_count": 5,
+      "valid_count": 26,
+      "up_ratio": 0.19
+    },
+    "kuramoto_r": 0.9835,
+    "vol_ratio_threshold": 6.7,
+    "market_amp_pct": 1.34
+  },
+  "_market_environment": {
+    "timestamp": "2026-10-23 08:37",
+    "scope": "上证指数 sh000001",
+    "index": {
+      "close": 3658.03,
+      "chg_today_pct": -1.48,
+      "amplitude_pct": 1.74,
+      "r_15": -7.07,
+      "ma20_dev": -4.07,
+      "breadth": -0.31,
+      "r_value_kuramoto": 0.98
+    },
+    "breadth_detail": {
+      "up_count": 5,
+      "valid_count": 26,
+      "up_ratio": 0.19
+    },
+    "amplitude_5d_avg_pct": 1.34,
+    "M_sse_v1": 20.6,
+    "M_sse_v2p5": 35.8,
+    "M_sse_version": "v2.5",
+    "_m_sse_used": 35.8,
+    "_m_sse_v1_compare": 20.6,
+    "_kuramoto_r": 0.9835
+  },
+  "_param_versions": {
+    "M_sse": "v2.5",
+    "vol_ratio": "v2 (动态阈值 6.7 = max(1.3, 大盘振幅1.34%×5))",
+    "rsi6": "v2 (环境自适应阈值 25, M_sse=35.8)"
+  },
+  "_link_protocol": {
+    "version": "v1.1",
+    "files": {
+      "self": "predictions/2026-10-23.json",
+      "dahai_expected": "predictions-dahai/2026-10-23_dahai.json"
+    },
+    "git_path": "https://github.com/livsstock/xgl (branch: data/daily)"
+  }
+}
