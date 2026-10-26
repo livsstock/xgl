@@ -90,3 +90,6 @@ echo "================ 完成 ================"
 
 # 10. 每日简报（老板要求的每日一次预测汇报 + 验证总结）
 python3 daily_brief.py --date "$DATE" || echo "[WARN] 简报生成失败"
+
+# 11. 导出 opinions-wb/{T+1}_wb.json（大海 14:45 尾盘复核的输入，修复 10-16 断更）
+python3 export_opinions_wb.py --date "$DATE" || echo "[WARN] opinions-wb 导出失败"

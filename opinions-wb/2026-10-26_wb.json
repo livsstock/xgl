@@ -1,0 +1,458 @@
+{
+  "model": "workbuddy",
+  "model_version": "WB-v2.5+1.0 自动生成",
+  "date": "2026-10-26",
+  "based_on_facts": "2026-10-23",
+  "schema_version": "opinion-v1.0",
+  "generated_at": "2026-10-26T15:28:13+08:00",
+  "market": {
+    "direction": "neutral",
+    "confidence": 48,
+    "reason": "M_sse v2.5=42.3（v1=28.7），市场宽度=0.27，Kuramoto R=0.99。阈值区间[-0.5, 0.5]%，中心0.0%。"
+  },
+  "calls": [
+    {
+      "code": "601398",
+      "name": "工商银行",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 8.32,
+        "change_pct": -3.14,
+        "ten_day_chg": 1.22,
+        "rsi6": 40.02,
+        "macd_signal": "death_cross"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "601288",
+      "name": "农业银行",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 7.19,
+        "change_pct": -2.84,
+        "ten_day_chg": 3.01,
+        "rsi6": 45.51,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "601012",
+      "name": "隆基绿能",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 11.3,
+        "change_pct": 1.25,
+        "ten_day_chg": 0.53,
+        "rsi6": 65.75,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 48,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 73.86,
+        "change_pct": 2.97,
+        "ten_day_chg": 4.68,
+        "rsi6": 75.4,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 1335.0,
+        "change_pct": 1.25,
+        "ten_day_chg": 5.7,
+        "rsi6": 69.97,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 48,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 28.79,
+        "change_pct": 3.41,
+        "ten_day_chg": -6.53,
+        "rsi6": 41.19,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 48,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 32.14,
+        "change_pct": 3.64,
+        "ten_day_chg": -9.72,
+        "rsi6": 40.78,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "601088",
+      "name": "中国神华",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 50.2,
+        "change_pct": 0.52,
+        "ten_day_chg": 3.72,
+        "rsi6": 54.9,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "002142",
+      "name": "宁波银行",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 34,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 33.64,
+        "change_pct": -1.23,
+        "ten_day_chg": -4.54,
+        "rsi6": 28.87,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：RSI6=28.87<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入"
+    },
+    {
+      "code": "510300",
+      "name": "沪深300ETF",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 4.178,
+        "change_pct": 1.73,
+        "ten_day_chg": -4.72,
+        "rsi6": 32.09,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "510500",
+      "name": "中证500ETF",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 6.857,
+        "change_pct": 2.59,
+        "ten_day_chg": -5.84,
+        "rsi6": 39.12,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "159915",
+      "name": "创业板ETF",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 2.702,
+        "change_pct": 4.24,
+        "ten_day_chg": -11.81,
+        "rsi6": 31.19,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "600019",
+      "name": "宝钢股份",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 5.88,
+        "change_pct": -1.51,
+        "ten_day_chg": 0.17,
+        "rsi6": 37.19,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "600893",
+      "name": "航发动力",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 40.3,
+        "change_pct": 2.54,
+        "ten_day_chg": 6.53,
+        "rsi6": 61.3,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "000960",
+      "name": "锡业股份",
+      "direction": "bullish",
+      "action": "buy",
+      "confidence": 34,
+      "kelly_grade": "B",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 25.17,
+        "change_pct": 1.29,
+        "ten_day_chg": -15.82,
+        "rsi6": 23.59,
+        "macd_signal": "below"
+      },
+      "reason": "触发：RSI6=23.59<25（T+5胜率55.2%）"
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "direction": "bullish",
+      "action": "buy",
+      "confidence": 34,
+      "kelly_grade": "B",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 20.74,
+        "change_pct": -0.86,
+        "ten_day_chg": -13.44,
+        "rsi6": 21.49,
+        "macd_signal": "below"
+      },
+      "reason": "触发：RSI6=21.49<25（T+5胜率55.2%）"
+    },
+    {
+      "code": "601212",
+      "name": "白银有色",
+      "direction": "bullish",
+      "action": "buy",
+      "confidence": 34,
+      "kelly_grade": "B",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 4.98,
+        "change_pct": 0.2,
+        "ten_day_chg": -13.09,
+        "rsi6": 23.13,
+        "macd_signal": "below"
+      },
+      "reason": "触发：RSI6=23.13<25（T+5胜率55.2%）"
+    },
+    {
+      "code": "562500",
+      "name": "机器人ETF",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 34,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 0.885,
+        "change_pct": 6.76,
+        "ten_day_chg": 2.55,
+        "rsi6": 68.58,
+        "macd_signal": "golden_cross"
+      },
+      "reason": "未触发：MACD金叉（胜率50.0%，仅辅助）"
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF",
+      "direction": "bullish",
+      "action": "buy",
+      "confidence": 34,
+      "kelly_grade": "B",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 8.199,
+        "change_pct": -1.93,
+        "ten_day_chg": -4.85,
+        "rsi6": 17.23,
+        "macd_signal": "below"
+      },
+      "reason": "触发：RSI6=17.23<25（T+5胜率55.2%）"
+    },
+    {
+      "code": "512480",
+      "name": "半导体ETF国联安",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 48,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 0.836,
+        "change_pct": 3.47,
+        "ten_day_chg": -8.23,
+        "rsi6": 37.88,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 48,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 17.44,
+        "change_pct": 1.04,
+        "ten_day_chg": -8.45,
+        "rsi6": 25.42,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：RSI6=25.42<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入"
+    },
+    {
+      "code": "000725",
+      "name": "京东方A",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 34,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 4.93,
+        "change_pct": 1.44,
+        "ten_day_chg": -10.36,
+        "rsi6": 26.38,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：RSI6=26.38<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "direction": "neutral",
+      "action": "hold",
+      "confidence": 34,
+      "kelly_grade": "D",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 41.77,
+        "change_pct": -0.12,
+        "ten_day_chg": 0.85,
+        "rsi6": 39.45,
+        "macd_signal": "death_cross"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 48,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 36.53,
+        "change_pct": 2.12,
+        "ten_day_chg": 4.34,
+        "rsi6": 67.22,
+        "macd_signal": "above"
+      },
+      "reason": "未触发：无信号"
+    },
+    {
+      "code": "600875",
+      "name": "东方电气",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 34,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 22.39,
+        "change_pct": 2.0,
+        "ten_day_chg": -4.72,
+        "rsi6": 47.51,
+        "macd_signal": "golden_cross"
+      },
+      "reason": "未触发：MACD金叉（胜率50.0%，仅辅助）"
+    },
+    {
+      "code": "600392",
+      "name": "盛和资源",
+      "direction": "neutral",
+      "action": "watch",
+      "confidence": 34,
+      "kelly_grade": "C",
+      "kelly_pct": 0,
+      "evidence": {
+        "close": 16.37,
+        "change_pct": 2.96,
+        "ten_day_chg": -17.49,
+        "rsi6": 28.16,
+        "macd_signal": "below"
+      },
+      "reason": "未触发：RSI6=28.16<30（边缘，胜率不足，仅观察），RSI仅边缘(<30)且MACD空头，否决买入"
+    }
+  ],
+  "_note": "由 export_opinions_wb.py 自动生成；14:45 复核请读本文件。08:36/14:30 双时点决策另见 predictions/decision_points/。"
+}
