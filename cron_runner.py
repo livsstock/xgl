@@ -48,10 +48,16 @@ def is_in_trade_window():
 
 
 def main():
-    """三个时点（2026-10-20 按老板实际节奏重构）：
-      08:36  盘前卖  → decision_points --point 0836（T-1 数据）
-      14:30  尾盘买  → decision_points --point 1430（T 日实时）
-      15:10  全链路  → run_daily.sh（事实层→T+1预测→推送→对账）
+    """时点统一版（2026-10-26，老板要求：本周起双模型预测必须对齐）：
+
+    【预测主产出 · 唯一时点】
+      15:35  收盘全链路 → run_daily.sh（事实层→当日收盘预测→推送→对账）
+             双方统一：都用 T 日收盘数据，都在当日 15:30 后出，
+             预测对象都是 T+1。放弃一切盘前/盘中版本的"预测"。
+
+    【辅助决策 · 不参与对账】
+      08:36  盘前卖（老板个人操作节奏，T-1 数据）
+      14:30  尾盘买（老板个人操作节奏，T 日实时）
     """
     now = datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -63,7 +69,6 @@ def main():
     date_str = now.strftime("%Y-%m-%d")
     t = now.hour * 60 + now.minute
 
-    # 时点 → (脚本, 参数, 容差分钟)
     if 8 * 60 + 30 <= t <= 8 * 60 + 50:
         cmd = ["python3", os.path.join(PROJECT_DIR, "decision_points.py"),
                "--date", date_str, "--point", "0836", "--push"]
@@ -72,7 +77,7 @@ def main():
         cmd = ["python3", os.path.join(PROJECT_DIR, "decision_points.py"),
                "--date", date_str, "--point", "1430", "--push"]
         tag = "1430"
-    elif 15 * 60 + 5 <= t <= 23 * 60 + 59:
+    elif 15 * 60 + 30 <= t <= 23 * 60 + 59:
         cmd = ["bash", os.path.join(PROJECT_DIR, "run_daily.sh"), date_str]
         tag = "close"
     else:
