@@ -87,3 +87,6 @@ fi
 python3 correction_table.py --date "$DATE" 2>/dev/null || echo "[INFO] 修正表跳过"
 
 echo "================ 完成 ================"
+
+# 10. 每日简报（老板要求的每日一次预测汇报 + 验证总结）
+python3 daily_brief.py --date "$DATE" || echo "[WARN] 简报生成失败"
