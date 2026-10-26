@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-26",
   "status": "alert",
   "anomalies": [
     {
@@ -28,34 +28,11 @@
     },
     {
       "type": "sharp_drop",
-      "stock": "��ҵ�ɷ�",
-      "code": "sz000960",
-      "value": -5.11,
+      "stock": "�Ͻ��ҵ",
+      "code": "sh601899",
+      "value": -6.11,
       "level": "alert",
-      "message": "��ҵ�ɷ� 单日跌幅 -5.11%，超过 5% 阈值"
-    },
-    {
-      "type": "sharp_drop",
-      "stock": "���ϻƽ�",
-      "code": "sz002155",
-      "value": -5.78,
-      "level": "alert",
-      "message": "���ϻƽ� 单日跌幅 -5.78%，超过 5% 阈值"
-    },
-    {
-      "type": "sharp_drop",
-      "stock": "������ɫ",
-      "code": "sh601212",
-      "value": -5.03,
-      "level": "alert",
-      "message": "������ɫ 单日跌幅 -5.03%，超过 5% 阈值"
-    },
-    {
-      "type": "market_decline",
-      "sector": "全市场",
-      "stocks": [],
-      "level": "alert",
-      "message": "全部 26 只标的平均跌幅 -2.16%，其中 23 只下跌，触发市场预警"
+      "message": "�Ͻ��ҵ 单日跌幅 -6.11%，超过 5% 阈值"
     }
   ],
   "missing_stocks": [
@@ -80,6 +57,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-10-23T10:14:32+08:00",
+  "generated_at": "2026-10-26T10:00:37+08:00",
   "detector_version": "1.0"
 }
