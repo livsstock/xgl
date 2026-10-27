@@ -1,0 +1,569 @@
+{
+  "date": "2026-10-27",
+  "predict_date": "2026-10-28",
+  "data_basis": "2026-10-27收盘数据",
+  "type": "T+1_evening",
+  "model_version": "v1.2-kuramoto",
+  "generated_at": "2026-10-27 15:52:21",
+  "market_outlook": {
+    "direction": "偏空",
+    "confidence": 69,
+    "ts_level": 6,
+    "ts_label": "6档·强空",
+    "ts_position": 0,
+    "ts_value": -0.3
+  },
+  "index_summary": {
+    "close": 3648.3,
+    "change_percent": -1.33,
+    "ten_day_change": 0
+  },
+  "predictions": [
+    {
+      "name": "工商银行",
+      "code": "sh601398",
+      "close": 8.62,
+      "change_pct": 0.47,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 8.53
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 8.45
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "银行"
+    },
+    {
+      "name": "农业银行",
+      "code": "sh601288",
+      "close": 7.4,
+      "change_pct": 0.95,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 7.32
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 7.25
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "银行"
+    },
+    {
+      "name": "招商银行",
+      "code": "sh600036",
+      "close": 42.99,
+      "change_pct": 1.15,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 42.99
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 42.13
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "银行"
+    },
+    {
+      "name": "宁波银行",
+      "code": "sz002142",
+      "close": 34.0,
+      "change_pct": 0.0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 33.63
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 33.32
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "银行"
+    },
+    {
+      "name": "北方稀土",
+      "code": "sh600111",
+      "close": 35.35,
+      "change_pct": -2.59,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 34.92
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 34.47
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "盛和资源",
+      "code": "sh600392",
+      "close": 15.61,
+      "change_pct": -2.07,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 15.42
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 15.22
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "锡业股份",
+      "code": "sz000960",
+      "close": 24.53,
+      "change_pct": -1.72,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 24.23
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 23.92
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "湖南黄金",
+      "code": "sz002155",
+      "close": 19.67,
+      "change_pct": -1.85,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 19.43
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 19.18
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "贵金属"
+    },
+    {
+      "name": "白银有色",
+      "code": "sh601212",
+      "close": 4.73,
+      "change_pct": -2.07,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 4.67
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 4.61
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "金钼股份",
+      "code": "sh601958",
+      "close": 16.76,
+      "change_pct": -2.27,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 16.56
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 16.34
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "京东方Ａ",
+      "code": "sz000725",
+      "close": 4.73,
+      "change_pct": -2.87,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 61,
+        "target": 4.67
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 50,
+        "target": 4.61
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "科技制造"
+    },
+    {
+      "name": "东方电气",
+      "code": "sh600875",
+      "close": 22.63,
+      "change_pct": 3.05,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 49,
+        "target": 22.63
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 22.18
+      },
+      "action": "观望",
+      "reason": "今日涨3.0%动量延续，大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "科技制造"
+    },
+    {
+      "name": "宝钢股份",
+      "code": "sh600019",
+      "close": 6.0,
+      "change_pct": 0.0,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 58,
+        "target": 5.93
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 5.86
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "涨势",
+      "sector": "钢铁"
+    },
+    {
+      "name": "航发动力",
+      "code": "sh600893",
+      "close": 39.5,
+      "change_pct": -4.13,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 60,
+        "target": 39.03
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 49,
+        "target": 38.53
+      },
+      "action": "回避",
+      "reason": "今日跌-4.1%承压，大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "科技制造"
+    },
+    {
+      "name": "五 粮 液",
+      "code": "sz000858",
+      "close": 75.38,
+      "change_pct": -0.33,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 55,
+        "target": 74.55
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 73.87
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "白酒"
+    },
+    {
+      "name": "贵州茅台",
+      "code": "sh600519",
+      "close": 1355.9,
+      "change_pct": 0.44,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 54,
+        "target": 1341.26
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 1328.78
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "白酒"
+    },
+    {
+      "name": "隆基绿能",
+      "code": "sh601012",
+      "close": 11.45,
+      "change_pct": -0.69,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 55,
+        "target": 11.32
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 38,
+        "target": 11.22
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "光伏"
+    },
+    {
+      "name": "紫金矿业",
+      "code": "sh601899",
+      "close": 27.85,
+      "change_pct": 1.38,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "平",
+        "confidence": 47,
+        "target": 27.85
+      },
+      "t3": {
+        "direction": "平",
+        "confidence": 39,
+        "target": 27.29
+      },
+      "action": "观望",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "华友钴业",
+      "code": "sh603799",
+      "close": 30.72,
+      "change_pct": -2.45,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 57,
+        "target": 30.37
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 29.98
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "有色稀土"
+    },
+    {
+      "name": "中国神华",
+      "code": "sh601088",
+      "close": 49.38,
+      "change_pct": -1.54,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 57,
+        "target": 48.82
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 48.19
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "煤炭"
+    },
+    {
+      "name": "沪深300ETF华泰柏瑞",
+      "code": "sh510300",
+      "close": 4.123,
+      "change_pct": -1.34,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 57,
+        "target": 4.08
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 4.02
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "ETF"
+    },
+    {
+      "name": "中证500ETF南方",
+      "code": "sh510500",
+      "close": 6.537,
+      "change_pct": -3.16,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 59,
+        "target": 6.46
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 6.38
+      },
+      "action": "回避",
+      "reason": "今日跌-3.2%承压，大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "ETF"
+    },
+    {
+      "name": "创业板ETF易方达",
+      "code": "sz159915",
+      "close": 2.563,
+      "change_pct": -3.32,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 59,
+        "target": 2.53
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 2.5
+      },
+      "action": "回避",
+      "reason": "今日跌-3.3%承压，大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "ETF"
+    },
+    {
+      "name": "机器人ETF华夏",
+      "code": "sh562500",
+      "close": 0.851,
+      "change_pct": -3.19,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 59,
+        "target": 0.84
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 48,
+        "target": 0.83
+      },
+      "action": "回避",
+      "reason": "今日跌-3.2%承压，大盘跌-1.3%拖累",
+      "trend_context": "横盘",
+      "sector": "ETF"
+    },
+    {
+      "name": "黄金ETF华安",
+      "code": "sh518880",
+      "close": 8.167,
+      "change_pct": -0.22,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 59,
+        "target": 8.07
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 49,
+        "target": 7.97
+      },
+      "action": "回避",
+      "reason": "大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "ETF"
+    },
+    {
+      "name": "半导体ETF国联安",
+      "code": "sh512480",
+      "close": 0.765,
+      "change_pct": -4.49,
+      "ten_day_chg": 0,
+      "t1": {
+        "direction": "跌",
+        "confidence": 60,
+        "target": 0.76
+      },
+      "t3": {
+        "direction": "跌",
+        "confidence": 49,
+        "target": 0.75
+      },
+      "action": "回避",
+      "reason": "今日跌-4.5%承压，大盘跌-1.3%拖累",
+      "trend_context": "跌势",
+      "sector": "ETF"
+    }
+  ]
+}
