@@ -1,8 +1,8 @@
 {
   "schema_version": "2.1",
-  "date": "2026-10-23",
+  "date": "2026-10-26",
   "collector": "LIVS-Stock-WorkBuddy/2.1",
-  "generated_at": "2026-10-26T10:00:37+08:00",
+  "generated_at": "2026-10-27T10:38:06+08:00",
   "data_quality": {
     "overall": "partial",
     "sources": {
@@ -44,7 +44,7 @@
       "change_pct": null
     },
     "usd_cny_offshore": null,
-    "vix": 19.45
+    "vix": 18.39
   },
   "capital_flow": {
     "northbound": {
@@ -57,7 +57,7 @@
   "market_sentiment": {
     "limit_up_count": null,
     "limit_down_count": null,
-    "total_turnover_billion": 5550.6,
+    "total_turnover_billion": 6984.9,
     "turnover_change_pct": null,
     "advance_count": null,
     "decline_count": null
@@ -73,192 +73,192 @@
   "commodities": {
     "wti_crude": {
       "price": null,
-      "change_pct": 102.63
+      "change_pct": 101.6
     },
     "gold": {
       "price": null,
-      "change_pct": 4017.9
+      "change_pct": 4033.5
     },
     "copper": {
       "price": null,
-      "change_pct": 652.9
+      "change_pct": 658.35
     }
   },
   "eod_quotes": {
     "indices": {
       "上证指数": {
-        "close": 3671.55,
-        "change_pct": -0.51
+        "close": 3695.37,
+        "change_pct": -0.06
       },
       "深证成指": {
-        "close": 11507.42,
-        "change_pct": -1.43
+        "close": 11509.51,
+        "change_pct": -0.22
       },
       "创业板指": {
-        "close": 2622.58,
-        "change_pct": -2.29
+        "close": 2626.29,
+        "change_pct": -0.45
       },
       "沪深300": {
-        "close": 4067.88,
-        "change_pct": -0.91
+        "close": 4097.87,
+        "change_pct": -0.14
       }
     },
     "watchlist": [
       {
         "code": "601398",
         "name": "��������",
-        "close": 8.41,
-        "change_pct": 1.08
+        "close": 8.55,
+        "change_pct": -0.35
       },
       {
         "code": "601288",
         "name": "ũҵ����",
-        "close": 7.21,
-        "change_pct": 0.28
+        "close": 7.29,
+        "change_pct": -0.55
       },
       {
         "code": "600036",
         "name": "��������",
-        "close": 41.85,
-        "change_pct": 0.19
+        "close": 42.41,
+        "change_pct": -0.21
       },
       {
         "code": "002142",
         "name": "��������",
-        "close": 33.98,
-        "change_pct": 1.01
+        "close": 34.25,
+        "change_pct": 0.74
       },
       {
         "code": "600111",
         "name": "����ϡ��",
-        "close": 36.29,
-        "change_pct": -0.66
+        "close": 36.0,
+        "change_pct": -0.8
       },
       {
         "code": "600392",
         "name": "ʢ����Դ",
-        "close": 16.09,
-        "change_pct": -1.71
+        "close": 16.04,
+        "change_pct": 0.63
       },
       {
         "code": "000960",
         "name": "��ҵ�ɷ�",
-        "close": 24.97,
-        "change_pct": -0.79
+        "close": 25.05,
+        "change_pct": 0.36
       },
       {
         "code": "002155",
         "name": "���ϻƽ�",
-        "close": 19.82,
-        "change_pct": -4.44
+        "close": 20.11,
+        "change_pct": 0.35
       },
       {
         "code": "601212",
         "name": "������ɫ",
-        "close": 4.82,
-        "change_pct": -3.21
+        "close": 4.86,
+        "change_pct": 0.62
       },
       {
         "code": "601958",
         "name": "����ɷ�",
-        "close": 17.25,
-        "change_pct": -1.09
+        "close": 17.2,
+        "change_pct": 0.29
       },
       {
         "code": "000725",
         "name": "��������",
-        "close": 4.88,
-        "change_pct": -1.01
+        "close": 4.86,
+        "change_pct": -0.21
       },
       {
         "code": "600875",
         "name": "��������",
-        "close": 21.92,
-        "change_pct": -2.1
+        "close": 22.08,
+        "change_pct": 0.55
       },
       {
         "code": "600019",
         "name": "���ֹɷ�",
-        "close": 5.92,
-        "change_pct": 0.68
+        "close": 6.02,
+        "change_pct": 0.33
       },
       {
         "code": "600893",
         "name": "��������",
-        "close": 39.96,
-        "change_pct": -0.84
+        "close": 40.3,
+        "change_pct": -2.18
       },
       {
         "code": "000858",
         "name": "�� �� Һ",
-        "close": 74.59,
-        "change_pct": 0.99
+        "close": 76.01,
+        "change_pct": 0.5
       },
       {
         "code": "600519",
         "name": "����ę́",
-        "close": 1334.98,
-        "change_pct": -0.0
+        "close": 1350.0,
+        "change_pct": 0.0
       },
       {
         "code": "601012",
         "name": "¡������",
-        "close": 11.41,
-        "change_pct": 0.97
+        "close": 11.62,
+        "change_pct": 0.78
       },
       {
         "code": "601899",
         "name": "�Ͻ��ҵ",
-        "close": 27.03,
-        "change_pct": -6.11
+        "close": 27.85,
+        "change_pct": 1.38
       },
       {
         "code": "603799",
         "name": "������ҵ",
-        "close": 31.32,
-        "change_pct": -2.55
+        "close": 31.46,
+        "change_pct": -0.1
       },
       {
         "code": "601088",
-        "name": "XD�й���",
-        "close": 48.66,
-        "change_pct": -1.14
+        "name": "�й���",
+        "close": 49.77,
+        "change_pct": -0.76
       },
       {
         "code": "510300",
         "name": "����300ETF��̩����",
-        "close": 4.14,
-        "change_pct": -0.91
+        "close": 4.172,
+        "change_pct": -0.17
       },
       {
         "code": "510500",
         "name": "��֤500ETF�Ϸ�",
-        "close": 6.764,
-        "change_pct": -1.36
+        "close": 6.702,
+        "change_pct": -0.71
       },
       {
         "code": "159915",
         "name": "��ҵ��ETF�׷���",
-        "close": 2.64,
-        "change_pct": -2.29
+        "close": 2.643,
+        "change_pct": -0.3
       },
       {
         "code": "562500",
         "name": "������ETF����",
-        "close": 0.887,
-        "change_pct": 0.23
+        "close": 0.878,
+        "change_pct": -0.11
       },
       {
         "code": "518880",
         "name": "�ƽ�ETF����",
-        "close": 8.148,
-        "change_pct": -0.62
+        "close": 8.203,
+        "change_pct": 0.22
       },
       {
         "code": "512480",
         "name": "�뵼��ETF������",
-        "close": 0.817,
-        "change_pct": -2.27
+        "close": 0.795,
+        "change_pct": -0.75
       }
     ]
   }
