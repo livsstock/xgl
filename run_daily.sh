@@ -93,3 +93,6 @@ python3 daily_brief.py --date "$DATE" || echo "[WARN] 简报生成失败"
 
 # 11. 导出 opinions-wb/{T+1}_wb.json（大海 14:45 尾盘复核的输入，修复 10-16 断更）
 python3 export_opinions_wb.py --date "$DATE" || echo "[WARN] opinions-wb 导出失败"
+
+# 12. WB 简短预测总结（大盘/5股指/6精选/26池 格式，老板要求）
+python3 report_summary.py --date "$DATE" || echo "[WARN] 总结报告生成失败"
