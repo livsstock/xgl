@@ -45,6 +45,7 @@ jobs:
 
       - name: Run dual-model alignment
         if: steps.gate.outputs.skip != 'true'
+        continue-on-error: true
         env:
           GH_TOKEN_FINEGRAINED: ${{ secrets.GH_TOKEN_FINEGRAINED }}
           GH_TOKEN_CLASSIC: ${{ secrets.GH_TOKEN_CLASSIC }}
@@ -112,6 +113,7 @@ jobs:
 
       - name: Commit alignment results
         if: steps.gate.outputs.skip != 'true'
+        continue-on-error: true
         run: |
           git config user.name "LIVS-Stock-Bot"
           git config user.email "livs-stock@github-actions"
