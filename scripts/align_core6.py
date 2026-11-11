@@ -23,6 +23,7 @@ import subprocess
 import argparse
 import os
 from datetime import datetime, date, timedelta
+import sys
 
 # ===== 使用共享交易日历（单一日历源）=====
 # 所有交易日判断统一走 scripts/trade_calendar.py，不再维护本地日历副本
