@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "status": "alert",
   "anomalies": [
     {
@@ -49,6 +49,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-11-12T12:36:17+08:00",
+  "generated_at": "2026-11-13T11:50:06+08:00",
   "detector_version": "1.0"
 }
