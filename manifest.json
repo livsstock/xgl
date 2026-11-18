@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "status": "alert",
   "anomalies": [
     {
@@ -28,19 +28,11 @@
     },
     {
       "type": "sharp_drop",
-      "stock": "����ϡ��",
-      "code": "sh600111",
-      "value": -5.72,
+      "stock": "�Ͻ��ҵ",
+      "code": "sh601899",
+      "value": -5.73,
       "level": "alert",
-      "message": "����ϡ�� 单日跌幅 -5.72%，超过 5% 阈值"
-    },
-    {
-      "type": "sharp_surge",
-      "stock": "����ɷ�",
-      "code": "sh601958",
-      "value": 5.84,
-      "level": "alert",
-      "message": "����ɷ� 单日涨幅 +5.84%，超过 5% 阈值"
+      "message": "�Ͻ��ҵ 单日跌幅 -5.73%，超过 5% 阈值"
     }
   ],
   "missing_stocks": [
@@ -65,6 +57,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-11-17T13:27:47+08:00",
+  "generated_at": "2026-11-18T12:53:43+08:00",
   "detector_version": "1.0"
 }
