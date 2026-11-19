@@ -2,25 +2,6 @@
   "schema_version": "2.0",
   "entries": [
     {
-      "date": "2026-09-29",
-      "filename": "output/daily-finance-2026-09-29.json",
-      "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-09-29.json",
-      "quality": "partial",
-      "updated_at": "2026-09-30T08:03:06+08:00",
-      "sources": {
-        "tencent_quotes": "ok",
-        "sina_fx_futures": "ok",
-        "cboe_vix": "ok",
-        "a50_futures": "failed",
-        "usd_cny": "failed",
-        "ths_margin": "failed",
-        "sina_sectors": "failed",
-        "kline_data": "ok"
-      },
-      "stock_data_filename": "stock_data_20260929.json",
-      "stock_data_raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/stock_data_20260929.json"
-    },
-    {
       "date": "2026-09-30",
       "filename": "output/daily-finance-2026-09-30.json",
       "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-09-30.json",
@@ -570,8 +551,27 @@
       },
       "stock_data_filename": "stock_data_20261117.json",
       "stock_data_raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/stock_data_20261117.json"
+    },
+    {
+      "date": "2026-11-18",
+      "filename": "output/daily-finance-2026-11-18.json",
+      "raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/daily-finance-2026-11-18.json",
+      "quality": "partial",
+      "updated_at": "2026-11-19T12:45:32+08:00",
+      "sources": {
+        "tencent_quotes": "ok",
+        "sina_fx_futures": "ok",
+        "cboe_vix": "ok",
+        "a50_futures": "failed",
+        "usd_cny": "failed",
+        "ths_margin": "failed",
+        "sina_sectors": "failed",
+        "kline_data": "ok"
+      },
+      "stock_data_filename": "stock_data_20261118.json",
+      "stock_data_raw_url": "https://raw.githubusercontent.com/livsstock/xgl/data/daily/output/stock_data_20261118.json"
     }
   ],
-  "latest_date": "2026-11-17",
-  "latest_file": "output/daily-finance-2026-11-17.json"
+  "latest_date": "2026-11-18",
+  "latest_file": "output/daily-finance-2026-11-18.json"
 }
