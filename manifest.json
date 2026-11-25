@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "status": "alert",
   "anomalies": [
     {
@@ -27,12 +27,12 @@
       "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
     },
     {
-      "type": "sharp_surge",
-      "stock": "������ҵ",
-      "code": "sh603799",
-      "value": 5.72,
+      "type": "sharp_drop",
+      "stock": "�뵼��ETF������",
+      "code": "sz512480",
+      "value": -5.01,
       "level": "alert",
-      "message": "������ҵ 单日涨幅 +5.72%，超过 5% 阈值"
+      "message": "�뵼��ETF������ 单日跌幅 -5.01%，超过 5% 阈值"
     }
   ],
   "missing_stocks": [
@@ -57,6 +57,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-11-24T15:18:19+08:00",
+  "generated_at": "2026-11-25T13:51:10+08:00",
   "detector_version": "1.0"
 }
