@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "status": "alert",
   "anomalies": [
     {
@@ -25,6 +25,86 @@
       "value": null,
       "level": "alert",
       "message": "半导体ETF(sh512480) 数据缺失，采集未覆盖"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "ʢ����Դ",
+      "code": "sh600392",
+      "value": 5.66,
+      "level": "alert",
+      "message": "ʢ����Դ 单日涨幅 +5.66%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "��ҵ�ɷ�",
+      "code": "sz000960",
+      "value": 7.11,
+      "level": "alert",
+      "message": "��ҵ�ɷ� 单日涨幅 +7.11%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "������ɫ",
+      "code": "sh601212",
+      "value": 6.22,
+      "level": "alert",
+      "message": "������ɫ 单日涨幅 +6.22%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "����ɷ�",
+      "code": "sh601958",
+      "value": 5.57,
+      "level": "alert",
+      "message": "����ɷ� 单日涨幅 +5.57%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "��������",
+      "code": "sh600893",
+      "value": 7.15,
+      "level": "alert",
+      "message": "�������� 单日涨幅 +7.15%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "������ҵ",
+      "code": "sh603799",
+      "value": 5.79,
+      "level": "alert",
+      "message": "������ҵ 单日涨幅 +5.79%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "��֤500ETF�Ϸ�",
+      "code": "sz510500",
+      "value": 7.78,
+      "level": "alert",
+      "message": "��֤500ETF�Ϸ� 单日涨幅 +7.78%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "��ҵ��ETF�׷���",
+      "code": "sz159915",
+      "value": 9.61,
+      "level": "alert",
+      "message": "��ҵ��ETF�׷��� 单日涨幅 +9.61%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "������ETF����",
+      "code": "sz562500",
+      "value": 7.38,
+      "level": "alert",
+      "message": "������ETF���� 单日涨幅 +7.38%，超过 5% 阈值"
+    },
+    {
+      "type": "sharp_surge",
+      "stock": "�뵼��ETF������",
+      "code": "sz512480",
+      "value": 10.06,
+      "level": "alert",
+      "message": "�뵼��ETF������ 单日涨幅 +10.06%，超过 5% 阈值"
     }
   ],
   "missing_stocks": [
@@ -49,6 +129,6 @@
     "missing": 3,
     "failed": 0
   },
-  "generated_at": "2026-11-26T13:42:01+08:00",
+  "generated_at": "2026-11-27T13:36:27+08:00",
   "detector_version": "1.0"
 }
